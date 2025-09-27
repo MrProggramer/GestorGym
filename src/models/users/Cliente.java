@@ -1,11 +1,14 @@
 package models.users;
 
+import interfaces.Identificable;
 import models.rutinas.Rutina;
 
-public class Cliente extends User{
-    private Rutina rut;
+public class Cliente extends User implements Identificable {
+    private String id;
 
-    public void setRut(Rutina rut) {
-        this.rut = rut;
+    @Override
+    public String getId() {
+        return id;
     }
+
 }
