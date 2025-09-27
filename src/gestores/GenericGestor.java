@@ -10,7 +10,7 @@ public class GenericGestor<T extends Identificable>{    //al generico T, se le p
                                                         //entienda que el T tiene un getId(); el cual esta en la interfaz identificable.
     Map<String, T> gestor;
 
-    public GenericGestor(Map<String, T> gestor) {
+    public GenericGestor() {
         this.gestor = new HashMap<>();
     }
 
