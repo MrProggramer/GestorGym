@@ -1,3 +1,5 @@
+package gestores;
+
 import interfaces.Identificable;
 
 import java.util.HashMap;
@@ -22,7 +24,7 @@ public class GenericGestor<T extends Identificable>{    //al generico T, se le p
 
     @Override
     public String toString() {
-        return "GenericGestor{" +
+        return "gestores.GenericGestor{" +
                 "gestor=" + gestor +
                 '}';
     }
