@@ -8,7 +8,7 @@ public class GestorUsers {
         if(!isAdmin){
             return null;
         } else {
-            dklasdjals
+
         }
     }
 }
