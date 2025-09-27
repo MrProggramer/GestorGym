@@ -1,21 +1,47 @@
 package models.users;
 
 import enums.TipoRol;
-import gestores.GestorRutinas;
-import gestores.GestorUsers;
 
 public class Staff extends User  {
-    private final int id;
-    private static int  count;
     private String usuario;
-    private String contraseña;
-    private TipoRol tipoRol;
-    boolean isAdmin;
-    GestorRutinas a;
-    GestorUsers c;
+    private String contrasenia;
+    private boolean isAdmin;    //en vez de enums, podemos usar isAdmin y/o instanceof para acceder a ciertos métodos
 
-    public void asignarRutina(int id_cliente, int id_rutina){
-        //User user = c.getCliente(id_cliente); MAQUETA
-        //user.setRutina(a.getRtuna(id_rutina));
+    public Staff(String nombre, String dni, String mail, String telefono, String usuario, String contrasenia, boolean isAdmin) {
+        super(nombre, dni, mail, telefono);
+        this.usuario = usuario;
+        this.contrasenia = contrasenia;
+        this.isAdmin = isAdmin;
+    }
+
+
+//    public void asignarRutina(int id_cliente, int id_rutina){
+//        //User user = c.getCliente(id_cliente); MAQUETA
+//        //user.setRutina(a.getRtuna(id_rutina));
+//    }
+
+
+
+
+    //Getter&Setter
+    public String getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }
