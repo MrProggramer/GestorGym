@@ -6,9 +6,14 @@ import models.users.Cliente;
 
 public class Main {
     public static void main(String[] args) {
+        gestorFactory();
+        cargaTemporal();
+    }
+    public static void gestorFactory() {
         GenericGestor<Cliente> clientes = new GenericGestor<>();
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
-
+    }
+    public static void cargaTemporal(){
         Rutina fullBody = new Rutina(3, "Foco en basicos y tecnicas");
         Rutina upperLower = new Rutina(4,"Mas volumen, fuerza e hipertrofia");
         Rutina pushPullLegs = new Rutina(6, "Full volumen");
@@ -142,7 +147,5 @@ public class Main {
         System.out.println(rutinaEnCircuito);
         System.out.println(calistenia);
         System.out.println(fuerzaPotencia);
-
-
     }
 }
