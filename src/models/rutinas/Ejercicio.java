@@ -1,21 +1,27 @@
 package models.rutinas;
 
-public class Ejercicio {
+import enums.TipoGrupoMuscular;
+import interfaces.Identificable;
+
+public class Ejercicio implements Identificable {
     private final int id;
     private static int count;
     private String nombre;
-    private String descripcion;
+    private TipoGrupoMuscular tipoGrupoMuscular;
+    private String descripcionEjericio;
     private int series;
     private int repeticiones;
 
-    public Ejercicio(String nombre, String descripcion, int series, int repeticiones) {
+    public Ejercicio(String nombre, TipoGrupoMuscular tipoGrupoMuscular, String descripcionEjericio, int series, int repeticiones) {
         this.id = count++;
         this.nombre = nombre;
-        this.descripcion = descripcion;
+        this.tipoGrupoMuscular = tipoGrupoMuscular;
+        this.descripcionEjericio = descripcionEjericio;
         this.series = series;
         this.repeticiones = repeticiones;
     }
 
+    @Override
     public int getId() {
         return id;
     }
@@ -36,12 +42,20 @@ public class Ejercicio {
         this.nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public TipoGrupoMuscular getTipoGrupoMuscular() {
+        return tipoGrupoMuscular;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setTipoGrupoMuscular(TipoGrupoMuscular tipoGrupoMuscular) {
+        this.tipoGrupoMuscular = tipoGrupoMuscular;
+    }
+
+    public String getDescripcionEjericio() {
+        return descripcionEjericio;
+    }
+
+    public void setDescripcionEjericio(String descripcionEjericio) {
+        this.descripcionEjericio = descripcionEjericio;
     }
 
     public int getSeries() {
@@ -65,11 +79,10 @@ public class Ejercicio {
         return "Ejercicio{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
+                ", tipoGrupoMuscular=" + tipoGrupoMuscular +
+                ", descripcionEjericio='" + descripcionEjericio + '\'' +
                 ", series=" + series +
                 ", repeticiones=" + repeticiones +
                 '}';
     }
-
-
 }

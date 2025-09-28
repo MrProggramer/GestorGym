@@ -37,7 +37,7 @@ public class Cliente extends User implements Identificable {
 
 
     @Override
-    public String getId() {
+    public int getId() {
         return this.getId();
     }
 

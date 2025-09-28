@@ -29,8 +29,8 @@ public class GenericGestor<T extends Identificable>{    //al generico T, se le p
                 '}';
     }
 
-    public void altaItem(String id_item, T item){
-        gestor.put(id_item, item);
+    public void altaItem(T item){
+        gestor.put(item.getId(), item);
         //agregar un catch con error personalizado
     }
     public void bajaItem(String item_id){
