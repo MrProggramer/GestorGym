@@ -8,17 +8,17 @@ import java.util.Map;
 
 public class GenericGestor<T extends Identificable>{    //al generico T, se le pone extends "Identificable" para que
                                                         //entienda que el T tiene un getId(); el cual esta en la interfaz identificable.
-    Map<String, T> gestor;
+    Map<Integer, T> gestor;
 
     public GenericGestor() {
         this.gestor = new HashMap<>();
     }
 
-    public Map<String, T> getGestor() {
+    public Map<Integer, T> getGestor() {
         return gestor;
     }
 
-    public void setGestor(Map<String, T> gestor) {
+    public void setGestor(Map<Integer, T> gestor) {
         this.gestor = gestor;
     }
 
@@ -33,17 +33,15 @@ public class GenericGestor<T extends Identificable>{    //al generico T, se le p
         gestor.put(item.getId(), item);
         //agregar un catch con error personalizado
     }
-    public void bajaItem(String item_id){
+    public void bajaItem(int item_id){
         gestor.remove(item_id);
         //agregar un catch con error personalizado
     }
-    public T buscarItem(String id_item){
-        Iterator<Map.Entry<String, T>> it = gestor.entrySet().iterator();
+    public T buscarItem(int id_item){
+        Iterator<Map.Entry<Integer, T>> it = gestor.entrySet().iterator();
         while(it.hasNext()){
             T item = it.next().getValue();
-            //if(item.)  --- como hago para hacerle saber que el generico tiene un getId() ... ?
-            //ya lo averigue.. mirar el comentario de mas arriba
-            if(item.getId().equalsIgnoreCase(id_item)){
+            if(item.getId() == id_item){
                 return item;
             }
         }
