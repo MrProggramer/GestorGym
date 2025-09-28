@@ -1,19 +1,22 @@
 import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
+import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.Cliente;
 
 public class Main {
     public static void main(String[] args) {
-        gestorFactory();
-        cargaTemporal();
-    }
-    public static void gestorFactory() {
-        GenericGestor<Cliente> clientes = new GenericGestor<>();
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
+        cargaTemporal(rutinas);
+
+        ControlData<Rutina> control = new ControlData<>();
+        //control.guardarData("Rutinas.txt", rutinas.getGestor());
+
+        //System.out.println(control.recuperarData("Rutinas.txt").get(1));
     }
-    public static void cargaTemporal(){
+    public static void cargaTemporal(GenericGestor<Rutina> gestor){
+
         Rutina fullBody = new Rutina(3, "Foco en basicos y tecnicas");
         Rutina upperLower = new Rutina(4,"Mas volumen, fuerza e hipertrofia");
         Rutina pushPullLegs = new Rutina(6, "Full volumen");
@@ -139,13 +142,13 @@ public class Main {
         fuerzaPotencia.guardarEjercicio(pressInclinado);
         fuerzaPotencia.guardarEjercicio(gemelos);
 
-        System.out.println(fullBody);
-        System.out.println(upperLower);
-        System.out.println(pushPullLegs);
-        System.out.println(fuerza);
-        System.out.println(hipertrofiaClasica);
-        System.out.println(rutinaEnCircuito);
-        System.out.println(calistenia);
-        System.out.println(fuerzaPotencia);
+        gestor.altaItem(fullBody);
+        gestor.altaItem(upperLower);
+        gestor.altaItem(pushPullLegs);
+        gestor.altaItem(fuerza);
+        gestor.altaItem(hipertrofiaClasica);
+        gestor.altaItem(rutinaEnCircuito);
+        gestor.altaItem(calistenia);
+        gestor.altaItem(fuerzaPotencia);
     }
 }

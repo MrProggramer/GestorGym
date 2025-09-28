@@ -1,35 +1,38 @@
 package models.database;
 
-import interfaces.Identificable;
-
-import java.io.File;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ControlData<T> {
-    private String name;
-    private final File archivo;
-
-    public ControlData(String name) {
-        this.name = name;
-        this.archivo = new File(name);
+    public void guardarData(String nombreArchivo, Map<Integer,T> data){
+        File archivo = new File(nombreArchivo);
+        try {
+            PrintWriter escribir = new PrintWriter(archivo);
+            for(T dato : data.values()){
+                escribir.println(dato);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public File getArchivo() {
-        return archivo;
-    }
-
-    @Override
-    public String toString() {
-        return "ControlData{" +
-                "name='" + name + '\'' +
-                ", archivo=" + archivo +
-                '}';
+    public Map<Integer, T> recuperarData(String nombreArchivo){
+        File archivo = new File(nombreArchivo);
+        Map<Integer, T> datos = new HashMap<>();
+        try {   
+            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
+            String linea = entrada.readLine();
+            while(linea != null){
+                datos.put(Integer.parseInt(linea.split(" ")[0]), (T) linea);
+            }
+            entrada.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return datos;
     }
 }
