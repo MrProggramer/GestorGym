@@ -1,7 +1,6 @@
 package gui.viewer;
 
-import gestores.GenericGestor;
-import gui.controller.Controller;
+import gui.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import models.users.User;
 
 
 public class Login extends Application {
@@ -23,7 +21,7 @@ public class Login extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/fxml/Login.fxml"));
         Parent root = loader.load();
-        Controller controller = loader.getController();
+        LoginController controller = loader.getController();
         Scene scene = new Scene(root);
 
         scene.setFill(Color.TRANSPARENT);

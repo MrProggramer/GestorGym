@@ -1,5 +1,6 @@
 package gui.controller;
 
+import gestores.GestorLogin;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
@@ -12,7 +13,8 @@ import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable {
+public class LoginController implements Initializable {
+    private GestorLogin gestor;
     private double x = 0, y = 0;
     private Stage stage;
 
@@ -42,7 +44,7 @@ public class Controller implements Initializable {
             String username = userField.getText();
             String password = passField.getText();
 
-            System.out.println("User: " + username + ", Pass: " + password); // Hay que enviar los datos al gestor de Login
+             gestor.autenticar(username, password); // Al recibir el User si es verdadero, se lo debera enviar a una clase Session que corra el programa principal con ese usuario
         });
     }
 
