@@ -1,5 +1,6 @@
 import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
+import gui.viewer.Login;
 import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
@@ -14,7 +15,12 @@ public class Main {
         //control.guardarData("Rutinas.txt", rutinas.getGestor());
 
         //System.out.println(control.recuperarData("Rutinas.txt").get(1));
+
+        Login.main(args);
+
     }
+
+
     public static void cargaTemporal(GenericGestor<Rutina> gestor){
 
         Rutina fullBody = new Rutina(3, "Foco en basicos y tecnicas");
@@ -151,4 +157,7 @@ public class Main {
         gestor.altaItem(calistenia);
         gestor.altaItem(fuerzaPotencia);
     }
+
+
+
 }
