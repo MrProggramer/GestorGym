@@ -65,5 +65,8 @@ public class Rutina implements Identificable { //falta ponerle una variable de n
     public void setCantidadDeDias(int cantidadDeDias) {
         this.cantidadDeDias = cantidadDeDias;
     }
+    public Rutina recrearRutina(String data){
 
+        return null;
+    }
 }
