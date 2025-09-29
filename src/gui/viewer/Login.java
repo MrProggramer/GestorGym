@@ -1,5 +1,6 @@
 package gui.viewer;
 
+import gestores.GenericGestor;
 import gui.controller.Controller;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import models.users.User;
 
 
 public class Login extends Application {

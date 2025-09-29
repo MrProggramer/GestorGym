@@ -11,8 +11,8 @@ public class Cliente extends User implements Identificable {
     private ArrayList<ArrayList<Rutina>> listaRutinas;
     private int dias;
 
-    public Cliente(String nombre, String dni, String mail, String telefono, boolean coutaAlDia, int dias) {
-        super(nombre, dni, mail, telefono);
+    public Cliente(String nombre, String dni, String mail, String telefono, String user, String pass, boolean coutaAlDia, int dias) {
+        super(nombre, dni, mail, telefono, user, pass);
         this.coutaAlDia = coutaAlDia;
         this.dias = dias;
     }
@@ -34,13 +34,14 @@ public class Cliente extends User implements Identificable {
     }
 
 
-
-
     @Override
-    public int getId() {
-        return this.getId();
+    public String toString() {
+        return "\nCliente{" + super.toString() +
+                "coutaAlDia=" + coutaAlDia +
+                ", listaRutinas=" + listaRutinas +
+                ", dias=" + dias +
+                '}';
     }
-
 
     //Getter&Setter
     public boolean isCoutaAlDia() {

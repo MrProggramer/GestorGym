@@ -14,7 +14,9 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
     private double x = 0, y = 0;
+    private Stage stage;
 
+    // fx:id
     @FXML
     private AnchorPane panel;
     @FXML
@@ -23,12 +25,6 @@ public class Controller implements Initializable {
     private PasswordField passField;
     @FXML
     private Button loginButton;
-
-
-    private Stage stage;
-
-
-    //Login
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -46,7 +42,7 @@ public class Controller implements Initializable {
             String username = userField.getText();
             String password = passField.getText();
 
-            System.out.println("User: " + username + ", Pass: " + password);
+            System.out.println("User: " + username + ", Pass: " + password); // Hay que enviar los datos al gestor de Login
         });
     }
 

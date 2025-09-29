@@ -1,5 +1,6 @@
 import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
+import gestores.GestorLogin;
 import gui.viewer.Login;
 import models.database.ControlData;
 import models.rutinas.Ejercicio;
@@ -15,6 +16,8 @@ public class Main {
 
         //Login.main(args);
 
+        GestorLogin gestor_login = new GestorLogin();
+        gestor_login.test();
     }
 
 

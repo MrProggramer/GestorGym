@@ -7,8 +7,8 @@ public class Staff extends User  {
     private String contrasenia;
     private boolean isAdmin;    //en vez de enums, podemos usar isAdmin y/o instanceof para acceder a ciertos métodos
 
-    public Staff(String nombre, String dni, String mail, String telefono, String usuario, String contrasenia, boolean isAdmin) {
-        super(nombre, dni, mail, telefono);
+    public Staff(String nombre, String dni, String mail, String telefono, String usuario, String contrasenia, String user, String pass, boolean isAdmin) {
+        super(nombre, dni, mail, telefono, user, pass);
         this.usuario = usuario;
         this.contrasenia = contrasenia;
         this.isAdmin = isAdmin;
