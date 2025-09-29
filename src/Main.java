@@ -6,17 +6,14 @@ import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.Cliente;
 
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
         cargaTemporal(rutinas);
 
-        ControlData<Rutina> control = new ControlData<>();
-        //control.guardarData("Rutinas.txt", rutinas.getGestor());
-
-        //System.out.println(control.recuperarData("Rutinas.txt").get(1));
-
-        Login.main(args);
+        //Login.main(args);
 
     }
 

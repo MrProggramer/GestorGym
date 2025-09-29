@@ -5,7 +5,7 @@ import interfaces.Identificable;
 import java.util.ArrayList;
 
 public class Rutina implements Identificable { //falta ponerle una variable de nombre a la rutina, sino no se como se llama.
-    ArrayList<Ejercicio> listaEjercicios = new ArrayList<>();
+    private ArrayList<Ejercicio> listaEjercicios;
     private final int id;
     private static int count;
     private String descripcionRutina;
@@ -13,7 +13,7 @@ public class Rutina implements Identificable { //falta ponerle una variable de n
     private int cantidadDeDias;
 
     public Rutina(int cantidadDeDias, String descripcionRutina) {
-        this.listaEjercicios = listaEjercicios;
+        this.listaEjercicios = new ArrayList<>();
         this.id = count++;
         this.descripcionRutina = descripcionRutina;
         this.cantidadDeDias = cantidadDeDias;
@@ -65,4 +65,5 @@ public class Rutina implements Identificable { //falta ponerle una variable de n
     public void setCantidadDeDias(int cantidadDeDias) {
         this.cantidadDeDias = cantidadDeDias;
     }
+
 }
