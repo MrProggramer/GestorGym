@@ -23,7 +23,7 @@ public class GestorLogin extends GenericGestor<User> {
 
     public User autenticar(String user, String pass) {
         for(User u : this.getGestor().values()) {
-            if(u.getUser().equals(user) && u.getUser().equals(pass)) {
+            if(u.getUser().equals(user) && u.getPass().equals(pass)) {
                 return u; //retorno el user para cargarlo luego a una clase Session y trabajar en el programa con ese usuario
             }
         }
