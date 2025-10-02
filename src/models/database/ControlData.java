@@ -6,6 +6,8 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
+//MODIFICAR PARA UTILIZAR JSON
+
 public class ControlData<T extends Identificable> {
     public void guardarData(String nombreArchivo, Map<Integer,T> data){
         File archivo = new File(nombreArchivo);
