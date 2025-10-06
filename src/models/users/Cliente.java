@@ -1,12 +1,14 @@
 package models.users;
 
 import interfaces.Identificable;
+import interfaces.TransformableJSON;
 import models.rutinas.Rutina;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.ListIterator;
 
-public class Cliente extends User implements Identificable {
+public class Cliente extends User implements Identificable, TransformableJSON {
     private boolean coutaAlDia;
     private ArrayList<ArrayList<Rutina>> listaRutinas;
     private int dias;
@@ -63,5 +65,10 @@ public class Cliente extends User implements Identificable {
     }
     public void setDias(int dias) {
         this.dias = dias;
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        return super.toJSONObject();
     }
 }

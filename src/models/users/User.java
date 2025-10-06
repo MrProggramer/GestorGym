@@ -2,10 +2,11 @@ package models.users;
 
 
 import interfaces.Identificable;
+import interfaces.TransformableJSON;
 import netscape.javascript.JSObject;
 import org.json.JSONObject;
 
-public abstract class User implements Identificable {
+public abstract class User implements Identificable, TransformableJSON {
     private final int id;
     private static int count;
     private String nombre;
@@ -78,6 +79,7 @@ public abstract class User implements Identificable {
     public String getPass() { return pass; }
     public void setPass(String pass) { this.pass = pass; }
 
+    @Override
     public JSONObject toJSONObject(){
         JSONObject object = new JSONObject();
         object.put("Nombre", this.nombre);

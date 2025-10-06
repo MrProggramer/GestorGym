@@ -1,8 +1,10 @@
 package models.users;
 
 import enums.TipoRol;
+import interfaces.TransformableJSON;
+import org.json.JSONObject;
 
-public class Staff extends User  {
+public class Staff extends User implements TransformableJSON {
     private String usuario;
     private String contrasenia;
     private boolean isAdmin;    //en vez de enums, podemos usar isAdmin y/o instanceof para acceder a ciertos métodos
@@ -43,5 +45,10 @@ public class Staff extends User  {
     }
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        return super.toJSONObject();
     }
 }
