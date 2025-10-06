@@ -8,6 +8,7 @@ import models.rutinas.Rutina;
 import models.users.Cliente;
 import models.users.Staff;
 import models.users.User;
+import models.utils.Utilidades;
 
 import java.util.Map;
 
@@ -24,10 +25,10 @@ public class Main {
         //archivo.guardarData("src/models/database/Rutinas.txt", rutinas.getGestor());
 
         User test = new Staff("test", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
-        System.out.println("toString");
-        System.out.println(test);
         System.out.println("JSON object");
         System.out.println(test.toJSONObject());
+        System.out.println("JSON object utils");
+        System.out.println(Utilidades.userToJSON(test));
     }
 
 
