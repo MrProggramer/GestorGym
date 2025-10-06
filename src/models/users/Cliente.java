@@ -69,6 +69,10 @@ public class Cliente extends User implements Identificable, TransformableJSON {
 
     @Override
     public JSONObject toJSONObject() {
-        return super.toJSONObject();
+        JSONObject object = super.toJSONObject();
+        object.put("cuotaAlDia", this.coutaAlDia);
+        object.put("dias", this.dias);
+        object.put("listaRutinas", this.listaRutinas);
+        return object;
     }
 }

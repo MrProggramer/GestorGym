@@ -31,6 +31,8 @@ public class Staff extends User implements TransformableJSON {
 
     @Override
     public JSONObject toJSONObject() {
-        return super.toJSONObject();
+        JSONObject object = super.toJSONObject();
+        object.put("isAdmin", this.isAdmin);
+        return object;
     }
 }
