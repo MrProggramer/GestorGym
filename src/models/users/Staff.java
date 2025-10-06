@@ -5,14 +5,10 @@ import interfaces.TransformableJSON;
 import org.json.JSONObject;
 
 public class Staff extends User implements TransformableJSON {
-    private String usuario;
-    private String contrasenia;
     private boolean isAdmin;    //en vez de enums, podemos usar isAdmin y/o instanceof para acceder a ciertos métodos
 
-    public Staff(String nombre, String dni, String mail, String telefono, String usuario, String contrasenia, String user, String pass, boolean isAdmin) {
+    public Staff(String nombre, String dni, String mail, String telefono,String user, String pass, boolean isAdmin) {
         super(nombre, dni, mail, telefono, user, pass);
-        this.usuario = usuario;
-        this.contrasenia = contrasenia;
         this.isAdmin = isAdmin;
     }
 
@@ -26,20 +22,6 @@ public class Staff extends User implements TransformableJSON {
 
 
     //Getter&Setter
-    public String getUsuario() {
-        return usuario;
-    }
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
     public boolean isAdmin() {
         return isAdmin;
     }

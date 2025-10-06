@@ -6,6 +6,8 @@ import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.Cliente;
+import models.users.Staff;
+import models.users.User;
 
 import java.util.Map;
 
@@ -19,7 +21,13 @@ public class Main {
         //gestor_login.test();
 
         ControlData<Rutina> archivo = new ControlData<>();
-        archivo.guardarData("src/models/database/Rutinas.txt", rutinas.getGestor());
+        //archivo.guardarData("src/models/database/Rutinas.txt", rutinas.getGestor());
+
+        User test = new Staff("test", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
+        System.out.println("toString");
+        System.out.println(test);
+        System.out.println("JSON object");
+        System.out.println(test.toJSONObject());
     }
 
 

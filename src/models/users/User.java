@@ -29,7 +29,7 @@ public abstract class User implements Identificable, TransformableJSON {
 
     @Override
     public String toString() {
-        return  "id=" + id +
+        return  "{id=" + id +
                 ", nombre='" + nombre +
                 ", dni='" + dni +
                 ", mail='" + mail +
