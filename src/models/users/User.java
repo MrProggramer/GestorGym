@@ -2,6 +2,8 @@ package models.users;
 
 
 import interfaces.Identificable;
+import netscape.javascript.JSObject;
+import org.json.JSONObject;
 
 public abstract class User implements Identificable {
     private final int id;
@@ -75,4 +77,17 @@ public abstract class User implements Identificable {
 
     public String getPass() { return pass; }
     public void setPass(String pass) { this.pass = pass; }
+
+    public JSONObject toJSONObject(){
+        JSONObject object = new JSONObject();
+        object.put("Nombre", this.nombre);
+        object.put("Dni", this.dni);
+        object.put("Email", this.mail);
+        object.put("Telefono", this.telefono);
+        object.put("User", this.user);
+        object.put("Password", this.pass);
+        object.put("ID", this.id);
+
+        return object;
+    }
 }

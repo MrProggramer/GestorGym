@@ -15,9 +15,11 @@ public class Main {
         cargaTemporal(rutinas);
 
         //Login.main(args);
+        //GestorLogin gestor_login = new GestorLogin();
+        //gestor_login.test();
 
-        GestorLogin gestor_login = new GestorLogin();
-        gestor_login.test();
+        ControlData<Rutina> archivo = new ControlData<>();
+        archivo.guardarData("src/models/database/Rutinas.txt", rutinas.getGestor());
     }
 
 
