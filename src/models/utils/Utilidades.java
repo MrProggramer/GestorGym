@@ -1,15 +1,18 @@
 package models.utils;
 
-import models.rutinas.Ejercicio;
-import models.rutinas.Rutina;
 import models.users.Cliente;
 import models.users.Staff;
 import models.users.User;
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.lang.reflect.Field;
+
 
 
 public abstract class Utilidades {
-    public static JSONObject userToJSON(User data){
+    //Metodo antiguo (manual)
+    private static JSONObject userToJSON(User data) {
         JSONObject object = new JSONObject();
         object.put("Nombre", data.getNombre());
         object.put("Dni", data.getDni());
@@ -18,20 +21,47 @@ public abstract class Utilidades {
         object.put("User", data.getUser());
         object.put("Password", data.getPass());
         object.put("ID", data.getId());
-        if(data instanceof Cliente){
+        if (data instanceof Cliente) {
             object.put("cuotaAlDia", ((Cliente) data).isCoutaAlDia());
             object.put("dias", ((Cliente) data).getDias());
             object.put("listaRutinas", ((Cliente) data).getListaRutinas());
         }
-        if(data instanceof Staff){
+        if (data instanceof Staff) {
             object.put("isAdmin", ((Staff) data).isAdmin());
         }
         return object;
     }
-    public static JSONObject ejercicioToJSON(Ejercicio data){
-        return null;
+
+    //Transforma cualquier Object en un JSONobject (incluido listas)
+    public static JSONObject ObjectToJSON(Object data) {
+        JSONObject json = new JSONObject();
+        Class<?> clazz = data.getClass();
+
+        while (clazz != null) {
+            for (Field field : clazz.getDeclaredFields()) {
+                field.setAccessible(true);
+                try {
+                    Object value = field.get(data);
+                    if (value instanceof java.util.List<?>) {
+                        JSONArray array = new JSONArray();
+                        for (Object item : (java.util.List<?>) value) {
+                            array.put(ObjectToJSON(item));
+                        }
+                    } else {
+                        json.put(field.getName(), value);
+                    }
+
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+            clazz = clazz.getSuperclass();
+        }
+        return json;
     }
-    public static JSONObject rutinaToJSON(Rutina data){
-        return null;
-    }
+
+
+
 }
+
+

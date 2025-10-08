@@ -2,7 +2,7 @@ package models.database;
 
 import gestores.GenericGestor;
 import interfaces.Identificable;
-import interfaces.TransformableJSON;
+import models.utils.Utilidades;
 
 import java.io.*;
 import java.util.HashMap;
@@ -10,13 +10,14 @@ import java.util.Map;
 
 //MODIFICAR PARA UTILIZAR JSON
 
-public class ControlData<T extends Identificable> {
-    public void guardarData(GenericGestor<T> gestor, String nombreArchivo){
+public abstract class ControlData{
+
+    public static <T extends Identificable> void guardarData(GenericGestor<T> gestor, String nombreArchivo){
         File archivo = new File(nombreArchivo);
         try {
             PrintWriter escribir = new PrintWriter(archivo);
-            for(Map.Entry<Integer, T> elem : gestor.getGestor().entrySet()){
-                //escribir.println(elem.toJSONObject);
+            for(T elem : gestor.getGestor().values()){
+                escribir.println(Utilidades.ObjectToJSON(elem));
             }
             escribir.close();
         }
@@ -25,7 +26,7 @@ public class ControlData<T extends Identificable> {
         }
     }
 
-    public Map<Integer, T> recuperarData(String nombreArchivo){
+    public static<T extends Identificable> Map<Integer, T> recuperarData(String nombreArchivo){
         File archivo = new File(nombreArchivo);
         Map<Integer, T> datos = new HashMap<>();
         try {   

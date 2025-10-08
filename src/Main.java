@@ -1,16 +1,10 @@
 import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
-import gestores.GestorLogin;
-import gui.viewer.Login;
-import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
-import models.users.Cliente;
 import models.users.Staff;
 import models.users.User;
 import models.utils.Utilidades;
-
-import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -21,14 +15,13 @@ public class Main {
         //GestorLogin gestor_login = new GestorLogin();
         //gestor_login.test();
 
-        ControlData<Rutina> archivo = new ControlData<>();
         //archivo.guardarData("src/models/database/Rutinas.txt", rutinas.getGestor());
 
         User test = new Staff("test", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
         System.out.println("JSON object");
         System.out.println(test.toJSONObject());
-        System.out.println("JSON object utils");
-        System.out.println(Utilidades.userToJSON(test));
+        System.out.println("JSON object");
+        System.out.println(Utilidades.ObjectToJSON(test));
     }
 
 
