@@ -7,7 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
-
+import java.util.List;
+import java.util.Map;
 
 
 public abstract class Utilidades {
@@ -42,10 +43,16 @@ public abstract class Utilidades {
                 field.setAccessible(true);
                 try {
                     Object value = field.get(data);
-                    if (value instanceof java.util.List<?>) {
+                    if (value instanceof List<?>) {
                         JSONArray array = new JSONArray();
-                        for (Object item : (java.util.List<?>) value) {
+                        for (Object item : (List<?>) value) {
                             array.put(ObjectToJSON(item));
+                        }
+                    } else if (value instanceof Map<?,?>) {
+                        JSONArray array = new JSONArray();
+                        for(Map.Entry<?,?> entry : ((Map<?,?>)value).entrySet()){
+                            //SOLO HACE PUT DEL VALUE, NO DE LA KEY
+                            array.put(ObjectToJSON(entry.getValue()));
                         }
                     } else {
                         json.put(field.getName(), value);
