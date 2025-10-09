@@ -7,11 +7,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class GenericGestor<T extends Identificable>{    //al generico T, se le pone extends "Identificable" para que
-                                                        //entienda que el T tiene un getId(); el cual esta en la interfaz identificable.
+    private final String type;                                //entienda que el T tiene un getId(); el cual esta en la interfaz identificable.
     Map<Integer, T> gestor;
 
     public GenericGestor() {
         this.gestor = new HashMap<>();
+        this.type = getClass().getTypeName();
     }
 
     public Map<Integer, T> getGestor() {
@@ -20,6 +21,10 @@ public class GenericGestor<T extends Identificable>{    //al generico T, se le p
 
     public void setGestor(Map<Integer, T> gestor) {
         this.gestor = gestor;
+    }
+
+    public String getType() {
+        return type;
     }
 
     @Override

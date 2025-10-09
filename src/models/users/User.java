@@ -9,6 +9,7 @@ import org.json.JSONObject;
 public abstract class User implements Identificable, TransformableJSON {
     private final int id;
     private static int count;
+    private final String type;
     private String nombre;
     private String dni;
     private String mail;
@@ -16,8 +17,13 @@ public abstract class User implements Identificable, TransformableJSON {
     private String user;
     private String pass;
 
+    public String getType() {
+        return type;
+    }
+
     public User(String nombre, String dni, String mail, String telefono, String user, String pass) {
         this.id = count++;
+        this.type = getClass().getTypeName();
         this.nombre = nombre;
         this.dni = dni;
         this.mail = mail;

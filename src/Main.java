@@ -22,6 +22,8 @@ public class Main {
         System.out.println(test.toJSONObject());
         System.out.println("JSON object");
         System.out.println(Utilidades.ObjectToJSON(test));
+
+        System.out.println(test.getType());
     }
 
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Rutina implements Identificable { //falta ponerle una variable de nombre a la rutina, sino no se como se llama.
     private ArrayList<Ejercicio> listaEjercicios;
+    private final String type;
     private final int id;
     private static int count;
     private String descripcionRutina;
@@ -14,6 +15,7 @@ public class Rutina implements Identificable { //falta ponerle una variable de n
 
     public Rutina(int cantidadDeDias, String descripcionRutina) {
         this.listaEjercicios = new ArrayList<>();
+        this.type = this.getClass().getTypeName();
         this.id = count++;
         this.descripcionRutina = descripcionRutina;
         this.cantidadDeDias = cantidadDeDias;
@@ -26,6 +28,10 @@ public class Rutina implements Identificable { //falta ponerle una variable de n
     @Override
     public int getId() {
         return id;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public void guardarEjercicio(Ejercicio ejercicio){

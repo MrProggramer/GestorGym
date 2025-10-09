@@ -6,6 +6,7 @@ import interfaces.Identificable;
 public class Ejercicio implements Identificable {
     private final int id;
     private static int count;
+    private final String type;
     private String nombre;
     private TipoGrupoMuscular tipoGrupoMuscular;
     private String descripcionEjericio;
@@ -14,6 +15,7 @@ public class Ejercicio implements Identificable {
 
     public Ejercicio(String nombre, TipoGrupoMuscular tipoGrupoMuscular, String descripcionEjericio, int series, int repeticiones) {
         this.id = count++;
+        this.type = getClass().getTypeName();
         this.nombre = nombre;
         this.tipoGrupoMuscular = tipoGrupoMuscular;
         this.descripcionEjericio = descripcionEjericio;
@@ -24,6 +26,10 @@ public class Ejercicio implements Identificable {
     @Override
     public int getId() {
         return id;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public static int getCount() {
