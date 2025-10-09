@@ -1,5 +1,6 @@
 package models.utils;
 
+import javafx.beans.binding.ObjectExpression;
 import models.users.Cliente;
 import models.users.Staff;
 import models.users.User;
@@ -67,6 +68,11 @@ public abstract class Utilidades {
         return json;
     }
 
+    public static void createFromJSON(JSONObject json){
+        String type = json.getString("type");
+        User res = new Staff();
+
+    }
 
 }
 

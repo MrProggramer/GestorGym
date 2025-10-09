@@ -31,7 +31,10 @@ public abstract class User implements Identificable, TransformableJSON {
         this.user = user;
         this.pass = pass;
     }
-
+    public User(){
+        this.id = count++;
+        this.type = getClass().getTypeName();
+    }
 
     @Override
     public String toString() {

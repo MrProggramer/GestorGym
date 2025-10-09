@@ -5,25 +5,22 @@ import models.rutinas.Rutina;
 import models.users.Staff;
 import models.users.User;
 import models.utils.Utilidades;
+import org.json.JSONObject;
 
 public class Main {
     public static void main(String[] args) {
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
         cargaTemporal(rutinas);
 
-        //Login.main(args);
-        //GestorLogin gestor_login = new GestorLogin();
-        //gestor_login.test();
-
-        //archivo.guardarData("src/models/database/Rutinas.txt", rutinas.getGestor());
 
         User test = new Staff("test", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
-        System.out.println("JSON object");
-        System.out.println(test.toJSONObject());
-        System.out.println("JSON object");
-        System.out.println(Utilidades.ObjectToJSON(test));
 
-        System.out.println(test.getType());
+        System.out.println("JSON object");
+        JSONObject json = Utilidades.ObjectToJSON(test);
+        System.out.println(json);
+
+        System.out.println("testeo");
+
     }
 
 

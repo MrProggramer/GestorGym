@@ -18,6 +18,7 @@ public class Cliente extends User implements Identificable, TransformableJSON {
         this.coutaAlDia = coutaAlDia;
         this.dias = dias;
     }
+    public Cliente(){}
 
 
     /* Deberian ir estos metodos en cliente o staff? Solo puede acceder el entrenador

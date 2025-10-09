@@ -11,6 +11,7 @@ public class Staff extends User implements TransformableJSON {
         super(nombre, dni, mail, telefono, user, pass);
         this.isAdmin = isAdmin;
     }
+    public Staff(){}
 
 
 //    public void asignarRutina(int id_cliente, int id_rutina){

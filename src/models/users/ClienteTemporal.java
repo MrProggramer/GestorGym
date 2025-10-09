@@ -5,4 +5,5 @@ public class ClienteTemporal extends Cliente {
         super(nombre, dni, mail, telefono, user, pass, coutaAlDia, dias);
         setDias(1);
     }
+    public ClienteTemporal(){}
 }
