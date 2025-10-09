@@ -21,7 +21,7 @@ public class Main {
         usuarios.altaItem(test2);
         usuarios.altaItem(test3);
 
-        ControlData.guardarData(usuarios, "src/models/database/users.json");
+        ControlData.guardarData(usuarios, "src/data/users.json");
 
 
     }
