@@ -2,7 +2,11 @@ package models.database;
 
 import gestores.GenericGestor;
 import interfaces.Identificable;
+import interfaces.Registrable;
+import models.rutinas.Ejercicio;
+import models.rutinas.Rutina;
 import models.utils.Utilidades;
+import org.json.JSONArray;
 
 import java.io.*;
 import java.util.HashMap;
@@ -16,9 +20,12 @@ public abstract class ControlData{
         File archivo = new File(nombreArchivo);
         try {
             PrintWriter escribir = new PrintWriter(archivo);
+            escribir.println("[");
             for(T elem : gestor.getGestor().values()){
-                escribir.println(Utilidades.ObjectToJSON(elem));
+
+                escribir.println(Utilidades.ObjectToJSON(elem)+",");
             }
+            escribir.println("]");
             escribir.close();
         }
         catch (IOException e) {

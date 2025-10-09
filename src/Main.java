@@ -1,5 +1,6 @@
 import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
+import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.Staff;
@@ -10,18 +11,18 @@ import org.json.JSONObject;
 public class Main {
     public static void main(String[] args) {
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
+        GenericGestor<User> usuarios = new GenericGestor<>();
         cargaTemporal(rutinas);
 
-
         User test = new Staff("test", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
+        User test2 = new Staff("test2", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
+        User test3 = new Staff("test3", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
+        usuarios.altaItem(test);
+        usuarios.altaItem(test2);
+        usuarios.altaItem(test3);
 
-        System.out.println("JSON object");
-        JSONObject json = Utilidades.ObjectToJSON(test);
-        System.out.println(json);
+        ControlData.guardarData(usuarios, "src/models/database/users.json");
 
-
-        System.out.println("testeo");
-        System.out.println(Utilidades.createUserFromJSON(json));
 
     }
 
