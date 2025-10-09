@@ -1,0 +1,5 @@
+[
+{"mail":"ee@.c","pass":"1234","count":3,"isAdmin":false,"id":0,"type":"Staff","telefono":"22344","nombre":"test","user":"test_no_admin","dni":"22"}
+,{"mail":"ee@.c","pass":"1234","count":3,"isAdmin":false,"id":1,"type":"Staff","telefono":"22344","nombre":"test2","user":"test_no_admin","dni":"22"}
+,{"mail":"ee@.c","pass":"1234","count":3,"isAdmin":false,"id":2,"type":"Staff","telefono":"22344","nombre":"test3","user":"test_no_admin","dni":"22"}
+]
