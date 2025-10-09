@@ -19,7 +19,9 @@ public class Main {
         JSONObject json = Utilidades.ObjectToJSON(test);
         System.out.println(json);
 
+
         System.out.println("testeo");
+        System.out.println(Utilidades.createUserFromJSON(json));
 
     }
 

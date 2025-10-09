@@ -23,7 +23,7 @@ public abstract class User implements Identificable, TransformableJSON {
 
     public User(String nombre, String dni, String mail, String telefono, String user, String pass) {
         this.id = count++;
-        this.type = getClass().getTypeName();
+        this.type = getClass().getSimpleName();
         this.nombre = nombre;
         this.dni = dni;
         this.mail = mail;
@@ -38,11 +38,15 @@ public abstract class User implements Identificable, TransformableJSON {
 
     @Override
     public String toString() {
-        return  "{id=" + id +
-                ", nombre='" + nombre +
-                ", dni='" + dni +
-                ", mail='" + mail +
-                ", telefono='" + telefono +
+        return "User{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", dni='" + dni + '\'' +
+                ", mail='" + mail + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", user='" + user + '\'' +
+                ", pass='" + pass + '\'' +
                 '}';
     }
 

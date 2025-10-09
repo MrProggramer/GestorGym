@@ -2,12 +2,14 @@ package models.utils;
 
 import javafx.beans.binding.ObjectExpression;
 import models.users.Cliente;
+import models.users.ClienteTemporal;
 import models.users.Staff;
 import models.users.User;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -68,10 +70,29 @@ public abstract class Utilidades {
         return json;
     }
 
-    public static void createFromJSON(JSONObject json){
+    public static User createUserFromJSON(JSONObject json){
         String type = json.getString("type");
-        User res = new Staff();
 
+
+        User res = switch (type){
+            case "Staff" -> new Staff();
+            case "Cliente" -> new Cliente();
+            case "ClienteTemporal" -> new ClienteTemporal();
+            default -> throw new IllegalArgumentException("tipo desconocido " + type);
+        };
+        res.setNombre(json.getString("nombre"));
+        res.setDni(json.getString("dni"));
+        res.setMail(json.getString("mail"));
+        res.setTelefono(json.getString("telefono"));
+        res.setUser(json.getString("user"));
+        res.setPass(json.getString("pass"));
+        if(res instanceof Staff){ ((Staff) res).setAdmin(json.getBoolean("isAdmin"));  }
+        if(res instanceof Cliente){
+            ((Cliente) res).setDias(json.getInt("dias"));
+            ((Cliente) res).setCoutaAlDia(json.getBoolean("coutaAlDia"));
+        }
+
+        return res;
     }
 
 }

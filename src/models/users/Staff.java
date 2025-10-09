@@ -20,7 +20,13 @@ public class Staff extends User implements TransformableJSON {
 //    }
 
 
-
+    @Override
+    public String toString() {
+        return "Staff{" +
+                super.toString()+
+                "isAdmin=" + isAdmin +
+                '}';
+    }
 
     //Getter&Setter
     public boolean isAdmin() {
