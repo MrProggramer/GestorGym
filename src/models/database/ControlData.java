@@ -21,9 +21,11 @@ public abstract class ControlData{
         try {
             PrintWriter escribir = new PrintWriter(archivo);
             escribir.println("[");
-            for(T elem : gestor.getGestor().values()){
-
-                escribir.println(Utilidades.ObjectToJSON(elem)+",");
+            for(int i=0; i < gestor.getGestor().size(); i++){
+                escribir.println(Utilidades.ObjectToJSON(gestor.getGestor().get(i)));
+                if(i < gestor.getGestor().size() -1 ){
+                    escribir.print(",");
+                }
             }
             escribir.println("]");
             escribir.close();
