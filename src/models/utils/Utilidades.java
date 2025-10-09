@@ -1,6 +1,8 @@
 package models.utils;
 
+import gestores.GenericGestor;
 import javafx.beans.binding.ObjectExpression;
+import models.database.ControlData;
 import models.users.Cliente;
 import models.users.ClienteTemporal;
 import models.users.Staff;
@@ -93,6 +95,14 @@ public abstract class Utilidades {
         }
 
         return res;
+    }
+
+    public static void cargarGestorUser(String archivo, GenericGestor<User> gestor){
+        JSONArray jUsers = ControlData.recuperarData(archivo+".json");
+        for(int i=0; i< jUsers.length(); i++){
+            User u = Utilidades.createUserFromJSON(jUsers.getJSONObject(i));
+            gestor.altaItem(u);
+        }
     }
 
 }

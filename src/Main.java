@@ -15,13 +15,7 @@ public class Main {
     public static void main(String[] args) {
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
         GenericGestor<User> usuarios = new GenericGestor<>();
-        //Carga temporal de usuarios...
-        JSONArray jUsers = ControlData.recuperarData("users.json");
-        for(int i=0; i< jUsers.length(); i++){
-            User u = Utilidades.createUserFromJSON(jUsers.getJSONObject(i));
-            usuarios.altaItem(u);
-        }
-        //-----------------
+        Utilidades.cargarGestorUser("users", usuarios);
         cargaTemporal(rutinas);
 
         for(User ele : usuarios.getGestor().values()){
