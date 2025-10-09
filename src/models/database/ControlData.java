@@ -7,8 +7,12 @@ import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.utils.Utilidades;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,23 +39,14 @@ public abstract class ControlData{
         }
     }
 
-    public static<T extends Identificable> Map<Integer, T> recuperarData(String nombreArchivo){
-        File archivo = new File(nombreArchivo);
-        Map<Integer, T> datos = new HashMap<>();
-        try {   
-            BufferedReader entrada = new BufferedReader(new FileReader(archivo));
-            String linea = entrada.readLine();
-            while(linea != null){
-                //datos.put(Integer.parseInt(linea.split(" ")[0]), (T) linea);
-                //Hay que hacer un metodo que recree el string del obj al obj real para asi guardarlo en el map.
-            }
-            entrada.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+    public static JSONArray recuperarData(String nombreArchivo){
+        String path = "src/data/".concat(nombreArchivo);
+        try{
+            String data = new String(Files.readAllBytes(Paths.get(path)));
+            return new JSONArray(data);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        return datos;
     }
 
 }

@@ -6,24 +6,27 @@ import models.rutinas.Rutina;
 import models.users.Staff;
 import models.users.User;
 import models.utils.Utilidades;
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
         GenericGestor<User> usuarios = new GenericGestor<>();
+        //Carga temporal de usuarios...
+        JSONArray jUsers = ControlData.recuperarData("users.json");
+        for(int i=0; i< jUsers.length(); i++){
+            User u = Utilidades.createUserFromJSON(jUsers.getJSONObject(i));
+            usuarios.altaItem(u);
+        }
+        //-----------------
         cargaTemporal(rutinas);
 
-        User test = new Staff("test", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
-        User test2 = new Staff("test2", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
-        User test3 = new Staff("test3", "22", "ee@.c", "22344", "test_no_admin", "1234", false);
-        usuarios.altaItem(test);
-        usuarios.altaItem(test2);
-        usuarios.altaItem(test3);
-
-        ControlData.guardarData(usuarios, "src/data/users.json");
-
-
+        for(User ele : usuarios.getGestor().values()){
+            System.out.println(ele);
+        }
     }
 
 
