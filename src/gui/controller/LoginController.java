@@ -1,6 +1,6 @@
 package gui.controller;
 
-import gestores.GestorLogin;
+import gestores.Login;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
-    private GestorLogin gestor;
+    private Login gestor;
     private double x = 0, y = 0;
     private Stage stage;
 
@@ -27,6 +27,10 @@ public class LoginController implements Initializable {
     private PasswordField passField;
     @FXML
     private Button loginButton;
+    @FXML
+    private Button registerButton;
+    @FXML
+    private Button quitButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,7 +48,19 @@ public class LoginController implements Initializable {
             String username = userField.getText();
             String password = passField.getText();
 
-             gestor.autenticar(username, password); // Al recibir el User si es verdadero, se lo debera enviar a una clase Session que corra el programa principal con ese usuario
+
+            System.out.println(username);
+            System.out.println(password);
+
+            //gestor.autenticar(username, password); // Al recibir el User si es verdadero, se lo debera enviar a una clase Session que corra el programa principal con ese usuario
+        });
+
+        registerButton.setOnAction(mouseEvent -> {
+            //Enviar a menu registrar
+        });
+
+        quitButton.setOnAction(mouseEvent -> {
+            stage.close(); //cerrar hilos primero
         });
     }
 
