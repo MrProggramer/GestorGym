@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class GenericGestor<T extends Identificable>{    //al generico T, se le pone extends "Identificable" para que
+public class    GenericGestor<T extends Identificable>{    //al generico T, se le pone extends "Identificable" para que
     private final String type;                                //entienda que el T tiene un getId(); el cual esta en la interfaz identificable.
     Map<Integer, T> gestor;
 

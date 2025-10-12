@@ -1,34 +1,86 @@
 package models.users;
 
 import enums.TipoRol;
-import interfaces.TransformableJSON;
-import org.json.JSONObject;
+import gestores.GenericGestor;
+import models.rutinas.Rutina;
 
-public class Staff extends User implements TransformableJSON {
+import java.util.ArrayList;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+public class Staff extends User  {
+    private String usuario;
+    private String contrasenia;
     private boolean isAdmin;    //en vez de enums, podemos usar isAdmin y/o instanceof para acceder a ciertos métodos
+    private ArrayList<ArrayList<Rutina>> listaRutinas;
+    private GenericGestor<Rutina> rutinas;
 
-    public Staff(String nombre, String dni, String mail, String telefono,String user, String pass, boolean isAdmin) {
+    // Constructor
+    public Staff(String nombre, String dni, String mail, String telefono, String usuario, String contrasenia, String user, String pass, boolean isAdmin, GenericGestor rutinas) {
         super(nombre, dni, mail, telefono, user, pass);
+        this.usuario = usuario;
+        this.contrasenia = contrasenia;
         this.isAdmin = isAdmin;
+        this.rutinas = rutinas;
     }
-    public Staff(){}
 
+    // metodo asignar turina
+    public void asignarRutina (Cliente cliente, int opcion){
+        cliente.setRutina(rutinas.buscarItem(opcion));
+    }
 
-//    public void asignarRutina(int id_cliente, int id_rutina){
-//        //User user = c.getCliente(id_cliente); MAQUETA
-//        //user.setRutina(a.getRtuna(id_rutina));
-//    }
+    /* Deberian ir estos metodos en cliente o staff? Solo puede acceder el entrenador
+     * Por ahora, los dejo acá */
+    public void asignarRutina(ArrayList<Rutina> rutina) {
+        listaRutinas.add(rutina);
+    }
+    public void eliminarRutina(int idRutina) {
+        ListIterator<ArrayList<Rutina>> iterador = getListaRutinas().listIterator();
 
+        while(iterador.hasNext()) {
+            if(iterador.next().equals(idRutina)) {
+                listaRutinas.remove(iterador);
+            }
+        }
+    }
+
+    // crear user Staff
 
     @Override
-    public String toString() {
-        return "Staff{" +
-                super.toString()+
-                "isAdmin=" + isAdmin +
-                '}';
+    public User crear(Scanner sc) {
+        User aux = null;
+
+        System.out.println("Ingresa tu nombre completo");
+        aux.setNombre(sc.nextLine());
+        System.out.println("Ingresa tu dni");
+        aux.setDni(sc.nextLine());
+        System.out.println("Ingresa tu mail");
+        aux.setMail(sc.nextLine());
+        System.out.println("Ingresa tu telefono");
+        aux.setTelefono(sc.nextLine());
+        System.out.println("Ingresa el usuario que queres tener");
+        aux.setUser(sc.nextLine());
+        System.out.println("Ingresa la clave que queres tener");
+        aux.setPass(sc.nextLine());
+
+        return aux;
     }
 
     //Getter&Setter
+    public String getUsuario() {
+        return usuario;
+    }
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
     public boolean isAdmin() {
         return isAdmin;
     }
@@ -37,9 +89,14 @@ public class Staff extends User implements TransformableJSON {
     }
 
     @Override
-    public JSONObject toJSONObject() {
-        JSONObject object = super.toJSONObject();
-        object.put("isAdmin", this.isAdmin);
-        return object;
+    public String toString() {
+        return "Staff{" +
+                "usuario='" + usuario + '\'' +
+                ", contrasenia='" + contrasenia + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
+
+
+
 }

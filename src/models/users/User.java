@@ -6,6 +6,8 @@ import interfaces.TransformableJSON;
 import netscape.javascript.JSObject;
 import org.json.JSONObject;
 
+import java.util.Scanner;
+
 public abstract class User implements Identificable, TransformableJSON {
     private final int id;
     private static int count;
@@ -31,10 +33,16 @@ public abstract class User implements Identificable, TransformableJSON {
         this.user = user;
         this.pass = pass;
     }
+    // Constructor
     public User(){
         this.id = count++;
         this.type = getClass().getTypeName();
     }
+
+    //METODOS
+
+    // Crear Usuario
+    public abstract User crear(Scanner sc);
 
     @Override
     public String toString() {
