@@ -1,7 +1,6 @@
 package models.rutinas;
 
 import interfaces.Identificable;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 

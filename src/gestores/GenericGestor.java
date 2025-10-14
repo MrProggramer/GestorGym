@@ -1,13 +1,13 @@
 package gestores;
 
+import exceptions.Exc_ItemExistente;
+import exceptions.Exc_ItemNoEncontrado;
 import interfaces.Identificable;
-
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
-public class    GenericGestor<T extends Identificable>{    //al generico T, se le pone extends "Identificable" para que
-    private final String type;                                //entienda que el T tiene un getId(); el cual esta en la interfaz identificable.
+public class    GenericGestor<T extends Identificable>{
+    private final String type;
     Map<Integer, T> gestor;
 
     public GenericGestor() {
@@ -34,22 +34,34 @@ public class    GenericGestor<T extends Identificable>{    //al generico T, se l
                 '}';
     }
 
-    public void altaItem(T item){
-        gestor.put(item.getId(), item);
-        //agregar un catch con error personalizado
-    }
-    public void bajaItem(int item_id){
-        gestor.remove(item_id);
-        //agregar un catch con error personalizado
-    }
-    public T buscarItem(int id_item){
-        Iterator<Map.Entry<Integer, T>> it = gestor.entrySet().iterator();
-        while(it.hasNext()){
-            T item = it.next().getValue();
-            if(item.getId() == id_item){
-                return item;
-            }
+    public void altaItem(T item) throws Exc_ItemExistente {
+        if (gestor.containsKey(item.getId())) {
+            throw new Exc_ItemExistente("Ya existe un item con ese ID");
         }
-        return null; // cambiar por un try catch con error personalizado
+        gestor.put(item.getId(), item);
+    }
+
+    public void bajaItem(int item_id) throws Exc_ItemNoEncontrado {
+        if (!gestor.containsKey(item_id)) {
+            throw new Exc_ItemNoEncontrado("No existe un item con ese ID");
+        }
+        gestor.remove(item_id);
+    }
+
+    public T buscarItem(int id_item) throws Exc_ItemNoEncontrado {
+        T item = gestor.get(id_item);
+        if (item == null) {
+            throw new Exc_ItemNoEncontrado("No se encontró ningún item con ese ID");
+        }
+        return item;
+    }
+
+    public void modificarItem(T itemModificado) throws Exc_ItemNoEncontrado {
+        int id = itemModificado.getId();
+        if (!gestor.containsKey(id)) {
+            throw new Exc_ItemNoEncontrado("No se encontró el item para modificar");
+        }
+        gestor.put(id, itemModificado);
     }
 }
+

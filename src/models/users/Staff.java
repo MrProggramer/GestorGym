@@ -1,22 +1,19 @@
 package models.users;
 
-import enums.TipoRol;
+import exceptions.Exc_Gestor;
 import gestores.GenericGestor;
 import models.rutinas.Rutina;
-
-import java.util.ArrayList;
-import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Staff extends User  {
     private String usuario;
     private String contrasenia;
     private boolean isAdmin;    //en vez de enums, podemos usar isAdmin y/o instanceof para acceder a ciertos métodos
-    private ArrayList<ArrayList<Rutina>> listaRutinas;
-    private GenericGestor<Rutina> rutinas;
+    private final GenericGestor<Rutina> rutinas;
 
-    // Constructor
-    public Staff(String nombre, String dni, String mail, String telefono, String usuario, String contrasenia, String user, String pass, boolean isAdmin, GenericGestor rutinas) {
+
+    /// ----- Constructores -----
+    public Staff(String nombre, String dni, String mail, String telefono, String usuario, String contrasenia, String user, String pass, boolean isAdmin, GenericGestor<Rutina> rutinas) {
         super(nombre, dni, mail, telefono, user, pass);
         this.usuario = usuario;
         this.contrasenia = contrasenia;
@@ -24,29 +21,46 @@ public class Staff extends User  {
         this.rutinas = rutinas;
     }
 
-    // metodo asignar turina
-    public void asignarRutina (Cliente cliente, int opcion){
-        cliente.setRutina(rutinas.buscarItem(opcion));
+    public Staff() {
+        super();
+        this.usuario = "";
+        this.contrasenia = "";
+        this.isAdmin = false;
+        this.rutinas = null;
     }
 
-    /* Deberian ir estos metodos en cliente o staff? Solo puede acceder el entrenador
-     * Por ahora, los dejo acá */
-    public void asignarRutina(ArrayList<Rutina> rutina) {
-        listaRutinas.add(rutina);
-    }
-    public void eliminarRutina(int idRutina) {
-        ListIterator<ArrayList<Rutina>> iterador = getListaRutinas().listIterator();
-
-        while(iterador.hasNext()) {
-            if(iterador.next().equals(idRutina)) {
-                listaRutinas.remove(iterador);
-            }
-        }
+    public Staff(GenericGestor<Rutina> rutinas) {
+        this.rutinas = rutinas;
     }
 
-    // crear user Staff
+    /// ----- Alta -----
+    public void altaRutina(Rutina rutina) throws Exc_Gestor {
+        rutinas.altaItem(rutina);
+    }
 
-    @Override
+    /// ----- Baja -----
+    public void bajaRutina(int idRutina) throws Exc_Gestor {
+        rutinas.bajaItem(idRutina);
+    }
+
+    /// ----- Modificar -----
+    public void modificarRutina(Rutina rutina) throws Exc_Gestor {
+        rutinas.modificarItem(rutina);
+    }
+
+    /// ----- Buscar -----
+    public Rutina buscarRutina(int idRutina) throws Exc_Gestor {
+        return rutinas.buscarItem(idRutina);
+    }
+
+    /// ----- Asignar -----
+    public void asignarRutina(Cliente cliente, int idRutina) throws Exc_Gestor {
+        Rutina rutina = rutinas.buscarItem(idRutina);
+        cliente.setRutina(rutina);
+    }
+
+
+    /// -----  Crear user Staff -----
     public User crear(Scanner sc) {
         User aux = null;
 
@@ -66,7 +80,8 @@ public class Staff extends User  {
         return aux;
     }
 
-    //Getter&Setter
+
+    /// ----- Getter&Setter -----
     public String getUsuario() {
         return usuario;
     }
@@ -96,7 +111,4 @@ public class Staff extends User  {
                 ", isAdmin=" + isAdmin +
                 '}';
     }
-
-
-
 }

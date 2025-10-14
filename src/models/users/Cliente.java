@@ -4,15 +4,14 @@ import interfaces.Identificable;
 import interfaces.TransformableJSON;
 import models.rutinas.Rutina;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Cliente extends User implements Identificable, TransformableJSON {
     private boolean coutaAlDia;
     private int dias;
     private Rutina rutina;
+    private ArrayList<ArrayList<Rutina>> listaRutinas = new ArrayList<>();
 
     public Cliente(String nombre, String dni, String mail, String telefono, String user, String pass, boolean coutaAlDia, int dias) {
         super(nombre, dni, mail, telefono, user, pass);
@@ -28,12 +27,11 @@ public class Cliente extends User implements Identificable, TransformableJSON {
         this.rutina = rutina;
     }
 
-    public Cliente(){}
+    public Cliente() {}
 
-    @Override
-    public User crear(Scanner sc) {
-        User aux = null;
 
+    public static Cliente crear(Scanner sc) {
+        Cliente aux = new Cliente();
         System.out.println("Ingresa tu nombre completo");
         aux.setNombre(sc.nextLine());
         System.out.println("Ingresa tu dni");
@@ -51,7 +49,7 @@ public class Cliente extends User implements Identificable, TransformableJSON {
     }
 
 
-    //Getter&Setter
+    /// ----- Getter&Setter -----
     public boolean isCoutaAlDia() {
         return coutaAlDia;
     }

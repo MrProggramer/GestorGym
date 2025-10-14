@@ -1,4 +1,5 @@
 import enums.TipoGrupoMuscular;
+import exceptions.Exc_Gestor;
 import gestores.GenericGestor;
 import models.database.ControlData;
 import models.rutinas.Ejercicio;
@@ -8,11 +9,10 @@ import models.users.User;
 import models.utils.Utilidades;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.util.Map;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exc_Gestor {
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
         GenericGestor<User> usuarios = new GenericGestor<>();
         Utilidades.cargarGestorUser("users", usuarios);
@@ -24,9 +24,9 @@ public class Main {
     }
 
 
-    public static void cargaTemporal(GenericGestor<Rutina> gestor){
+    public static void cargaTemporal(GenericGestor<Rutina> gestor) throws Exc_Gestor {
 
-        // Creando los objetos Rutinas
+        /// ----- Creando los objetos Rutinas -----
         Rutina fullBody = new Rutina(3, "Foco en basicos y tecnicas");
         Rutina upperLower = new Rutina(4,"Mas volumen, fuerza e hipertrofia");
         Rutina pushPullLegs = new Rutina(6, "Full volumen");
@@ -36,7 +36,7 @@ public class Main {
         Rutina calistenia = new Rutina(4, "Solo peso corporal");
         Rutina fuerzaPotencia = new Rutina(4,"Ejercicios olimpicos simplificados");
 
-        // Creando objetos Ejercicios
+        /// ----- Creando objetos Ejercicios -----
         Ejercicio abdominales = new Ejercicio("Abdominales", TipoGrupoMuscular.TORSO_MEDIO_ABDOMINALES, "Ejercicio de torso intermedio", 6,12);
         Ejercicio sentadilla = new Ejercicio("Sentadilla", TipoGrupoMuscular.TORSO_INFERIOR_CUADRICEPS,"Con barra, rodillas altura hombro, y hasta abajo", 4,12);
         Ejercicio pressBanca = new Ejercicio("Press banca", TipoGrupoMuscular.TORSO_SUPERIOR_PECHO,"Pecho plano", 4,12);
@@ -72,7 +72,7 @@ public class Main {
         Ejercicio laterales = new Ejercicio("Laterales", TipoGrupoMuscular.TORSO_SUPERIOR_HOMBROS,"Ejercicio de hombros, con mancuernas", 4,10);
         Ejercicio prensa = new Ejercicio("Prensa", TipoGrupoMuscular.TORSO_INFERIOR_ISQUIOTIBIALES,"Ejercicio de piernas, con maquina de prensa", 4,10);
 
-        // Guardando los Ejercicios en las Rutinas
+        /// ----- Guardando los Ejercicios en las Rutinas -----
         fullBody.guardarEjercicio(sentadilla);
         fullBody.guardarEjercicio(pressBanca);
         fullBody.guardarEjercicio(remoConMancuera);
@@ -163,7 +163,4 @@ public class Main {
         gestor.altaItem(calistenia);
         gestor.altaItem(fuerzaPotencia);
     }
-
-
-
 }
