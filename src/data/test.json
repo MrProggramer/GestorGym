@@ -1,0 +1,158 @@
+{
+  "usuarios": [
+    {
+      "type": "Staff",
+      "user": "admin1",
+      "pass": "root123",
+      "nombre": "Carlos Medina",
+      "dni": "30123456",
+      "mail": "carlos.medina@gymfit.com",
+      "telefono": "1145678910",
+      "isAdmin": true,
+      "rutinas": [
+        {
+          "type": "Rutina",
+          "id": 1,
+          "nombre": "Rutina fuerza avanzada",
+          "descripcionRutina": "Entrenamiento enfocado en fuerza máxima para usuarios avanzados.",
+          "cantidadDeDias": 5,
+          "listaEjercicios": [
+            {
+              "type": "Ejercicio",
+              "id": 1,
+              "nombre": "Peso muerto",
+              "descripcionEjericio": "Ejercicio básico para espalda baja y piernas.",
+              "series": 5,
+              "repeticiones": 5,
+              "tipoGrupoMuscular": "TORSO_INFERIOR_ISQUIOTIBIALES"
+            },
+            {
+              "type": "Ejercicio",
+              "id": 2,
+              "nombre": "Press de banca",
+              "descripcionEjericio": "Ejercicio de fuerza para pectorales y tríceps.",
+              "series": 5,
+              "repeticiones": 5,
+              "tipoGrupoMuscular": "TORSO_SUPERIOR_PECHO"
+            }
+          ]
+        },
+        {
+          "type": "Rutina",
+          "id": 2,
+          "nombre": "Rutina general",
+          "descripcionRutina": "Rutina equilibrada para cuerpo completo.",
+          "cantidadDeDias": 3,
+          "listaEjercicios": [
+            {
+              "type": "Ejercicio",
+              "id": 3,
+              "nombre": "Sentadillas",
+              "descripcionEjericio": "Trabajo de piernas completo.",
+              "series": 4,
+              "repeticiones": 10,
+              "tipoGrupoMuscular": "TORSO_INFERIOR_CUADRICEPS"
+            },
+            {
+              "type": "Ejercicio",
+              "id": 4,
+              "nombre": "Press militar",
+              "descripcionEjericio": "Trabajo de hombros.",
+              "series": 3,
+              "repeticiones": 10,
+              "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "type": "Cliente",
+      "user": "juanperez",
+      "pass": "1234",
+      "nombre": "Juan Pérez",
+      "dni": "40321456",
+      "mail": "juanperez@example.com",
+      "telefono": "1123456789",
+      "cuotaAlDia": true,
+      "dias": 30,
+      "rutina": {
+        "type": "Rutina",
+        "id": 3,
+        "nombre": "Rutina de mantenimiento",
+        "descripcionRutina": "Entrenamiento moderado para mantener forma física.",
+        "cantidadDeDias": 4,
+        "listaEjercicios": [
+          {
+            "type": "Ejercicio",
+            "id": 5,
+            "nombre": "Curl de bíceps",
+            "descripcionEjericio": "Trabajo de bíceps con barra.",
+            "series": 3,
+            "repeticiones": 12,
+            "tipoGrupoMuscular": "TORSO_SUPERIOR_BICEPS"
+          },
+          {
+            "type": "Ejercicio",
+            "id": 6,
+            "nombre": "Plancha abdominal",
+            "descripcionEjericio": "Trabajo de core y zona media.",
+            "series": 3,
+            "repeticiones": 45,
+            "tipoGrupoMuscular": "TORSO_MEDIO_ABDOMINALES"
+          }
+        ]
+      }
+    },
+
+    {
+      "type": "Cliente",
+      "user": "mariafit",
+      "pass": "maria123",
+      "nombre": "María López",
+      "dni": "41222333",
+      "mail": "marialopez@example.com",
+      "telefono": "1154321122",
+      "cuotaAlDia": false,
+      "dias": 12,
+      "rutina": {
+        "type": "Rutina",
+        "id": 4,
+        "nombre": "Rutina de tonificación",
+        "descripcionRutina": "Ejercicios ligeros enfocados en tonificar.",
+        "cantidadDeDias": 3,
+        "listaEjercicios": [
+          {
+            "type": "Ejercicio",
+            "id": 7,
+            "nombre": "Zancadas",
+            "descripcionEjericio": "Trabajo de piernas y glúteos.",
+            "series": 3,
+            "repeticiones": 12,
+            "tipoGrupoMuscular": "TORSO_INFERIOR_GLUTEOS"
+          },
+          {
+            "type": "Ejercicio",
+            "id": 8,
+            "nombre": "Elevaciones laterales",
+            "descripcionEjericio": "Trabajo de hombros y trapecios.",
+            "series": 3,
+            "repeticiones": 15,
+            "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS"
+          }
+        ]
+      }
+    },
+
+    {
+      "type": "ClienteTemporal",
+      "user": "testuser",
+      "pass": "temporal",
+      "nombre": "Invitado",
+      "dni": "00000000",
+      "mail": "guest@gymfit.com",
+      "telefono": "0000000000"
+    }
+  ]
+}
