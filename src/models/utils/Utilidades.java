@@ -1,9 +1,9 @@
 package models.utils;
 
 import Exceptions.InvalidTypeException;
+import Exceptions.TipoMuscularInvalidoException;
 import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
-import javafx.beans.binding.ObjectExpression;
 import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
@@ -12,11 +12,11 @@ import models.users.ClienteTemporal;
 import models.users.Staff;
 import models.users.User;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +33,7 @@ public abstract class Utilidades {
         object.put("Password", data.getPass());
         object.put("ID", data.getId());
         if (data instanceof Cliente) {
-            object.put("cuotaAlDia", ((Cliente) data).isCoutaAlDia());
+            object.put("cuotaAlDia", ((Cliente) data).isCuotaAlDia());
             object.put("dias", ((Cliente) data).getDias());
             object.put("listaRutinas", ((Cliente) data).getListaRutinas());
         }
@@ -85,14 +85,19 @@ public abstract class Utilidades {
         }
     }
 
-    public static Ejercicio crearEjercicioFromJSON(JSONObject _e){
+    public static Ejercicio crearEjercicioFromJSON(JSONObject _e) throws TipoMuscularInvalidoException{
         Ejercicio ejercicio = new Ejercicio();
 
         ejercicio.setNombre(_e.getString("nombre"));
         ejercicio.setDescripcionEjericio(_e.getString("descripcionEjericio"));
         ejercicio.setSeries(_e.getInt("series"));
         ejercicio.setRepeticiones(_e.getInt("repeticiones"));
-        ejercicio.setTipoGrupoMuscular(TipoGrupoMuscular.valueOf(_e.getString("tipoGrupoMuscular")));
+        try{
+            ejercicio.setTipoGrupoMuscular(TipoGrupoMuscular.valueOf(_e.getString("tipoGrupoMuscular")));
+        } catch (JSONException | IllegalArgumentException e) {
+            throw new TipoMuscularInvalidoException("Tipo muscular invalido: " + e.getMessage());
+        }
+
 
         return ejercicio;
     }
@@ -143,7 +148,7 @@ public abstract class Utilidades {
         }
         if(user instanceof Cliente u){
            u.setDias(json.getInt("dias"));
-           u.setCoutaAlDia(json.getBoolean("coutaAlDia"));
+           u.setCuotaAlDia(json.getBoolean("cuotaAlDia"));
            u.setRutina(Utilidades.crearRutinaFromJSON(json.getJSONObject("rutina")));
         }
         //CLIENTE TEMPORAL NO SE CREO POR QUE NO PARECE SER NECESARIO "ES TEMPORAL", NO DEBERIA ESTAR GUARDADO.

@@ -1,26 +1,21 @@
 package models.users;
 
-import enums.TipoGrupoMuscular;
 import interfaces.Identificable;
 import interfaces.TransformableJSON;
-import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.Scanner;
 
-public class Cliente extends User implements Identificable, TransformableJSON {
-    private boolean coutaAlDia;
+public class Cliente extends User {
+    private boolean cuotaAlDia;
     private int dias;
     private Rutina rutina;
 
-    public Cliente(String nombre, String dni, String mail, String telefono, String user, String pass, boolean coutaAlDia, int dias) {
+    public Cliente(String nombre, String dni, String mail, String telefono, String user, String pass, boolean cuotaAlDia, int dias) {
         super(nombre, dni, mail, telefono, user, pass);
-        this.coutaAlDia = coutaAlDia;
+        this.cuotaAlDia = cuotaAlDia;
         this.dias = dias;
     }
 
@@ -37,7 +32,7 @@ public class Cliente extends User implements Identificable, TransformableJSON {
 
     @Override
     public User crear(Scanner sc) {
-        User aux = null;
+        User aux = new Cliente();
 
         System.out.println("Ingresa tu nombre completo");
         aux.setNombre(sc.nextLine());
@@ -57,18 +52,11 @@ public class Cliente extends User implements Identificable, TransformableJSON {
 
 
     //Getter&Setter
-    public boolean isCoutaAlDia() {
-        return coutaAlDia;
+    public boolean isCuotaAlDia() {
+        return cuotaAlDia;
     }
-    public void setCoutaAlDia(boolean coutaAlDia) {
-        this.coutaAlDia = coutaAlDia;
-    }
-
-    public ArrayList<ArrayList<Rutina>> getListaRutinas() {
-        return listaRutinas;
-    }
-    public void setListaRutinas(ArrayList<ArrayList<Rutina>> listaRutinas) {
-        this.listaRutinas = listaRutinas;
+    public void setCuotaAlDia(boolean cuotaAlDia) {
+        this.cuotaAlDia = cuotaAlDia;
     }
 
     public int getDias() {
@@ -81,17 +69,9 @@ public class Cliente extends User implements Identificable, TransformableJSON {
     @Override
     public String toString() {
         return "Cliente{" +
-                "coutaAlDia=" + coutaAlDia +
+                "coutaAlDia=" + cuotaAlDia +
                 ", dias=" + dias +
                 '}';
-    }
-
-    @Override
-    public JSONObject toJSONObject() {
-        JSONObject object = super.toJSONObject();
-        object.put("cuotaAlDia", this.coutaAlDia);
-        object.put("dias", this.dias);
-        return object;
     }
 
 
