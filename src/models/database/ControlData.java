@@ -1,10 +1,16 @@
 package models.database;
 
+import Exceptions.InvalidTypeException;
+import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
 import interfaces.Identificable;
 import interfaces.Registrable;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
+import models.users.Cliente;
+import models.users.ClienteTemporal;
+import models.users.Staff;
+import models.users.User;
 import models.utils.Utilidades;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -13,7 +19,9 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 //MODIFICAR PARA UTILIZAR JSON
@@ -48,5 +56,6 @@ public abstract class ControlData{
             throw new RuntimeException(e);
         }
     }
+
 
 }

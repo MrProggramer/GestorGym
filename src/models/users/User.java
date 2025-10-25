@@ -1,16 +1,12 @@
 package models.users;
 
-
 import interfaces.Identificable;
 import interfaces.TransformableJSON;
-import netscape.javascript.JSObject;
 import org.json.JSONObject;
 
 import java.util.Scanner;
 
 public abstract class User implements Identificable, TransformableJSON {
-    private final int id;
-    private static int count;
     private final String type;
     private String nombre;
     private String dni;
@@ -24,7 +20,6 @@ public abstract class User implements Identificable, TransformableJSON {
     }
 
     public User(String nombre, String dni, String mail, String telefono, String user, String pass) {
-        this.id = count++;
         this.type = getClass().getSimpleName();
         this.nombre = nombre;
         this.dni = dni;
@@ -35,7 +30,6 @@ public abstract class User implements Identificable, TransformableJSON {
     }
     // Constructor
     public User(){
-        this.id = count++;
         this.type = getClass().getTypeName();
     }
 
@@ -47,7 +41,6 @@ public abstract class User implements Identificable, TransformableJSON {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
                 ", type='" + type + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", dni='" + dni + '\'' +
@@ -59,12 +52,6 @@ public abstract class User implements Identificable, TransformableJSON {
     }
 
     //Getter&Setters
-    @Override
-    public int getId() { return id; }
-
-    public static int getCount() {
-        return count;
-    }
 
     public String getNombre() {
         return nombre;
@@ -109,7 +96,6 @@ public abstract class User implements Identificable, TransformableJSON {
         object.put("Telefono", this.telefono);
         object.put("User", this.user);
         object.put("Password", this.pass);
-        object.put("ID", this.id);
 
         return object;
     }

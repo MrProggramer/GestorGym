@@ -1,12 +1,16 @@
 package models.rutinas;
 
+import enums.TipoGrupoMuscular;
 import interfaces.Identificable;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Rutina implements Identificable { //falta ponerle una variable de nombre a la rutina, sino no se como se llama.
-    private ArrayList<Ejercicio> listaEjercicios;
+    private List<Ejercicio> listaEjercicios;
     private final String type;
     private final int id;
     private static int count;
@@ -75,11 +79,11 @@ public class Rutina implements Identificable { //falta ponerle una variable de n
         this.nombre = nombre;
     }
 
-    public ArrayList<Ejercicio> getListaEjercicios() {
+    public List<Ejercicio> getListaEjercicios() {
         return listaEjercicios;
     }
 
-    public void setListaEjercicios(ArrayList<Ejercicio> listaEjercicios) {
+    public void setListaEjercicios(List<Ejercicio> listaEjercicios) {
         this.listaEjercicios = listaEjercicios;
     }
 
@@ -102,4 +106,6 @@ public class Rutina implements Identificable { //falta ponerle una variable de n
 
         return null;
     }
+
+
 }

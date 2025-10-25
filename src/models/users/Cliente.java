@@ -1,11 +1,15 @@
 package models.users;
 
+import enums.TipoGrupoMuscular;
 import interfaces.Identificable;
 import interfaces.TransformableJSON;
+import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
 
@@ -29,6 +33,7 @@ public class Cliente extends User implements Identificable, TransformableJSON {
     }
 
     public Cliente(){}
+
 
     @Override
     public User crear(Scanner sc) {
@@ -77,7 +82,6 @@ public class Cliente extends User implements Identificable, TransformableJSON {
     public String toString() {
         return "Cliente{" +
                 "coutaAlDia=" + coutaAlDia +
-                ", listaRutinas=" + listaRutinas +
                 ", dias=" + dias +
                 '}';
     }
@@ -87,7 +91,6 @@ public class Cliente extends User implements Identificable, TransformableJSON {
         JSONObject object = super.toJSONObject();
         object.put("cuotaAlDia", this.coutaAlDia);
         object.put("dias", this.dias);
-        object.put("listaRutinas", this.listaRutinas);
         return object;
     }
 

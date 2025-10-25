@@ -1,8 +1,12 @@
 package models.utils;
 
+import Exceptions.InvalidTypeException;
+import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
 import javafx.beans.binding.ObjectExpression;
 import models.database.ControlData;
+import models.rutinas.Ejercicio;
+import models.rutinas.Rutina;
 import models.users.Cliente;
 import models.users.ClienteTemporal;
 import models.users.Staff;
@@ -11,6 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -72,37 +77,78 @@ public abstract class Utilidades {
         return json;
     }
 
-    public static User createUserFromJSON(JSONObject json){
-        String type = json.getString("type");
-
-
-        User res = switch (type){
-            case "Staff" -> new Staff();
-            case "Cliente" -> new Cliente();
-            case "ClienteTemporal" -> new ClienteTemporal();
-            default -> throw new IllegalArgumentException("tipo desconocido " + type);
-        };
-        res.setNombre(json.getString("nombre"));
-        res.setDni(json.getString("dni"));
-        res.setMail(json.getString("mail"));
-        res.setTelefono(json.getString("telefono"));
-        res.setUser(json.getString("user"));
-        res.setPass(json.getString("pass"));
-        if(res instanceof Staff){ ((Staff) res).setAdmin(json.getBoolean("isAdmin"));  }
-        if(res instanceof Cliente){
-            ((Cliente) res).setDias(json.getInt("dias"));
-            ((Cliente) res).setCoutaAlDia(json.getBoolean("coutaAlDia"));
-        }
-
-        return res;
-    }
-
     public static void cargarGestorUser(String archivo, GenericGestor<User> gestor){
         JSONArray jUsers = ControlData.recuperarData(archivo+".json");
         for(int i=0; i< jUsers.length(); i++){
-            User u = Utilidades.createUserFromJSON(jUsers.getJSONObject(i));
+            User u = Utilidades.crearUserFromJSON(jUsers.getJSONObject(i));
             gestor.altaItem(u);
         }
+    }
+
+    public static Ejercicio crearEjercicioFromJSON(JSONObject _e){
+        Ejercicio ejercicio = new Ejercicio();
+
+        ejercicio.setNombre(_e.getString("nombre"));
+        ejercicio.setDescripcionEjericio(_e.getString("descripcionEjericio"));
+        ejercicio.setSeries(_e.getInt("series"));
+        ejercicio.setRepeticiones(_e.getInt("repeticiones"));
+        ejercicio.setTipoGrupoMuscular(TipoGrupoMuscular.valueOf(_e.getString("tipoGrupoMuscular")));
+
+        return ejercicio;
+    }
+
+    public static Rutina crearRutinaFromJSON(JSONObject jElem){
+        Rutina rutina = new Rutina();
+
+        rutina.setNombre(jElem.getString("nombre"));
+        rutina.setDescripcionRutina(jElem.getString("descripcionRutina"));
+        rutina.setCantidadDeDias(jElem.getInt("cantidadDeDias"));
+
+        //OBTENER EL ARR DE EJERCICIOS
+        JSONArray jListaEjercicios = jElem.getJSONArray("listaEjercicios");
+        List<Ejercicio> listaEjercicios = new ArrayList<>();
+        for(Object e : jListaEjercicios){
+            listaEjercicios.add(Utilidades.crearEjercicioFromJSON((JSONObject) e));
+        }
+        rutina.setListaEjercicios(listaEjercicios);
+
+        return rutina;
+    }
+
+    public static User crearUserFromJSON(JSONObject json) throws InvalidTypeException {
+        String type = json.getString("type");
+        User user = switch (type) {
+            case "Staff" -> new Staff();
+            case "Cliente" -> new Cliente();
+            case "ClienteTemporal" -> new ClienteTemporal();
+            default -> throw new InvalidTypeException("Tipo invalido");
+        };
+
+        user.setUser(json.getString("user"));
+        user.setPass(json.getString("pass"));
+        user.setNombre(json.getString("nombre"));
+        user.setDni(json.getString("dni"));
+        user.setMail(json.getString("mail"));
+        user.setTelefono(json.getString("telefono"));
+
+        if(user instanceof Staff u){
+            u.setAdmin(json.getBoolean("isAdmin"));
+            JSONArray jRutinas = json.getJSONArray("rutinas");
+            GenericGestor<Rutina> gestorRutinas = new GenericGestor<>();
+            for(Object elem : jRutinas){
+                Rutina rutina = Utilidades.crearRutinaFromJSON((JSONObject) elem);
+                gestorRutinas.altaItem(rutina);
+            }
+            u.setRutinas(gestorRutinas);
+        }
+        if(user instanceof Cliente u){
+           u.setDias(json.getInt("dias"));
+           u.setCoutaAlDia(json.getBoolean("coutaAlDia"));
+           u.setRutina(Utilidades.crearRutinaFromJSON(json.getJSONObject("rutina")));
+        }
+        //CLIENTE TEMPORAL NO SE CREO POR QUE NO PARECE SER NECESARIO "ES TEMPORAL", NO DEBERIA ESTAR GUARDADO.
+
+        return user;
     }
 
 }
