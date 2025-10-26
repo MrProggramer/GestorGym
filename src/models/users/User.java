@@ -29,6 +29,7 @@ public abstract class User implements Identificable {
         this.user = user;
         this.pass = pass;
     }
+
     // Constructor
     public User(){
         this.type = getClass().getTypeName();
