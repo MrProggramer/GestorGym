@@ -8,7 +8,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Login {
-    private GenericGestor<User> usuarios;
+    protected GenericGestor<User> usuarios;
 
     public Login(GenericGestor<User> usuarios) { //De dónde recibo este gestor de usuarios?
         this.usuarios = usuarios;
@@ -27,6 +27,10 @@ public class Login {
             }
         }
         throw new UserNotFoundException("Usuario o contraseña incorrectos");
+    }
+
+    public void crearUser(String user, String pass) {
+
     }
 
 

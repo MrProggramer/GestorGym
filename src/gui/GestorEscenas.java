@@ -1,5 +1,6 @@
 package gui;
 
+import gestores.GenericGestor;
 import gui.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +9,15 @@ import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import models.users.User;
 
 public class GestorEscenas extends Application {
     private static Stage primaryStage;
+    private GenericGestor<User> usuarios;
+
+    public GestorEscenas(GenericGestor<User> usuarios) {
+        this.usuarios = usuarios;
+    }
 
     public static void main(String[] args) {
         launch(args);
