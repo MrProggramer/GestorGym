@@ -1,26 +1,29 @@
 package gestores;
 
+import Exceptions.InvalidTypeException;
 import interfaces.Identificable;
+import models.database.ControlData;
+import models.utils.Utilidades;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
-public class GenericGestor<T extends Identificable>{    //al generico T, se le pone extends "Identificable" para que
-    private final String type;                                //entienda que el T tiene un getId(); el cual esta en la interfaz identificable.
-    Map<Integer, T> gestor;
+public class GenericGestor<T extends Identificable>{
+    private final String type;
+    List<T> inventario;
 
     public GenericGestor() {
-        this.gestor = new HashMap<>();
+        this.inventario = new ArrayList<>();
         this.type = getClass().getTypeName();
     }
 
-    public Map<Integer, T> getGestor() {
-        return gestor;
+    public List<T> getInventario() {
+        return inventario;
     }
 
-    public void setGestor(Map<Integer, T> gestor) {
-        this.gestor = gestor;
+    public void setInventario(List<T> inventario) {
+        this.inventario = inventario;
     }
 
     public String getType() {
@@ -30,24 +33,36 @@ public class GenericGestor<T extends Identificable>{    //al generico T, se le p
     @Override
     public String toString() {
         return "gestores.GenericGestor{" +
-                "gestor=" + gestor +
+                "gestor=" + inventario +
                 '}';
     }
 
     public void altaItem(T item){
-        gestor.put(item.getId(), item);
+        inventario.add(item);
     }
     public void bajaItem(int item_id){
-        gestor.remove(item_id);
+        //actualizar después
     }
     public T buscarItem(int id_item){
-        Iterator<Map.Entry<Integer, T>> it = gestor.entrySet().iterator();
-        while(it.hasNext()){
-            T item = it.next().getValue();
-            if(item.getId() == id_item){
-                return item;
+        for(T e : inventario){
+            if(e.getId() == id_item){
+                return e;
             }
         }
-        return null; // cambiar por un try catch con error personalizado
+        return null;
+    }
+
+    public void actualizarGestor(String archivo) throws InvalidTypeException { //ESTÁ MAL HECHA, CAMBIAR A FUTURO
+        JSONArray data = ControlData.recuperarData(archivo);
+        for(Object e : data){
+            if(e instanceof JSONObject obj){
+                switch (archivo.toUpperCase()){
+                    case "EJERCICIOS" -> this.altaItem((T) Utilidades.crearEjercicioFromJSON(obj));
+                    case "RUTINAS" -> this.altaItem((T) Utilidades.crearRutinaFromJSON(obj));
+                    case "USERS" -> this.altaItem((T) Utilidades.crearUserFromJSON(obj));
+                    default -> throw new InvalidTypeException("tipo invalido "+ archivo);
+                }
+            }
+        }
     }
 }

@@ -50,7 +50,6 @@ public class Cliente extends User {
         return aux;
     }
 
-
     //Getter&Setter
     public boolean isCuotaAlDia() {
         return cuotaAlDia;
@@ -69,6 +68,7 @@ public class Cliente extends User {
     @Override
     public String toString() {
         return "Cliente{" +
+                super.toString() +
                 "coutaAlDia=" + cuotaAlDia +
                 ", dias=" + dias +
                 '}';

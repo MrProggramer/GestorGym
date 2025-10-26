@@ -1,11 +1,8 @@
 package models.users;
 
-import enums.TipoRol;
 import gestores.GenericGestor;
 import models.rutinas.Rutina;
 
-import java.util.ArrayList;
-import java.util.ListIterator;
 import java.util.Scanner;
 
 public class Staff extends User  {
@@ -22,7 +19,7 @@ public class Staff extends User  {
 
     // metodo asignar turina
     public void asignarRutina (Cliente cliente, int opcion){
-        cliente.setRutina(rutinas.buscarItem(opcion));
+       // cliente.setRutina(rutinas.buscarItem(opcion));
     }
 
     // crear user Staff

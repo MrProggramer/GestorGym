@@ -3,168 +3,124 @@ import gestores.GenericGestor;
 import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
-import models.users.Staff;
 import models.users.User;
 import models.utils.Utilidades;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
-import java.util.Map;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        //GenericGestor<User> usuarios = new GenericGestor<>();
+        GenericGestor<Ejercicio> ejj = new GenericGestor<>();
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
-        GenericGestor<User> usuarios = new GenericGestor<>();
-        Utilidades.cargarGestorUser("users", usuarios);
-        cargaTemporal(rutinas);
+        ejj.actualizarGestor("ejercicios");
 
-        for(User ele : usuarios.getGestor().values()){
-            System.out.println(ele);
+
+        Rutina fullBody = new Rutina(3, "Foco en basicos y tecnicas", "Fullbody");
+        Rutina upperLower = new Rutina(4,"Mas volumen, fuerza e hipertrofia", "UpperLower");
+        Rutina pushPullLegs = new Rutina(6, "Full volumen","PushPullLegs");
+        Rutina fuerza = new Rutina(4, "Ejercicios basicos pesados","Fuerza");
+        Rutina hipertrofiaClasica = new Rutina(5, "Rutina muscular, un musculo por dia","HipertrofiaClasica");
+        Rutina rutinaEnCircuito = new Rutina(2, "Todo el cuerpo en circuito", "RutinaEnCircuito");
+        Rutina calistenia = new Rutina(4, "Solo peso corporal","Calistenia");
+        Rutina fuerzaPotencia = new Rutina(4,"Ejercicios olimpicos simplificados","FuerzaPotencia");
+
+
+        fullBody.guardarEjercicio(ejj.buscarItem(1));
+        fullBody.guardarEjercicio(ejj.buscarItem(2));
+        fullBody.guardarEjercicio(ejj.buscarItem(3));
+        fullBody.guardarEjercicio(ejj.buscarItem(4));
+        fullBody.guardarEjercicio(ejj.buscarItem(5));
+        fullBody.guardarEjercicio(ejj.buscarItem(6));
+
+        upperLower.guardarEjercicio(ejj.buscarItem(2));  // Press banca
+        upperLower.guardarEjercicio(ejj.buscarItem(5));  // Press militar
+        upperLower.guardarEjercicio(ejj.buscarItem(6));  // Dominadas
+        upperLower.guardarEjercicio(ejj.buscarItem(3));  // Remo con mancuera
+        upperLower.guardarEjercicio(ejj.buscarItem(1));  // Sentadilla
+        upperLower.guardarEjercicio(ejj.buscarItem(11)); // Romanian DeadLift - Peso Muerto
+        upperLower.guardarEjercicio(ejj.buscarItem(12)); // Hip Trust, empuje de cadera
+        upperLower.guardarEjercicio(ejj.buscarItem(7));  // Gemelos
+
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(2));  // Press banca
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(5));  // Press militar
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(17)); // Fondos
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(32)); // Laterales
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(28)); // Jalon Triceps
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(6));  // Dominadas
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(3));  // Remo con mancuera
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(8));  // Face pull
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(10)); // Curl biceps
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(1));  // Sentadilla
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(11)); // Romanian DeadLift - Peso Muerto
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(12)); // Hip Trust, empuje de cadera
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(7));  // Gemelos
+        pushPullLegs.guardarEjercicio(ejj.buscarItem(9));  // Zancadas caminando
+
+        fuerza.guardarEjercicio(ejj.buscarItem(1));  // Sentadilla
+        fuerza.guardarEjercicio(ejj.buscarItem(2));  // Press banca
+        fuerza.guardarEjercicio(ejj.buscarItem(3));  // Remo con mancuera
+        fuerza.guardarEjercicio(ejj.buscarItem(5));  // Press militar
+        fuerza.guardarEjercicio(ejj.buscarItem(31)); // Peso Muerto
+
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(2));  // Press banca
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(21)); // Prees Inclinado
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(22)); // Apertura
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(17)); // Fondos
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(6));  // Dominadas
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(3));  // Remo con mancuera
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(23)); // Jalon
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(8));  // Face pull
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(1));  // Sentadilla
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(33)); // Prensa
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(11)); // Romanian DeadLift - Peso Muerto
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(7));  // Gemelos
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(5));  // Press militar
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(32)); // Laterales
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(24)); // Pajaros
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(25)); // Encogimiento
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(13)); // Curl Barra
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(26)); // Curl Inclinado
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(27)); // Press Cerrado
+        hipertrofiaClasica.guardarEjercicio(ejj.buscarItem(28)); // Jalon Triceps
+
+        rutinaEnCircuito.guardarEjercicio(ejj.buscarItem(14)); // Burpees
+        rutinaEnCircuito.guardarEjercicio(ejj.buscarItem(6));  // Dominadas
+        rutinaEnCircuito.guardarEjercicio(ejj.buscarItem(15)); // Flexiones
+        rutinaEnCircuito.guardarEjercicio(ejj.buscarItem(1));  // Sentadilla
+        rutinaEnCircuito.guardarEjercicio(ejj.buscarItem(16)); // Planchas
+        rutinaEnCircuito.guardarEjercicio(ejj.buscarItem(9));  // Zancadas caminando
+
+        calistenia.guardarEjercicio(ejj.buscarItem(6));  // Dominadas
+        calistenia.guardarEjercicio(ejj.buscarItem(17)); // Fondos
+        calistenia.guardarEjercicio(ejj.buscarItem(18)); // Flexiones Pike
+        calistenia.guardarEjercicio(ejj.buscarItem(16)); // Planchas
+        calistenia.guardarEjercicio(ejj.buscarItem(19)); // Pistols
+        calistenia.guardarEjercicio(ejj.buscarItem(9));  // Zancadas caminando
+        calistenia.guardarEjercicio(ejj.buscarItem(12)); // Hip Trust, empuje de cadera
+        calistenia.guardarEjercicio(ejj.buscarItem(20)); // Hollow Body
+
+        fuerzaPotencia.guardarEjercicio(ejj.buscarItem(29)); // Power Clean
+        fuerzaPotencia.guardarEjercicio(ejj.buscarItem(30)); // Push Press
+        fuerzaPotencia.guardarEjercicio(ejj.buscarItem(1));  // Sentadilla
+        fuerzaPotencia.guardarEjercicio(ejj.buscarItem(6));  // Dominadas
+        fuerzaPotencia.guardarEjercicio(ejj.buscarItem(21)); // Prees Inclinado
+        fuerzaPotencia.guardarEjercicio(ejj.buscarItem(7));  // Gemelos
+
+        rutinas.altaItem(fullBody);
+        rutinas.altaItem(upperLower);
+        rutinas.altaItem(pushPullLegs);
+        rutinas.altaItem(fuerza);
+        rutinas.altaItem(hipertrofiaClasica);
+        rutinas.altaItem(rutinaEnCircuito);
+        rutinas.altaItem(calistenia);
+        rutinas.altaItem(fuerzaPotencia);
+
+        for(Rutina e: rutinas.getInventario()){
+            System.out.println(e);
         }
+        //ControlData.guardarData(rutinas, "rutinas"); // NO FUNCIONA
 
     }
-
-
-    public static void cargaTemporal(GenericGestor<Rutina> gestor){
-
-        // Creando los objetos Rutinas
-        Rutina fullBody = new Rutina(3, "Foco en basicos y tecnicas");
-        Rutina upperLower = new Rutina(4,"Mas volumen, fuerza e hipertrofia");
-        Rutina pushPullLegs = new Rutina(6, "Full volumen");
-        Rutina fuerza = new Rutina(4, "Ejercicios basicos pesados");
-        Rutina hipertrofiaClasica = new Rutina(5, "Rutina muscular, un musculo por dia");
-        Rutina rutinaEnCircuito = new Rutina(2, "Todo el cuerpo en circuito");
-        Rutina calistenia = new Rutina(4, "Solo peso corporal");
-        Rutina fuerzaPotencia = new Rutina(4,"Ejercicios olimpicos simplificados");
-
-        // Creando objetos Ejercicios
-        Ejercicio abdominales = new Ejercicio("Abdominales", TipoGrupoMuscular.TORSO_MEDIO_ABDOMINALES, "Ejercicio de torso intermedio", 6,12);
-        Ejercicio sentadilla = new Ejercicio("Sentadilla", TipoGrupoMuscular.TORSO_INFERIOR_CUADRICEPS,"Con barra, rodillas altura hombro, y hasta abajo", 4,12);
-        Ejercicio pressBanca = new Ejercicio("Press banca", TipoGrupoMuscular.TORSO_SUPERIOR_PECHO,"Pecho plano", 4,12);
-        Ejercicio remoConMancuera = new Ejercicio("Remo con mancuera", TipoGrupoMuscular.TORSO_SUPERIOR_ESPALDA,"Ejercicio de espalda, con mancuerna", 4,12);
-        Ejercicio pesoMuertoRumano = new Ejercicio("Peso muerto rumano", TipoGrupoMuscular.TORSO_INFERIOR_ISQUIOTIBIALES,"Ejercicio de piernas,", 4,12);
-        Ejercicio pressMilitar = new Ejercicio("Press militar", TipoGrupoMuscular.TORSO_SUPERIOR_HOMBROS,"Ejercicio de hombro que se peude hacer con mancuernas o con barra", 4,10);
-        Ejercicio dominadas = new Ejercicio("Dominadas",TipoGrupoMuscular.TORSO_SUPERIOR_ESPALDA ,"Ejercicio de piernas, con maquina o con mancuernas", 4,15);
-        Ejercicio gemelos = new Ejercicio("Gemelos", TipoGrupoMuscular.TORSO_INFERIOR_GEMELOS,"Ejercicio de piernas, con mancuerna", 4,12);
-        Ejercicio facePull = new Ejercicio("Face pull", TipoGrupoMuscular.TORSO_SUPERIOR_HOMBROS,"Ejercicio de hombros, con polea", 4,12);
-        Ejercicio zancadasCaminando = new Ejercicio("Zancadas caminando", TipoGrupoMuscular.TORSO_INFERIOR_CUADRICEPS,"Ejercicio de piernas, sin mancuerna", 4,15);
-        Ejercicio curlBiceps = new Ejercicio("Curl biceps", TipoGrupoMuscular.TORSO_SUPERIOR_BICEPS,"Ejercicio de biceps, con mancuerna", 3,12);
-        Ejercicio RDL = new Ejercicio("Romanian DeadLift - Peso Muerto", TipoGrupoMuscular.TORSO_INFERIOR_ISQUIOTIBIALES,"Ejercicio de piernas, variacion del peso muerto rumano", 4,12);
-        Ejercicio hipThurst = new Ejercicio("Hip Trust, empuje de cadera", TipoGrupoMuscular.TORSO_INFERIOR_GLUTEOS,"Ejercicio de piernas, con barra y banca", 4,12);
-        Ejercicio curlBarra = new Ejercicio("Curl Barra", TipoGrupoMuscular.TORSO_SUPERIOR_BICEPS,"Ejercicio de biceps, con barra", 4,12);
-        Ejercicio burpees = new Ejercicio("Burpees", TipoGrupoMuscular.MULTIMUSCULAR,"Ejercicio multimuscular, buscar tocar las puntas de los pies hacer una flexion y saltar", 4,8);
-        Ejercicio flexiones = new Ejercicio("Flexiones", TipoGrupoMuscular.MULTIMUSCULAR,"Ejercicio multimuscular", 4,8);
-        Ejercicio planchas = new Ejercicio("Planchas", TipoGrupoMuscular.TORSO_MEDIO_ABDOMINALES,"Ejercicio de abdominales, hacer la plancha paralelo al suelo con el abdomen", 6,30);
-        Ejercicio fondos = new Ejercicio("Fondos", TipoGrupoMuscular.TORSO_SUPERIOR_TRICEPS,"Ejercicio de tricpes y pecho, se hace con barra paralelas o con banco plano", 6,10);
-        Ejercicio flexionesPike = new Ejercicio("Flexiones Pike", TipoGrupoMuscular.TORSO_SUPERIOR_HOMBROS,"Ejercicio de hombros, son como flexiones pero con la cola levantada", 5,10);
-        Ejercicio pistols = new Ejercicio("Pistols", TipoGrupoMuscular.MULTIMUSCULAR,"Ejercicio de piernas, son sentadillas pero a una pierna", 4,12);
-        Ejercicio hollowBody = new Ejercicio("Hollow Body", TipoGrupoMuscular.MULTIMUSCULAR,"Ejercicio de multimuscular, acostado y subis baros y piernas sin tocar el piso", 5,15);
-        Ejercicio pressInclinado = new Ejercicio("Prees Inclinado", TipoGrupoMuscular.TORSO_SUPERIOR_PECHO,"Ejercicio de pecho, con barra y banco inclinada", 4,10);
-        Ejercicio apertura = new Ejercicio("Apertura", TipoGrupoMuscular.TORSO_SUPERIOR_PECHO,"Ejercicio de pecho, con mancuerna y banco plano", 4,10);
-        Ejercicio jalon = new Ejercicio("Jalon", TipoGrupoMuscular.TORSO_SUPERIOR_ESPALDA,"Ejercicio de espalda, con maquina de jalon", 4,12);
-        Ejercicio pajaros = new Ejercicio("Pajaros", TipoGrupoMuscular.TORSO_SUPERIOR_HOMBROS,"Ejercicio de hombros, con mancuernas y banco, sentado con la cabeza a las rodillas y abriendo los brazos", 4,12);
-        Ejercicio encogimiento = new Ejercicio("Encogimiento", TipoGrupoMuscular.TORSO_SUPERIOR_HOMBROS,"Ejercicio de hombro, con mancuerna o barra", 6,8);
-        Ejercicio curlInclinado = new Ejercicio("Curl Inclinado", TipoGrupoMuscular.TORSO_SUPERIOR_BICEPS,"Ejercicio de biceps, con mancuerna y banco inclinado", 4,10);
-        Ejercicio pressCerrado = new Ejercicio("Press Cerrado", TipoGrupoMuscular.TORSO_SUPERIOR_TRICEPS,"Ejercicio de triceps, con barra y banco plano", 4,10);
-        Ejercicio jalonTriceps = new Ejercicio("Jalon Triceps", TipoGrupoMuscular.TORSO_SUPERIOR_TRICEPS,"Ejercicio de triceps, con poleas", 4,10);
-        Ejercicio powerClean = new Ejercicio("Power Clean", TipoGrupoMuscular.MULTIMUSCULAR,"Ejercicio de principalmente piernas, biceps y hombros. Con barra, se hace sentadilla y se termina power arriba", 3,8);
-        Ejercicio pushPress = new Ejercicio("Push Press", TipoGrupoMuscular.MULTIMUSCULAR,"Ejercicio de hombros, triceps y trapecio. Con barra", 3,8);
-        Ejercicio pesoMuerto = new Ejercicio("Peso Muerto", TipoGrupoMuscular.TORSO_INFERIOR_ISQUIOTIBIALES,"Ejercicio de isquiotibiales. Con barra", 4,10);
-        Ejercicio laterales = new Ejercicio("Laterales", TipoGrupoMuscular.TORSO_SUPERIOR_HOMBROS,"Ejercicio de hombros, con mancuernas", 4,10);
-        Ejercicio prensa = new Ejercicio("Prensa", TipoGrupoMuscular.TORSO_INFERIOR_ISQUIOTIBIALES,"Ejercicio de piernas, con maquina de prensa", 4,10);
-
-        // Guardando los Ejercicios en las Rutinas
-        fullBody.guardarEjercicio(sentadilla);
-        fullBody.guardarEjercicio(pressBanca);
-        fullBody.guardarEjercicio(remoConMancuera);
-        fullBody.guardarEjercicio(pesoMuertoRumano);
-        fullBody.guardarEjercicio(pressMilitar);
-        fullBody.guardarEjercicio(dominadas);
-
-        upperLower.guardarEjercicio(pressBanca);
-        upperLower.guardarEjercicio(pressMilitar);
-        upperLower.guardarEjercicio(dominadas);
-        upperLower.guardarEjercicio(remoConMancuera);
-        upperLower.guardarEjercicio(sentadilla);
-        upperLower.guardarEjercicio(RDL);
-        upperLower.guardarEjercicio(hipThurst);
-        upperLower.guardarEjercicio(gemelos);
-
-        pushPullLegs.guardarEjercicio(pressBanca);
-        pushPullLegs.guardarEjercicio(pressMilitar);
-        pushPullLegs.guardarEjercicio(fondos);
-        pushPullLegs.guardarEjercicio(laterales);
-        pushPullLegs.guardarEjercicio(jalonTriceps);
-        pushPullLegs.guardarEjercicio(dominadas);
-        pushPullLegs.guardarEjercicio(remoConMancuera);
-        pushPullLegs.guardarEjercicio(facePull);
-        pushPullLegs.guardarEjercicio(curlBiceps);
-        pushPullLegs.guardarEjercicio(sentadilla);
-        pushPullLegs.guardarEjercicio(RDL);
-        pushPullLegs.guardarEjercicio(hipThurst);
-        pushPullLegs.guardarEjercicio(gemelos);
-        pushPullLegs.guardarEjercicio(zancadasCaminando);
-
-        fuerza.guardarEjercicio(sentadilla);
-        fuerza.guardarEjercicio(pressBanca);
-        fuerza.guardarEjercicio(remoConMancuera);
-        fuerza.guardarEjercicio(pressMilitar);
-        fuerza.guardarEjercicio(pesoMuerto);
-
-        hipertrofiaClasica.guardarEjercicio(pressBanca);
-        hipertrofiaClasica.guardarEjercicio(pressInclinado);
-        hipertrofiaClasica.guardarEjercicio(apertura);
-        hipertrofiaClasica.guardarEjercicio(fondos);
-        hipertrofiaClasica.guardarEjercicio(dominadas);
-        hipertrofiaClasica.guardarEjercicio(remoConMancuera);
-        hipertrofiaClasica.guardarEjercicio(jalon);
-        hipertrofiaClasica.guardarEjercicio(facePull);
-        hipertrofiaClasica.guardarEjercicio(sentadilla);
-        hipertrofiaClasica.guardarEjercicio(prensa);
-        hipertrofiaClasica.guardarEjercicio(RDL);
-        hipertrofiaClasica.guardarEjercicio(gemelos);
-        hipertrofiaClasica.guardarEjercicio(pressMilitar);
-        hipertrofiaClasica.guardarEjercicio(laterales);
-        hipertrofiaClasica.guardarEjercicio(pajaros);
-        hipertrofiaClasica.guardarEjercicio(encogimiento);
-        hipertrofiaClasica.guardarEjercicio(curlBarra);
-        hipertrofiaClasica.guardarEjercicio(curlInclinado);
-        hipertrofiaClasica.guardarEjercicio(pressCerrado);
-        hipertrofiaClasica.guardarEjercicio(jalonTriceps);
-
-        rutinaEnCircuito.guardarEjercicio(burpees);
-        rutinaEnCircuito.guardarEjercicio(dominadas);
-        rutinaEnCircuito.guardarEjercicio(flexiones);
-        rutinaEnCircuito.guardarEjercicio(sentadilla);
-        rutinaEnCircuito.guardarEjercicio(planchas);
-        rutinaEnCircuito.guardarEjercicio(zancadasCaminando);
-
-        calistenia.guardarEjercicio(dominadas);
-        calistenia.guardarEjercicio(fondos);
-        calistenia.guardarEjercicio(flexionesPike);
-        calistenia.guardarEjercicio(planchas);
-        calistenia.guardarEjercicio(pistols);
-        calistenia.guardarEjercicio(zancadasCaminando);
-        calistenia.guardarEjercicio(hipThurst);
-        calistenia.guardarEjercicio(hollowBody);
-
-        fuerzaPotencia.guardarEjercicio(powerClean);
-        fuerzaPotencia.guardarEjercicio(pushPress);
-        fuerzaPotencia.guardarEjercicio(sentadilla);
-        fuerzaPotencia.guardarEjercicio(dominadas);
-        fuerzaPotencia.guardarEjercicio(pressInclinado);
-        fuerzaPotencia.guardarEjercicio(gemelos);
-
-        gestor.altaItem(fullBody);
-        gestor.altaItem(upperLower);
-        gestor.altaItem(pushPullLegs);
-        gestor.altaItem(fuerza);
-        gestor.altaItem(hipertrofiaClasica);
-        gestor.altaItem(rutinaEnCircuito);
-        gestor.altaItem(calistenia);
-        gestor.altaItem(fuerzaPotencia);
-    }
-
-
 
 }

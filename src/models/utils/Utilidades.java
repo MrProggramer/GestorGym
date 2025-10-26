@@ -1,5 +1,6 @@
 package models.utils;
 
+import Exceptions.ArchivoInvalidoException;
 import Exceptions.InvalidTypeException;
 import Exceptions.TipoMuscularInvalidoException;
 import enums.TipoGrupoMuscular;
@@ -21,7 +22,8 @@ import java.util.List;
 import java.util.Map;
 
 
-public abstract class Utilidades {
+public abstract class Utilidades<T> {
+
     //Metodo antiguo (manual)
     private static JSONObject userToJSON(User data) {
         JSONObject object = new JSONObject();
@@ -31,14 +33,14 @@ public abstract class Utilidades {
         object.put("Telefono", data.getTelefono());
         object.put("User", data.getUser());
         object.put("Password", data.getPass());
-        object.put("ID", data.getId());
-        if (data instanceof Cliente) {
-            object.put("cuotaAlDia", ((Cliente) data).isCuotaAlDia());
-            object.put("dias", ((Cliente) data).getDias());
-            object.put("listaRutinas", ((Cliente) data).getListaRutinas());
+        //object.put("ID", data.getId()); no tiene id
+        if (data instanceof Cliente c) {
+            object.put("cuotaAlDia", c.isCuotaAlDia());
+            object.put("dias", c.getDias());
+            object.put("rutina", c.getRutina());
         }
-        if (data instanceof Staff) {
-            object.put("isAdmin", ((Staff) data).isAdmin());
+        if (data instanceof Staff s) {
+            object.put("isAdmin", s.isAdmin());
         }
         return object;
     }
@@ -77,13 +79,7 @@ public abstract class Utilidades {
         return json;
     }
 
-    public static void cargarGestorUser(String archivo, GenericGestor<User> gestor){
-        JSONArray jUsers = ControlData.recuperarData(archivo+".json");
-        for(int i=0; i< jUsers.length(); i++){
-            User u = Utilidades.crearUserFromJSON(jUsers.getJSONObject(i));
-            gestor.altaItem(u);
-        }
-    }
+
 
     public static Ejercicio crearEjercicioFromJSON(JSONObject _e) throws TipoMuscularInvalidoException{
         Ejercicio ejercicio = new Ejercicio();

@@ -1,28 +1,13 @@
 package models.database;
 
-import Exceptions.InvalidTypeException;
-import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
 import interfaces.Identificable;
-import interfaces.Registrable;
-import models.rutinas.Ejercicio;
-import models.rutinas.Rutina;
-import models.users.Cliente;
-import models.users.ClienteTemporal;
-import models.users.Staff;
-import models.users.User;
 import models.utils.Utilidades;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 //MODIFICAR PARA UTILIZAR JSON
 
@@ -30,12 +15,14 @@ public abstract class ControlData{
 
     public static <T extends Identificable> void guardarData(GenericGestor<T> gestor, String nombreArchivo){
         File archivo = new File(nombreArchivo);
+        String path = "src/data/".concat(nombreArchivo+".json");
+
         try {
-            PrintWriter escribir = new PrintWriter(archivo);
+            PrintWriter escribir = new PrintWriter(path);
             escribir.println("[");
-            for(int i=0; i < gestor.getGestor().size(); i++){
-                escribir.println(Utilidades.ObjectToJSON(gestor.getGestor().get(i)));
-                if(i < gestor.getGestor().size() -1 ){
+            for(int i = 0; i < gestor.getInventario().size(); i++){
+                escribir.println(Utilidades.ObjectToJSON(gestor.getInventario().get(i)));
+                if(i < gestor.getInventario().size() -1 ){
                     escribir.print(",");
                 }
             }
@@ -48,7 +35,7 @@ public abstract class ControlData{
     }
 
     public static JSONArray recuperarData(String nombreArchivo){
-        String path = "src/data/".concat(nombreArchivo);
+        String path = "src/data/".concat(nombreArchivo+".json");
         try{
             String data = new String(Files.readAllBytes(Paths.get(path)));
             return new JSONArray(data);

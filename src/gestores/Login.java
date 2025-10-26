@@ -10,14 +10,14 @@ public class Login {
         this.usuarios = usuarios;
     }
 
-    public User autenticar(String user, String pass) {
-        for(User u : usuarios.getGestor().values()) {
-            if(u.getUser().equals(user) && u.getPass().equals(pass)) {
-                return u; //retorno el user para cargarlo luego a una clase Session y trabajar en el programa con ese usuario
-            }
-        }
-        return null; //crear exception
-    }
+//    public User autenticar(String user, String pass) {
+//        for(User u : usuarios.getGestor().values()) {
+//            if(u.getUser().equals(user) && u.getPass().equals(pass)) {
+//                return u; //retorno el user para cargarlo luego a una clase Session y trabajar en el programa con ese usuario
+//            }
+//        }
+//        return null; //crear exception
+//    }
 
     //    public void test() {
 //        User user1 = new Cliente("Pedro", "40123123", "mail@mail.com", "2231231234", "pedrito12", "passw", true, 31);

@@ -6,7 +6,8 @@ import org.json.JSONObject;
 
 import java.util.Scanner;
 
-public abstract class User implements Identificable, TransformableJSON {
+public abstract class User implements Identificable {
+    private int id;
     private final String type;
     private String nombre;
     private String dni;
@@ -53,6 +54,14 @@ public abstract class User implements Identificable, TransformableJSON {
 
     //Getter&Setters
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -87,16 +96,4 @@ public abstract class User implements Identificable, TransformableJSON {
     public String getPass() { return pass; }
     public void setPass(String pass) { this.pass = pass; }
 
-    @Override
-    public JSONObject toJSONObject(){
-        JSONObject object = new JSONObject();
-        object.put("Nombre", this.nombre);
-        object.put("Dni", this.dni);
-        object.put("Email", this.mail);
-        object.put("Telefono", this.telefono);
-        object.put("User", this.user);
-        object.put("Password", this.pass);
-
-        return object;
-    }
 }
