@@ -25,19 +25,19 @@ import java.util.Map;
 public abstract class Utilidades<T> {
 
     //Metodo antiguo (manual)
-    private static JSONObject userToJSON(User data) {
-        JSONObject object = new JSONObject();
-        object.put("Nombre", data.getNombre());
-        object.put("Dni", data.getDni());
-        object.put("Email", data.getMail());
-        object.put("Telefono", data.getTelefono());
-        object.put("User", data.getUser());
-        object.put("Password", data.getPass());
-        //object.put("ID", data.getId()); no tiene id
+    private JSONObject userToJSON(User data) {
+        JSONObject object = new JSONObject()
+            .put("id", data.getId())
+            .put("nombre", data.getNombre())
+            .put("dni", data.getDni())
+            .put("email", data.getMail())
+            .put("telefono", data.getTelefono())
+            .put("user", data.getUser())
+            .put("password", data.getPass());
         if (data instanceof Cliente c) {
-            object.put("cuotaAlDia", c.isCuotaAlDia());
-            object.put("dias", c.getDias());
-            object.put("rutina", c.getRutina());
+            object.put("cuotaAlDia", c.isCuotaAlDia())
+                .put("dias", c.getDias())
+                .put("rutina", c.getRutina());
         }
         if (data instanceof Staff s) {
             object.put("isAdmin", s.isAdmin());
@@ -50,22 +50,23 @@ public abstract class Utilidades<T> {
         JSONObject json = new JSONObject();
         Class<?> clazz = data.getClass();
 
-        while (clazz != null) {
+        while (clazz != null && clazz != Object.class) {
             for (Field field : clazz.getDeclaredFields()) {
                 field.setAccessible(true);
                 try {
                     Object value = field.get(data);
-                    if (value instanceof List<?>) {
+                    if (value == null) continue;
+
+                    if (value instanceof List<?> list) {
                         JSONArray array = new JSONArray();
-                        for (Object item : (List<?>) value) {
-                            array.put(ObjectToJSON(item));
+                        for (Object item : list) {
+                            if(isPrimitiveOrString(item) || item.getClass().isEnum()){
+                                array.put(item.toString());
+                            }else {
+                                array.put(ObjectToJSON(item));
+                            }
                         }
-                    } else if (value instanceof Map<?,?>) {
-                        JSONArray array = new JSONArray();
-                        for(Map.Entry<?,?> entry : ((Map<?,?>)value).entrySet()){
-                            //SOLO HACE PUT DEL VALUE, NO DE LA KEY
-                            array.put(ObjectToJSON(entry.getValue()));
-                        }
+                        json.put(field.getName(), array);
                     } else {
                         json.put(field.getName(), value);
                     }
@@ -77,6 +78,13 @@ public abstract class Utilidades<T> {
             clazz = clazz.getSuperclass();
         }
         return json;
+    }
+
+    private static boolean isPrimitiveOrString(Object obj) {
+        return obj instanceof String ||
+                obj instanceof Number ||
+                obj instanceof Boolean ||
+                obj instanceof Character;
     }
 
 
@@ -131,6 +139,7 @@ public abstract class Utilidades<T> {
         user.setDni(json.getString("dni"));
         user.setMail(json.getString("mail"));
         user.setTelefono(json.getString("telefono"));
+        user.setId(json.getInt("id"));
 
         if(user instanceof Staff u){
             u.setAdmin(json.getBoolean("isAdmin"));
@@ -151,6 +160,7 @@ public abstract class Utilidades<T> {
 
         return user;
     }
+
 
 }
 

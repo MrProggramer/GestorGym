@@ -10,13 +10,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Rutina implements Identificable { //falta ponerle una variable de nombre a la rutina, sino no se como se llama.
-    private List<Ejercicio> listaEjercicios;
     private final String type;
     private final int id;
     private static int count;
     private String nombre;
     private String descripcionRutina;
     private int cantidadDeDias;
+    private List<Ejercicio> listaEjercicios;
 
     public Rutina(int cantidadDeDias, String descripcionRutina,String nombre) {
         this.listaEjercicios = new ArrayList<>();
