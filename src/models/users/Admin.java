@@ -5,22 +5,22 @@ import models.rutinas.Rutina;
 
 import java.util.Scanner;
 
-public class Staff extends User  {
+public class Admin extends User  {
     private GenericGestor<Rutina> rutinas;
 
     // Constructor
-    public Staff(String nombre, String dni, String mail, String telefono, String user, String pass, boolean isAdmin, GenericGestor rutinas) {
+    public Admin(String nombre, String dni, String mail, String telefono, String user, String pass, boolean isAdmin, GenericGestor rutinas) {
         super(nombre, dni, mail, telefono, user, pass);
         this.rutinas = rutinas;
     }
-    public Staff(){}
+    public Admin(){}
 
     // metodo asignar turina
     public void asignarRutina (Cliente cliente, int opcion){
        // cliente.setRutina(rutinas.buscarItem(opcion));
     }
 
-    // crear user Staff
+    // crear user Admin
 
     @Override
     public User crear(Scanner sc) {
@@ -55,7 +55,7 @@ public class Staff extends User  {
 
     @Override
     public String toString() {
-        return "Staff{" +
+        return "Admin{" +
                 super.toString() +
                 '}';
     }
