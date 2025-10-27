@@ -1,9 +1,6 @@
 package models;
 
 import gestores.GenericGestor;
-import gestores.GestorUsers;
-import gestores.Login;
-import gui.GestorEscenas;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.User;

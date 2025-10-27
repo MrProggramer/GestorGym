@@ -117,6 +117,13 @@ public abstract class Utilidades {
         user.setId(json.getInt("id"));
         user.setActive(json.getBoolean("isActive"));
 
+        if(user instanceof Admin u){
+            //NADA
+        }
+        if(user instanceof Profesor u){
+            //NADA
+        }
+
         if(user instanceof Cliente u){
            u.setDias(json.getInt("dias"));
            u.setCuotaAlDia(json.getBoolean("cuotaAlDia"));

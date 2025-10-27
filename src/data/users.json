@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "type": "Admin",
+      "nombre": "Lucía Fernández",
+      "dni": "40222333",
+      "mail": "lucia.fernandez@gymapp.com",
+      "telefono": "1156789098",
+      "user": "luciaF",
+      "pass": "admin123",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "type": "Profesor",
+      "nombre": "Diego Romero",
+      "dni": "38555111",
+      "mail": "diego.romero@gymapp.com",
+      "telefono": "1145667788",
+      "user": "diegoR",
+      "pass": "profe456",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "type": "Profesor",
+      "nombre": "Marina López",
+      "dni": "40122777",
+      "mail": "marina.lopez@gymapp.com",
+      "telefono": "1165543344",
+      "user": "marinaL",
+      "pass": "train789",
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "type": "Cliente",
+      "nombre": "Tomás Díaz",
+      "dni": "39877444",
+      "mail": "tomas.diaz@mail.com",
+      "telefono": "1145567834",
+      "user": "tomiD",
+      "pass": "pass456",
+      "isActive": true,
+      "cuotaAlDia": true,
+      "dias": 4,
+      "rutina": {
+        "id": 12,
+        "nombre": "Full Body Fuerza",
+        "descripcionRutina": "Entrenamiento de cuerpo completo con énfasis en fuerza",
+        "cantidadDeDias": 3
+      }
+    },
+    {
+      "id": 5,
+      "type": "Cliente",
+      "nombre": "Camila Rojas",
+      "dni": "42119887",
+      "mail": "camila.rojas@mail.com",
+      "telefono": "1166781122",
+      "user": "camiR",
+      "pass": "abc123",
+      "isActive": false,
+      "cuotaAlDia": false,
+      "dias": 2,
+      "rutina": {
+        "id": 15,
+        "nombre": "Push Pull Legs",
+        "descripcionRutina": "Rutina de empuje, tirón y piernas para tonificación general",
+        "cantidadDeDias": 6
+      }
+    }
+  ]

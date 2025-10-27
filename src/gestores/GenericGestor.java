@@ -63,8 +63,8 @@ public class GenericGestor<T extends Identificable>{
     }
 
     public void actualizarGestor(String archivo) throws InvalidTypeException { //ESTÁ MAL HECHA, CAMBIAR A FUTURO
+        JSONArray data = ControlData.recuperarData(archivo); //VERIFICAR QUE LLEGUE LA INFO
         this.inventario.clear();
-        JSONArray data = ControlData.recuperarData(archivo);
         for(Object e : data){
             if(e instanceof JSONObject obj){
                 switch (archivo.toUpperCase()){

@@ -6,8 +6,8 @@ import models.rutinas.Rutina;
 import java.util.Scanner;
 
 public class Admin extends User  {
-    private GenericGestor<Rutina> rutinas;
-    private GenericGestor<User> users;
+    private GenericGestor<Rutina> rutinas = new GenericGestor<>();
+    private GenericGestor<User> users = new GenericGestor<>();
 
     // Constructor
     public Admin(String nombre, String dni, String mail, String telefono, String user, String pass, boolean isAdmin) {
@@ -15,13 +15,9 @@ public class Admin extends User  {
         this.rutinas.actualizarGestor("rutinas");
         this.users.actualizarGestor("users");
     }
-    public Admin(GenericGestor<User> usuarios, GenericGestor<Rutina> rutinas){
-        this.rutinas = rutinas;
-        this.users = usuarios;
-    }
     public Admin(){
-        this.rutinas.actualizarGestor("rutinas");
-        this.users.actualizarGestor("users");
+//        this.rutinas.actualizarGestor("rutinas");
+//        this.users.actualizarGestor("users"); PONERLOS DENTRO DE UN METODO Y CUANDO CREE EL ADMIN LLAME A ESE METODO PARA CARGAR LOS GESTORES
     }
 
 
@@ -29,22 +25,7 @@ public class Admin extends User  {
 
     @Override
     public User crear(Scanner sc) {
-        User aux = null;
-
-        System.out.println("Ingresa tu nombre completo");
-        aux.setNombre(sc.nextLine());
-        System.out.println("Ingresa tu dni");
-        aux.setDni(sc.nextLine());
-        System.out.println("Ingresa tu mail");
-        aux.setMail(sc.nextLine());
-        System.out.println("Ingresa tu telefono");
-        aux.setTelefono(sc.nextLine());
-        System.out.println("Ingresa el usuario que queres tener");
-        aux.setUser(sc.nextLine());
-        System.out.println("Ingresa la clave que queres tener");
-        aux.setPass(sc.nextLine());
-
-        return aux;
+        return null;
     }
 
     //Getter&Setter
