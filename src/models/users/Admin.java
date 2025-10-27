@@ -7,18 +7,23 @@ import java.util.Scanner;
 
 public class Admin extends User  {
     private GenericGestor<Rutina> rutinas;
+    private GenericGestor<User> users;
 
     // Constructor
-    public Admin(String nombre, String dni, String mail, String telefono, String user, String pass, boolean isAdmin, GenericGestor rutinas) {
+    public Admin(String nombre, String dni, String mail, String telefono, String user, String pass, boolean isAdmin) {
         super(nombre, dni, mail, telefono, user, pass);
+        this.rutinas.actualizarGestor("rutinas");
+        this.users.actualizarGestor("users");
+    }
+    public Admin(GenericGestor<User> usuarios, GenericGestor<Rutina> rutinas){
         this.rutinas = rutinas;
+        this.users = usuarios;
     }
-    public Admin(){}
+    public Admin(){
+        this.rutinas.actualizarGestor("rutinas");
+        this.users.actualizarGestor("users");
+    }
 
-    // metodo asignar turina
-    public void asignarRutina (Cliente cliente, int opcion){
-       // cliente.setRutina(rutinas.buscarItem(opcion));
-    }
 
     // crear user Admin
 
@@ -44,6 +49,14 @@ public class Admin extends User  {
 
     //Getter&Setter
 
+
+    public GenericGestor<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(GenericGestor<User> users) {
+        this.users = users;
+    }
 
     public GenericGestor<Rutina> getRutinas() {
         return rutinas;

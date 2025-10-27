@@ -4,6 +4,7 @@ import Exceptions.InvalidTypeException;
 import Exceptions.TipoMuscularInvalidoException;
 import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
+import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.*;
@@ -115,19 +116,6 @@ public abstract class Utilidades {
         user.setTelefono(json.getString("telefono"));
         user.setId(json.getInt("id"));
         user.setActive(json.getBoolean("isActive"));
-
-        if(user instanceof Admin u){
-            JSONArray jRutinas = json.getJSONArray("rutinas");
-            GenericGestor<Rutina> gestorRutinas = new GenericGestor<>();
-            for(Object elem : jRutinas){
-                Rutina rutina = Utilidades.crearRutinaFromJSON((JSONObject) elem);
-                gestorRutinas.altaItem(rutina);
-            }
-            u.setRutinas(gestorRutinas);
-        }
-        if(user instanceof Profesor u){
-            //NADA
-        }
 
         if(user instanceof Cliente u){
            u.setDias(json.getInt("dias"));

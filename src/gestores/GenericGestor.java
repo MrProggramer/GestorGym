@@ -3,6 +3,7 @@ package gestores;
 import Exceptions.InvalidTypeException;
 import interfaces.Identificable;
 import models.database.ControlData;
+import models.rutinas.Rutina;
 import models.users.User;
 import models.utils.Utilidades;
 import org.json.JSONArray;
@@ -17,6 +18,10 @@ public class GenericGestor<T extends Identificable>{
     public GenericGestor() {
         this.inventario = new ArrayList<>();
         this.type = getClass().getTypeName();
+    }
+    public GenericGestor(List<Rutina> rutinas){
+        this.type = getClass().getTypeName();
+        this.inventario = new ArrayList<>();
     }
 
     public List<T> getInventario() {
@@ -58,6 +63,7 @@ public class GenericGestor<T extends Identificable>{
     }
 
     public void actualizarGestor(String archivo) throws InvalidTypeException { //ESTÁ MAL HECHA, CAMBIAR A FUTURO
+        this.inventario.clear();
         JSONArray data = ControlData.recuperarData(archivo);
         for(Object e : data){
             if(e instanceof JSONObject obj){
@@ -70,6 +76,7 @@ public class GenericGestor<T extends Identificable>{
             }
         }
     }
+
 }
 
 
