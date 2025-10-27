@@ -15,6 +15,7 @@ public abstract class User implements Identificable {
     private String telefono;
     private String user;
     private String pass;
+    private boolean isActive;
 
     public String getType() {
         return type;
@@ -28,10 +29,12 @@ public abstract class User implements Identificable {
         this.telefono = telefono;
         this.user = user;
         this.pass = pass;
+        this.isActive = true;
     }
 
     // Constructor
     public User(){
+        this.isActive = true;
         this.type = getClass().getTypeName();
     }
 
@@ -57,6 +60,14 @@ public abstract class User implements Identificable {
 
     public int getId() {
         return id;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     public void setId(int id) {

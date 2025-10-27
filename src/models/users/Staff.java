@@ -6,13 +6,11 @@ import models.rutinas.Rutina;
 import java.util.Scanner;
 
 public class Staff extends User  {
-    private boolean isAdmin;    //en vez de enums, podemos usar isAdmin y/o instanceof para acceder a ciertos métodos
     private GenericGestor<Rutina> rutinas;
 
     // Constructor
     public Staff(String nombre, String dni, String mail, String telefono, String user, String pass, boolean isAdmin, GenericGestor rutinas) {
         super(nombre, dni, mail, telefono, user, pass);
-        this.isAdmin = isAdmin;
         this.rutinas = rutinas;
     }
     public Staff(){}
@@ -46,12 +44,6 @@ public class Staff extends User  {
 
     //Getter&Setter
 
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-    public void setAdmin(boolean admin) {
-        isAdmin = admin;
-    }
 
     public GenericGestor<Rutina> getRutinas() {
         return rutinas;
@@ -65,7 +57,6 @@ public class Staff extends User  {
     public String toString() {
         return "Staff{" +
                 super.toString() +
-                ", isAdmin=" + isAdmin +
                 '}';
     }
 

@@ -32,6 +32,7 @@ public class Rutina implements Identificable { //falta ponerle una variable de n
         this.type = this.getClass().getTypeName();
     }
 
+
     public Rutina crearEjercicio(Scanner sc){
         Rutina aux = new Rutina();
 

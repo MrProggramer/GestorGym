@@ -3,6 +3,7 @@ package gestores;
 import Exceptions.InvalidTypeException;
 import interfaces.Identificable;
 import models.database.ControlData;
+import models.users.User;
 import models.utils.Utilidades;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -41,7 +42,11 @@ public class GenericGestor<T extends Identificable>{
         inventario.add(item);
     }
     public void bajaItem(int item_id){
-        //actualizar después
+        for(T elem : inventario){
+            if(elem.getId() == item_id && elem instanceof User u){
+                    u.setActive(false);
+            }
+        }
     }
     public T buscarItem(int id_item){
         for(T e : inventario){

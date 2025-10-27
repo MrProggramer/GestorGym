@@ -1,11 +1,9 @@
 package models.utils;
 
-import Exceptions.ArchivoInvalidoException;
 import Exceptions.InvalidTypeException;
 import Exceptions.TipoMuscularInvalidoException;
 import enums.TipoGrupoMuscular;
 import gestores.GenericGestor;
-import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.Cliente;
@@ -19,31 +17,9 @@ import org.json.JSONObject;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
-public abstract class Utilidades<T> {
-
-    //Metodo antiguo (manual)
-    private JSONObject userToJSON(User data) {
-        JSONObject object = new JSONObject()
-            .put("id", data.getId())
-            .put("nombre", data.getNombre())
-            .put("dni", data.getDni())
-            .put("email", data.getMail())
-            .put("telefono", data.getTelefono())
-            .put("user", data.getUser())
-            .put("password", data.getPass());
-        if (data instanceof Cliente c) {
-            object.put("cuotaAlDia", c.isCuotaAlDia())
-                .put("dias", c.getDias())
-                .put("rutina", c.getRutina());
-        }
-        if (data instanceof Staff s) {
-            object.put("isAdmin", s.isAdmin());
-        }
-        return object;
-    }
+public abstract class Utilidades {
 
     //Transforma cualquier Object en un JSONobject (incluido listas)
     public static JSONObject ObjectToJSON(Object data) {
@@ -140,9 +116,9 @@ public abstract class Utilidades<T> {
         user.setMail(json.getString("mail"));
         user.setTelefono(json.getString("telefono"));
         user.setId(json.getInt("id"));
+        user.setActive(json.getBoolean("isActive"));
 
         if(user instanceof Staff u){
-            u.setAdmin(json.getBoolean("isAdmin"));
             JSONArray jRutinas = json.getJSONArray("rutinas");
             GenericGestor<Rutina> gestorRutinas = new GenericGestor<>();
             for(Object elem : jRutinas){
