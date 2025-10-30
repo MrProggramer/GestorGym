@@ -2,6 +2,7 @@ package gestores;
 
 import Exceptions.UserNotFoundException;
 import models.users.Cliente;
+import models.users.Profesor;
 import models.users.User;
 
 import java.util.Objects;
@@ -21,6 +22,14 @@ public class Login {
         if(user == null || user.isBlank() || pass == null || pass.isBlank())
             throw new IllegalArgumentException("Usuario y contraseña no pueden estar vacios");
 
+        /** Prueba de usuario */
+        /* Funciona bien el autenticar y su llamada desde lo más arriba (main), pero al haber errores en la clase App, no puede recibir la lista de usuarios registrados, por lo tanto, hice esta prueba temporal para probar */
+        //System.out.println(usuarios);
+        //Profesor test = new Profesor("test", "1123", "@m", "4450", "test", "pass", null);
+        //usuarios.altaItem(test);
+        System.out.println(usuarios);
+
+
         for (User u : usuarios.getInventario()) {
             if (Objects.equals(u.getUser(), user) && Objects.equals(u.getPass(), pass)) {
                 return u;
@@ -29,23 +38,14 @@ public class Login {
         throw new UserNotFoundException("Usuario o contraseña incorrectos");
     }
 
-    public void crearUser(String user, String pass) {
+    public void crearUser(String user, String pass) throws IllegalArgumentException {
+
+
+
+
 
     }
 
-
-
-
-    //    public void test() {
-//        User user1 = new Cliente("Pedro", "40123123", "mail@mail.com", "2231231234", "pedrito12", "passw", true, 31);
-//
-//        System.out.println(user1.getId());
-//        System.out.println(this.getGestor());
-//        this.altaItem(user1);
-//        System.out.println(this.getGestor());
-//        System.out.println("Buscar: ");
-//        System.out.println(this.buscarItem(user1.getId()));
-//    }
 
 
     //GS

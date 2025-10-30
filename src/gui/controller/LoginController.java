@@ -2,6 +2,7 @@ package gui.controller;
 
 import gestores.GenericGestor;
 import gestores.Login;
+import gui.GestorEscenas;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
@@ -20,11 +21,9 @@ public class LoginController extends Login implements Initializable {
     private double x = 0, y = 0;
     private Stage stage;
 
-
-    public LoginController(GenericGestor<User> usuarios) {
-        super(usuarios);
+    public LoginController() {
+        super(null);
     }
-
 
     // fx:id
     @FXML
@@ -37,7 +36,6 @@ public class LoginController extends Login implements Initializable {
     private Button loginButton;
     @FXML
     private Button registerButton;
-
     @FXML
     private Button quitButton;
 
@@ -57,9 +55,6 @@ public class LoginController extends Login implements Initializable {
             String username = userField.getText();
             String password = passField.getText();
 
-            User user1 = new Cliente("Pedro", "40123123", "mail@mail.com", "2231231234", "pedrito12", "passw", true, 31);
-            this.getUsuarios().altaItem(user1);
-
             System.out.println(username);
             System.out.println(password);
 
@@ -69,6 +64,12 @@ public class LoginController extends Login implements Initializable {
 
         registerButton.setOnAction(mouseEvent -> {
             //Enviar a menu registrar
+            try {
+                GestorEscenas.showRegistro();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         });
 
         quitButton.setOnAction(mouseEvent -> {

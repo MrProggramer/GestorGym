@@ -1,12 +1,14 @@
 package models;
 
 import gestores.GenericGestor;
+import gui.GestorEscenas;
+import javafx.application.Application;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.User;
 
 public class App {
-    public void inicializar(){
+    public void inicializar(){ //Esta funcion retorna errores de JSON. Revisar
 
         GenericGestor<Rutina> rutinas = new GenericGestor<>();
         rutinas.actualizarGestor("rutinas");
@@ -17,8 +19,9 @@ public class App {
         GenericGestor<User> usuarios = new GenericGestor<>();
         usuarios.actualizarGestor("users");
 
-        //Login login = new Login(usuarios);
-        //GestorEscenas gestor_escenas = new GestorEscenas(usuarios);
+        GestorEscenas.setUsuarios(usuarios);
+        Application.launch(GestorEscenas.class);
+
     }
 
 
