@@ -1,28 +1,32 @@
 package gui.controller;
 
+import Exceptions.UserNotFoundException;
 import gestores.GenericGestor;
-import gestores.Login;
 import gui.GestorEscenas;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import models.users.Cliente;
+import javafx.util.Duration;
 import models.users.User;
 
 import java.awt.event.ActionEvent;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class LoginController extends Login implements Initializable {
+public class LoginController implements Initializable {
     private double x = 0, y = 0;
     private Stage stage;
+    private GenericGestor<User> usuarios;
 
     public LoginController() {
-        super(null);
     }
 
     // fx:id
@@ -38,6 +42,8 @@ public class LoginController extends Login implements Initializable {
     private Button registerButton;
     @FXML
     private Button quitButton;
+    @FXML
+    private Label statusLabel;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,7 +65,12 @@ public class LoginController extends Login implements Initializable {
             System.out.println(password);
 
             //gestor.autenticar(username, password); // Al recibir el User si es verdadero, se lo debera enviar a una clase Session que corra el programa principal con ese usuario
-            this.autenticar(username, password);
+            User aux = autenticar(username, password);
+            if(aux == null) {
+                showMensajeTemporal("Usuario o contraseña incorrectos", Color.RED);
+            } else {
+                //Metodo que envia al programa principal
+            }
         });
 
         registerButton.setOnAction(mouseEvent -> {
@@ -77,6 +88,31 @@ public class LoginController extends Login implements Initializable {
         });
     }
 
+    public User autenticar(String user, String pass) throws UserNotFoundException, IllegalStateException, IllegalArgumentException {
+        if(usuarios == null || usuarios.getInventario() == null)
+            throw new IllegalStateException("Lista de usuarios sin inicializar");
+        if(user == null || user.isBlank() || pass == null || pass.isBlank())
+            throw new IllegalArgumentException("Usuario y contraseña no pueden estar vacios");
+
+        System.out.println(usuarios);
+
+        for (User u : usuarios.getInventario()) {
+            if (Objects.equals(u.getUser(), user) && Objects.equals(u.getPass(), pass)) {
+                return u;
+            }
+        }
+        throw new UserNotFoundException("Usuario o contraseña incorrectos");
+    }
+
+    private void showMensajeTemporal(String msg, Color color) {
+        statusLabel.setTextFill(color);
+        statusLabel.setText(msg);
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(3));
+        pause.setOnFinished(event -> statusLabel.setText(""));
+        pause.play();
+    }
+
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -84,5 +120,13 @@ public class LoginController extends Login implements Initializable {
     @FXML
     void closeProgram(ActionEvent event) {
         stage.close();
+    }
+
+    public GenericGestor<User> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(GenericGestor<User> usuarios) {
+        this.usuarios = usuarios;
     }
 }

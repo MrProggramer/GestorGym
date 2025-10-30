@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import models.database.ControlData;
 import models.users.Profesor;
 import models.users.User;
 
@@ -76,7 +77,7 @@ public class RegisterController implements Initializable {
         String mail = mailField.getText();
         String tlf = tlfField.getText();
 
-        if (nombre.isBlank() || usuario.isBlank() || pass.isBlank()) {
+        if (nombre.isBlank() || usuario.isBlank() || pass.isBlank() || dni.isBlank() || mail.isBlank() || tlf.isBlank() ) {
             showMensajeTemporal("Completa todos los campos", Color.RED);
             return;
         }
@@ -90,6 +91,8 @@ public class RegisterController implements Initializable {
 
         Profesor nuevo = new Profesor(nombre, dni, mail, tlf, usuario, pass, null);
         usuarios.altaItem(nuevo);
+        ControlData.guardarData(usuarios, "users");
+        usuarios.actualizarGestor("users");
 
         showMensajeTemporal("Usuario creado correctamente", Color.GREEN);
         System.out.println("Usuario agregado: " + usuario);
