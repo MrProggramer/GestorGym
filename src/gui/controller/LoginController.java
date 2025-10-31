@@ -65,12 +65,9 @@ public class LoginController implements Initializable {
             System.out.println(password);
 
             //gestor.autenticar(username, password); // Al recibir el User si es verdadero, se lo debera enviar a una clase Session que corra el programa principal con ese usuario
-            User aux = autenticar(username, password);
-            if(aux == null) {
-                showMensajeTemporal("Usuario o contraseña incorrectos", Color.RED);
-            } else {
-                //Metodo que envia al programa principal
-            }
+            autenticar(username, password);
+            //Metodo que envia al programa principal
+
         });
 
         registerButton.setOnAction(mouseEvent -> {
@@ -101,6 +98,7 @@ public class LoginController implements Initializable {
                 return u;
             }
         }
+        showMensajeTemporal("Usuario o contraseña incorrectos", Color.RED);
         throw new UserNotFoundException("Usuario o contraseña incorrectos");
     }
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.Label?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.LoginController">
    <children>
       <AnchorPane fx:id="panel" layoutX="119.0" layoutY="20.0" prefHeight="360.0" prefWidth="384.0" style="-fx-background-color: #e1e1e1;">
@@ -22,7 +22,7 @@
             </Text>
             <Button fx:id="registerButton" layoutX="122.0" layoutY="314.0" mnemonicParsing="false" text="Registrar nuevo usuario" />
             <Button fx:id="quitButton" layoutX="344.0" layoutY="14.0" mnemonicParsing="false" text="X" />
-             <Label fx:id="statusLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="329.0" prefHeight="25.0" prefWidth="384.0" textAlignment="CENTER" textFill="red" />
+             <Label fx:id="statusLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="276.0" prefHeight="25.0" prefWidth="384.0" textAlignment="CENTER" textFill="red" />
          </children>
       </AnchorPane>
    </children>

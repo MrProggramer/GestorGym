@@ -18,6 +18,7 @@ public class App {
 
         GenericGestor<User> usuarios = new GenericGestor<>();
         usuarios.actualizarGestor("users");
+        System.out.println(usuarios);
 
         GestorEscenas.setUsuarios(usuarios);
         Application.launch(GestorEscenas.class);
