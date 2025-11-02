@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.RegisterController">
+
+    <children>
+        <AnchorPane fx:id="panel" layoutX="119.0" layoutY="20.0" prefHeight="360.0" prefWidth="384.0" style="-fx-background-color: #e1e1e1;">
+                <children>
+                    <Label layoutX="102.0" layoutY="27.0" style="-fx-font-size: 20;" text="Registro de usuario" textAlignment="CENTER">
+                    <font>
+                      <Font name="System Bold" size="12.0" />
+                    </font>
+                    </Label>
+                    <TextField fx:id="nameField" layoutX="113.0" layoutY="63.0" promptText="Nombre completo" />
+                    <TextField fx:id="userField" layoutX="113.0" layoutY="95.0" promptText="Usuario" />
+                    <PasswordField fx:id="passField" layoutX="113.0" layoutY="128.0" promptText="Contraseña" />
+                    <Button fx:id="registerButton" layoutX="155.0" layoutY="298.0" text="Registrar" />
+                    <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" text="Volver" />
+                    <Label fx:id="statusLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="329.0" prefHeight="25.0" prefWidth="384.0" textAlignment="CENTER" textFill="red" />
+                    <TextField fx:id="dniField" layoutX="113.0" layoutY="160.0" promptText="DNI" />
+                    <TextField fx:id="mailField" layoutX="113.0" layoutY="193.0" promptText="E-mail" />
+                    <TextField fx:id="tlfField" layoutX="114.0" layoutY="225.0" promptText="Telefono" />
+                    <Button fx:id="quitButton" layoutX="344.0" layoutY="14.0" mnemonicParsing="false" text="X" />
+                    <ChoiceBox fx:id="userTypeChoiceBox" layoutX="112.0" layoutY="260.0" prefWidth="150.0" value="Tipo" >
+                        <items>
+                            <FXCollections fx:factory="observableArrayList"> </FXCollections>
+                        </items>
+                    </ChoiceBox>
+                 </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
