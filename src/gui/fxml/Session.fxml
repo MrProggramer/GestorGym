@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.controller.SessionController"
-            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: transparent;">
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Label?>
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SessionController">
     <children>
-        <AnchorPane fx:id="panel" layoutX="119.0" layoutY="20.0" prefHeight="360.0" prefWidth="384.0" style="-fx-background-color: #e1e1e1;">
-            <Button fx:id="quitButton" layoutX="344.0" layoutY="14.0" mnemonicParsing="false" text="X" />
-            <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" text="Volver" />
+        <AnchorPane fx:id="panel" layoutX="4.0" layoutY="5.0" prefHeight="591.0" prefWidth="792.0" style="-fx-background-color: #e1e1e1;">
+             <BorderPane prefHeight="591.0" prefWidth="792.0">
+                <top>
+                   <HBox spacing="10" prefHeight="26.0" prefWidth="792.0" BorderPane.alignment="CENTER">
+                            <Button fx:id="quitButton" mnemonicParsing="false" text="X" />
+                            <Button fx:id="backButton" text="Cerrar Sesión" />
+                            <Label fx:id="welcomeLabel" textFill="WHITE" style="-fx-font-size: 16;" />
+                   </HBox>
+                </top>
 
+                 <center>
+                     <StackPane fx:id="contentPane" />
+                 </center>
 
-
+             </BorderPane>
         </AnchorPane>
     </children>
 </AnchorPane>
