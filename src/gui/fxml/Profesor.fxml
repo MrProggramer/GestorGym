@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.controller.ProfesorController"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <Label fx:id="lb_nombre" style="-fx-font-size:18;" />
+    <ComboBox fx:id="cb_clientes" promptText="Seleccionar alumno" />
+    <ListView fx:id="lv_rutinas_disponibles" prefHeight="300" />
+    <Button fx:id="btn_asignar" text="Asignar rutina" onAction="#asignarRutina" />
+
+</AnchorPane>

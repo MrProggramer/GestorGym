@@ -77,10 +77,13 @@ public class SessionController implements Initializable {
             //inyectar los gestores en el sub controlador
             Object controller = loader.getController();
             if(controller instanceof ClienteController c)
+                c.setGestores(usuarios, rutinas, ejercicios, user);
+            else if(controller instanceof ProfesorController p)
+                p.setGestores(usuarios, rutinas, ejercicios, user);
+            else if(controller instanceof AdminController a)
+                a.setGestores(usuarios, rutinas, ejercicios, user);
 
-
-
-
+            contentPane.getChildren().setAll(vista);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
