@@ -1,44 +1,47 @@
 package models.users;
 
-import gestores.GenericGestor;
+
 import models.rutinas.Rutina;
 
-import java.util.Scanner;
+public class Profesor {
+    // Para idependizarlo de Staff - ya que no queremos que tenga todos los metodos que tiene staff
+    private Admin admin;
+    private Cliente cliente;
 
-public class Profesor extends User{
-    //private GenericGestor<Rutina> rutinas;
 
-    public Profesor(String nombre, String dni, String mail, String telefono, String user, String pass, GenericGestor<Rutina> rutinas) {
-        super(nombre, dni, mail, telefono, user, pass);
-        //this.rutinas = rutinas;
+    public Profesor(Admin admin, Cliente cliente) {
+        this.admin = admin;
+        this.cliente = cliente;
     }
-//    public Profesor(GenericGestor<Rutina> rutinas){
-//        this.rutinas = rutinas;
-//    }
-    public Profesor(){}
 
-//    public GenericGestor<Rutina> getRutinas() {
-//        return rutinas;
-//    }
-//
-//    public void setRutinas(GenericGestor<Rutina> rutinas) {
-//        this.rutinas = rutinas;
-//    }
-
-    @Override
-    public User crear(Scanner sc) {
-        return null;
+    public Admin getAdmin() {
+        return admin;
     }
-    @Override
-    public int getId() {
-        return super.getId();
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     @Override
     public String toString() {
         return "Profesor{" +
-                super.toString() +
-                //"rutinas=" + rutinas +
+                "admin=" + admin +
+                ", cliente=" + cliente +
                 '}';
     }
+
+    // METODO --> asignar rutina
+    public void asignarRutina(Rutina rutina){
+        Rutina rutinaAAsignar = null;
+
+    }
+
 }
