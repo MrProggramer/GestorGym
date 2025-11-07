@@ -11,7 +11,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-//MODIFICAR PARA UTILIZAR JSON
 
 public abstract class ControlData{
 
