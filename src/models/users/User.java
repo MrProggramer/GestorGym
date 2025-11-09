@@ -22,7 +22,7 @@ public abstract class User implements Identificable {
     }
 
     public User(String nombre, String dni, String mail, String telefono, String user, String pass) {
-        this.type = getClass().getSimpleName();
+        this.type = getClass().getName();
         this.nombre = nombre;
         this.dni = dni;
         this.mail = mail;

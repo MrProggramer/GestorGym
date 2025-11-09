@@ -24,6 +24,8 @@ public abstract class Utilidades {
         JSONObject json = new JSONObject();
         Class<?> clazz = data.getClass();
 
+        json.put("type", clazz.getSimpleName());
+
         while (clazz != null && clazz != Object.class) {
             for (Field field : clazz.getDeclaredFields()) {
                 field.setAccessible(true);
@@ -99,12 +101,14 @@ public abstract class Utilidades {
     }
 
     public static User crearUserFromJSON(JSONObject json) throws InvalidTypeException {
-        String type = json.getString("type");
+        String original = json.getString("type");
+        String type = original.replaceFirst("^model\\.user\\.", "");
+
         User user = switch (type) {
-            case "Admin" -> new Admin();
-            case "Cliente" -> new Cliente();
-            case "ClienteTemporal" -> new ClienteTemporal();
-            case "Profesor" -> new Profesor();
+            case "models.users.Admin" -> new Admin();
+            case "models.users.Cliente" -> new Cliente();
+            case "models.users.ClienteTemporal" -> new ClienteTemporal();
+            case "models.users.Profesor" -> new Profesor();
             default -> throw new InvalidTypeException("Tipo invalido");
         };
 
@@ -127,9 +131,10 @@ public abstract class Utilidades {
         if(user instanceof Cliente u){
            u.setDias(json.getInt("dias"));
            u.setCuotaAlDia(json.getBoolean("cuotaAlDia"));
-           u.setRutina(Utilidades.crearRutinaFromJSON(json.getJSONObject("rutina")));
+//           if(json.getJSONObject("rutina") != null){
+//               u.setRutina(Utilidades.crearRutinaFromJSON(json.getJSONObject("rutina")));
+//           }
         }
-        //CLIENTE TEMPORAL NO SE CREO POR QUE NO PARECE SER NECESARIO "ES TEMPORAL", NO DEBERIA ESTAR GUARDADO.
 
         return user;
     }

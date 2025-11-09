@@ -4,9 +4,6 @@ import gestores.GenericGestor;
 import interfaces.Identificable;
 import models.utils.Utilidades;
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;

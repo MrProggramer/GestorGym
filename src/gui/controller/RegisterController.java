@@ -97,12 +97,12 @@ public class RegisterController implements Initializable {
 
         User nuevo;
         if (tipo_usuario.equals("Profesor")) {
-            nuevo = new Profesor(nombre, dni, mail, tlf, usuario, pass, null);
+            //nuevo = new Profesor(nombre, dni, mail, tlf, usuario, pass, null);
         } else {
             nuevo = new Cliente(nombre, dni, mail, tlf, usuario, pass, true, 30);
         }
 
-        usuarios.altaItem(nuevo);
+        //usuarios.altaItem(nuevo);
         // ControlData.guardarData(usuarios, "users");  //Comentado por ahora ya que reformatea todo el json
         //usuarios.actualizarGestor("users");
 

@@ -63,8 +63,8 @@ public class SessionController implements Initializable {
         String fxml;
         if(user instanceof Cliente)
             fxml = "/gui/fxml/ClienteSession.fxml";
-        else if(user instanceof Profesor)
-            fxml = "/gui/fxml/ProfesorSession.fxml";
+//        else if(user instanceof Profesor)
+//            fxml = "/gui/fxml/ProfesorSession.fxml";
         else if(user instanceof Admin)
             fxml = "/gui/fxml/AdminSession.fxml";
         else
