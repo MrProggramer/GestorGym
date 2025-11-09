@@ -3,6 +3,8 @@ package models;
 import Exceptions.GestorOperationException;
 import Exceptions.UnauthorizedActionException;
 import gestores.GenericGestor;
+import gui.GestorEscenas;
+import javafx.application.Application;
 import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
@@ -30,13 +32,14 @@ public class App {
 
 
         for(User e : usuarios.getInventario()){
-            System.out.println(e.getType());
+            System.out.println(e.getUser());
+            System.out.println(e.getPass());
+            System.out.println("--------------------");
         }
-        //ControlData.guardarData(usuarios, "users");
 
 
-//        GestorEscenas.setUsuarios(usuarios);
-//        Application.launch(GestorEscenas.class);
+        GestorEscenas.setUsuarios(usuarios);
+        Application.launch(GestorEscenas.class);
 
     }
 
