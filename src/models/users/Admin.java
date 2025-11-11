@@ -22,15 +22,12 @@ public class Admin extends User  {
 
 
     // crear user Admin
-
     @Override
     public User crear(Scanner sc) {
         return null;
     }
 
     //Getter&Setter
-
-
     public GenericGestor<User> getUsers() {
         return users;
     }
@@ -53,6 +50,7 @@ public class Admin extends User  {
                 super.toString() +
                 '}';
     }
+
 
 
 
