@@ -43,8 +43,22 @@ public abstract class Utilidades {
                             }
                         }
                         json.put(field.getName(), array);
-                    } else {
+                    }
+//                    else {
+//                        json.put(field.getName(), value);
+//                    }
+
+                    //Si es primitivo, String o enum
+                    else if (isPrimitiveOrString(value) || value.getClass().isEnum()) {
+                        json.put(field.getName(), value.toString());
+                    }
+                    //Si ya es un JSONObject o JSONArray
+                    else if (value instanceof JSONObject || value instanceof JSONArray) {
                         json.put(field.getName(), value);
+                    }
+                    //Si es un objeto complejo (por ejemplo, Rutina, Ejercicio, etc.)
+                    else {
+                        json.put(field.getName(), ObjectToJSON(value));
                     }
 
                 } catch (IllegalAccessException e) {
@@ -121,19 +135,16 @@ public abstract class Utilidades {
         user.setId(json.getInt("id"));
         user.setActive(json.getBoolean("isActive"));
 
-        if(user instanceof Admin u){
-            //NADA
-        }
-        if(user instanceof Profesor u){
-            //NADA
-        }
 
         if(user instanceof Cliente u){
-           u.setDias(json.getInt("dias"));
-           u.setCuotaAlDia(json.getBoolean("cuotaAlDia"));
-//           if(json.getJSONObject("rutina") != null){
-//               u.setRutina(Utilidades.crearRutinaFromJSON(json.getJSONObject("rutina")));
-//           }
+            u.setDias(json.getInt("dias"));
+            u.setCuotaAlDia(json.getBoolean("cuotaAlDia"));
+
+            if(json.has("rutina")){
+                JSONObject jRutina = json.getJSONObject("rutina");
+                Rutina rutina = Utilidades.crearRutinaFromJSON(jRutina);
+                u.setRutina(rutina);
+            }
         }
 
         return user;

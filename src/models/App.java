@@ -10,6 +10,7 @@ import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.Cliente;
 import models.users.User;
+import models.utils.Utilidades;
 
 import java.util.Scanner;
 
@@ -27,15 +28,14 @@ public class App {
         GenericGestor<User> usuarios = new GenericGestor<>();
         usuarios.actualizarGestor("users");
 
-        User pepe = new Cliente("gonazlo", "pap", "asdas@asd", "asdasd", "GRam", "pass", true, 30);
-        usuarios.altaItem(pepe);
 
-
-        for(User e : usuarios.getInventario()){
-            System.out.println(e.getUser());
-            System.out.println(e.getPass());
-            System.out.println("--------------------");
+        User test = usuarios.buscarItem(99);
+        if(test instanceof Cliente a){
+            for(Ejercicio e: a.getRutina().getListaEjercicios()){
+                System.out.println(e);
+            }
         }
+
 
 
         GestorEscenas.setGestores(usuarios, rutinas, ejercicios);
