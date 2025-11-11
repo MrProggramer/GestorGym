@@ -64,9 +64,12 @@ public class LoginController implements Initializable {
             System.out.println(username);
             System.out.println(password);
 
-            //gestor.autenticar(username, password); // Al recibir el User si es verdadero, se lo debera enviar a una clase Session que corra el programa principal con ese usuario
-            autenticar(username, password);
             //Metodo que envia al programa principal
+            try {
+                GestorEscenas.showSession(autenticar(username, password));
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
 
         });
 
@@ -91,7 +94,6 @@ public class LoginController implements Initializable {
         if(user == null || user.isBlank() || pass == null || pass.isBlank())
             throw new IllegalArgumentException("Usuario y contraseña no pueden estar vacios");
 
-        System.out.println(usuarios);
 
         for (User u : usuarios.getInventario()) {
             if (Objects.equals(u.getUser(), user) && Objects.equals(u.getPass(), pass)) {

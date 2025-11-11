@@ -7,7 +7,12 @@
 
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.Label?>
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.SessionController">
+<AnchorPane prefHeight="600.0"
+            prefWidth="800.0"
+            style="-fx-background-color: transparent;"
+            xmlns="http://javafx.com/javafx/24.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gui.controller.SessionController">
     <children>
         <AnchorPane fx:id="panel" layoutX="4.0" layoutY="5.0" prefHeight="591.0" prefWidth="792.0" style="-fx-background-color: #e1e1e1;">
              <BorderPane prefHeight="591.0" prefWidth="792.0">

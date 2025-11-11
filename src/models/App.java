@@ -38,7 +38,7 @@ public class App {
         }
 
 
-        GestorEscenas.setUsuarios(usuarios);
+        GestorEscenas.setGestores(usuarios, rutinas, ejercicios);
         Application.launch(GestorEscenas.class);
 
     }

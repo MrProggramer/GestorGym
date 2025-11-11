@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
@@ -53,20 +54,28 @@ public class SessionController implements Initializable {
         backButton.setOnAction(e -> volverALogin());
     }
 
-    public void setUsuario(User u) {
-        this.user = u;
-        welcomeLabel.setText("Bienvenido, " + user.getNombre());
+    public void setSesion(User user_logged,
+                          GenericGestor<User> usuarios,
+                          GenericGestor<Rutina> rutinas,
+                          GenericGestor<Ejercicio> ejercicios) {
+        this.user = user_logged;
+        this.usuarios = usuarios;
+        this.rutinas = rutinas;
+        this.ejercicios = ejercicios;
+
+        welcomeLabel.setText("Bienvenido/a, " + user.getNombre() + " (" + user.getClass().getSimpleName() + ")");
+        welcomeLabel.setTextFill(Color.BLACK);
         cargarVistaPorTipo();
     }
 
     private void cargarVistaPorTipo() throws RuntimeException { //dependiendo la instancia de la clase, cargar un fxml u otro
         String fxml;
         if(user instanceof Cliente)
-            fxml = "/gui/fxml/ClienteSession.fxml";
-//        else if(user instanceof Profesor)
-//            fxml = "/gui/fxml/ProfesorSession.fxml";
+            fxml = "/gui/fxml/Cliente.fxml";
+        else if(user instanceof Profesor)
+            fxml = "/gui/fxml/Profesor.fxml";
         else if(user instanceof Admin)
-            fxml = "/gui/fxml/AdminSession.fxml";
+            fxml = "/gui/fxml/Admin.fxml";
         else
             throw new RuntimeException("Usuario no válido");
 
@@ -75,7 +84,7 @@ public class SessionController implements Initializable {
             Parent vista = loader.load();
 
             //inyectar los gestores en el sub controlador
-            Object controller = loader.getController();
+            BaseUserController controller = loader.getController();
             if(controller instanceof ClienteController c)
                 c.setGestores(usuarios, rutinas, ejercicios, user);
             else if(controller instanceof ProfesorController p)

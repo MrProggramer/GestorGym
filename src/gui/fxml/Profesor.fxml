@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="gui.controller.ProfesorController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ProfesorController">
 
-    <Label fx:id="lb_nombre" style="-fx-font-size:18;" />
-    <ComboBox fx:id="cb_clientes" promptText="Seleccionar alumno" />
-    <ListView fx:id="lv_rutinas_disponibles" prefHeight="300" />
-    <Button fx:id="btn_asignar" text="Asignar rutina" onAction="#asignarRutina" />
+    <Label fx:id="lb_nombre" layoutX="45.0" layoutY="30.0" prefHeight="27.0" prefWidth="183.0" style="-fx-font-size:18;" text="Rutinas" />
+    <ComboBox fx:id="cb_clientes" layoutX="312.0" layoutY="305.0" promptText="Seleccionar alumno" />
+    <ListView fx:id="lv_rutinas_disponibles" layoutX="45.0" layoutY="65.0" prefHeight="300" />
+    <Button fx:id="btn_asignar" layoutX="312.0" layoutY="340.0" onAction="#asignarRutina" text="Asignar rutina" />
 
 </AnchorPane>
