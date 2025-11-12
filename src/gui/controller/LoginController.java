@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -71,6 +72,23 @@ public class LoginController implements Initializable {
                 throw new RuntimeException(e);
             }
 
+        });
+
+        passField.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.ENTER){
+                String username = userField.getText();
+                String password = passField.getText();
+
+                System.out.println(username);
+                System.out.println(password);
+
+                //Metodo que envia al programa principal
+                try {
+                    GestorEscenas.showSession(autenticar(username, password));
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
         });
 
         registerButton.setOnAction(mouseEvent -> {
