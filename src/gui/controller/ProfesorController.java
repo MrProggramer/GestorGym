@@ -421,15 +421,4 @@ public class ProfesorController extends BaseUserController implements Initializa
         tf_admin_reps.clear();
         cb_grupo.setValue(null);
     }
-
-
-    private void mostrarMensaje(String msg, javafx.scene.paint.Color color, Label lb_status) {
-        lb_status.setTextFill(color);
-        lb_status.setText(msg);
-
-        PauseTransition pause = new PauseTransition(Duration.seconds(3));
-        pause.setOnFinished(event -> lb_status.setText(""));
-        pause.play();
-    }
-
 }

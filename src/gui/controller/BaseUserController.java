@@ -1,6 +1,9 @@
 package gui.controller;
 
 import gestores.GenericGestor;
+import javafx.animation.PauseTransition;
+import javafx.scene.control.Label;
+import javafx.util.Duration;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.User;
@@ -21,4 +24,13 @@ public abstract class BaseUserController {
     }
 
     protected abstract void inicializarVista();
+
+    public void mostrarMensaje(String msg, javafx.scene.paint.Color color, Label lb_status) {
+        lb_status.setTextFill(color);
+        lb_status.setText(msg);
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(3));
+        pause.setOnFinished(event -> lb_status.setText(""));
+        pause.play();
+    }
 }
