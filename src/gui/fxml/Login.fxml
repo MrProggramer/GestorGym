@@ -8,29 +8,63 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0"
+<?import javafx.scene.layout.VBox?>
+<AnchorPane prefHeight="600.0"
             prefWidth="600.0"
-            style="-fx-background-color: transparent;"
             xmlns="http://javafx.com/javafx/24.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="gui.controller.LoginController"
             stylesheets="@../css/styles.css"
+            style="-fx-background-color: transparent;"
 >
-   <children>
-      <AnchorPane fx:id="panel" layoutX="119.0" layoutY="20.0" prefHeight="360.0" prefWidth="384.0" >
-         <children>
-            <TextField fx:id="userField" layoutX="117.0" layoutY="155.0" promptText="Usuario" />
-            <PasswordField fx:id="passField" layoutX="117.0" layoutY="196.0" promptText="Contraseña" />
-            <Button fx:id="loginButton" layoutX="169.0" layoutY="239.0" mnemonicParsing="false" text="Login" />
-            <Text layoutX="119.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestor Gym">
-               <font>
-                  <Font size="28.0" />
-               </font>
-            </Text>
-            <Button fx:id="registerButton" layoutX="122.0" layoutY="314.0" mnemonicParsing="false" text="Registrar nuevo usuario" />
-            <Button fx:id="quitButton" layoutX="344.0" layoutY="14.0" mnemonicParsing="false" text="X" />
-             <Label fx:id="statusLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="276.0" prefHeight="25.0" prefWidth="384.0" textAlignment="CENTER" textFill="red" />
-         </children>
-      </AnchorPane>
-   </children>
+    <AnchorPane fx:id="panel" styleClass="recuadro"
+                layoutX="125" layoutY="100"
+                prefWidth="350.0" prefHeight="400">
+
+        <children>
+            <!-- Contenedor para alinear los elementos -->
+            <VBox alignment="CENTER"
+                  spacing="15"
+                  layoutY="60"
+                  prefWidth="250" prefHeight="50"
+                  AnchorPane.rightAnchor="50"
+                  AnchorPane.leftAnchor="50"
+                  AnchorPane.topAnchor="50"
+                  AnchorPane.bottomAnchor="50"
+            >
+
+                <Text text="Gestor Gym" styleClass="titulo"/>
+
+                <TextField fx:id="userField"
+                           promptText="Usuario"
+                           styleClass="text-field"/>
+
+                <PasswordField fx:id="passField"
+                               promptText="Contraseña"
+                               styleClass="password-field"/>
+
+                <Button fx:id="loginButton"
+                        text="Login"
+                        styleClass="btn"/>
+
+                <Button fx:id="registerButton"
+                        text="Registrar nuevo usuario"
+                        id="registerButton"/>
+            </VBox>
+
+            <!-- Botón de salir arriba a la derecha -->
+            <Button fx:id="quitButton"
+                    AnchorPane.rightAnchor="10"
+                    AnchorPane.topAnchor="10"
+                    text="✕"
+                    id="quitButton"/>
+
+            <!-- Mensaje de estado -->
+            <Label fx:id="statusLabel"
+                   layoutY="335.0" prefWidth="350.0"
+                   alignment="CENTER"
+                   textFill="red"/>
+        </children>
+
+    </AnchorPane>
 </AnchorPane>

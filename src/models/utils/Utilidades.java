@@ -3,8 +3,6 @@ package models.utils;
 import Exceptions.InvalidTypeException;
 import Exceptions.TipoMuscularInvalidoException;
 import enums.TipoGrupoMuscular;
-import gestores.GenericGestor;
-import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
 import models.users.*;
@@ -52,11 +50,11 @@ public abstract class Utilidades {
                     else if (isPrimitiveOrString(value) || value.getClass().isEnum()) {
                         json.put(field.getName(), value.toString());
                     }
-                    //Si ya es un JSONObject o JSONArray
+                    //un JSONObject o JSONArray
                     else if (value instanceof JSONObject || value instanceof JSONArray) {
                         json.put(field.getName(), value);
                     }
-                    //Si es un objeto complejo (por ejemplo, Rutina, Ejercicio, etc.)
+                    //objeto complejo (por ejemplo, Rutina, Ejercicio, etc.)
                     else {
                         json.put(field.getName(), ObjectToJSON(value));
                     }

@@ -190,16 +190,16 @@
       "nombre": "Fullbody",
       "cantidadDeDias": "3"
     },
-    "mail": "tomas.diaz@mail.com",
+    "mail": "cliente@mail.com",
     "pass": "root",
     "dias": "4",
     "cuotaAlDia": "true",
     "id": "99",
     "type": "models.users.Cliente",
-    "telefono": "1145567834",
+    "telefono": "0000000000",
     "isActive": "true",
-    "nombre": "TESTEO",
+    "nombre": "Test Cliente",
     "user": "root",
-    "dni": "39877444"
+    "dni": "00000000"
   }
 ]
