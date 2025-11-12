@@ -37,12 +37,12 @@ public class MenuLogin {
             return;
         }
 
-        // Verificar tipo de usuario y redirigir al menú correspondiente
+        // verificar tipo usuario --> menu correspondiente
         if (user instanceof Admin) {
             System.out.println("Bienvenido Administrador: " + user.getNombre());
             Admin admin = (Admin) user;
             
-            // Inicializar gestores del admin
+
             GenericGestor<Rutina> rutinas = admin.getRutinas();
             if (rutinas == null) {
                 rutinas = new GenericGestor<>();
@@ -51,27 +51,24 @@ public class MenuLogin {
             try {
                 rutinas.actualizarGestor("rutinas");
             } catch (Exception e) {
-                // Continuar si hay error
             }
             
             GenericGestor<User> usuariosAdmin = admin.getUsers();
             if (usuariosAdmin == null) {
-                usuariosAdmin = usuarios; // Usar el mismo gestor de usuarios
+                usuariosAdmin = usuarios;
                 admin.setUsers(usuariosAdmin);
             } else {
                 try {
                     usuariosAdmin.actualizarGestor("users");
                 } catch (Exception e) {
-                    // Continuar si hay error
                 }
             }
             
-            // Crear gestor de ejercicios
+
             GenericGestor<Ejercicio> ejercicios = new GenericGestor<>();
             try {
                 ejercicios.actualizarGestor("ejercicios");
             } catch (Exception e) {
-                // Continuar si no hay ejercicios
             }
             
             MenuAdmin menuAdmin = new MenuAdmin(sc, usuariosAdmin, rutinas, ejercicios);
@@ -80,12 +77,11 @@ public class MenuLogin {
             System.out.println("Bienvenido Profesor: " + user.getNombre());
             Profesor profesor = (Profesor) user;
             
-            // Crear gestor de rutinas
+
             GenericGestor<Rutina> rutinas = new GenericGestor<>();
             try {
                 rutinas.actualizarGestor("rutinas");
             } catch (Exception e) {
-                // Continuar si no hay rutinas
             }
             
             MenuProfesor menuProfesor = new MenuProfesor(sc, usuarios, rutinas, profesor);

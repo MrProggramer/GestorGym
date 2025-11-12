@@ -134,7 +134,6 @@ public class MenuProfesor {
         Cliente cliente = buscarClientePorUsuario();
         if (cliente == null) {
             System.out.println("Cliente no encontrado");
-            return;
         }
         
         System.out.println("\nCliente: " + cliente.getNombre());
@@ -146,14 +145,12 @@ public class MenuProfesor {
             if (respuesta.equals("s") || respuesta.equals("si")) {
                 asignarRutina();
             }
-            return;
         }
         
         System.out.println("Rutina actual: " + cliente.getRutina().getNombre());
         
         if (rutinas.getInventario().isEmpty()) {
             System.out.println("No hay rutinas disponibles");
-            return;
         }
         
         System.out.println("\nOpciones:");

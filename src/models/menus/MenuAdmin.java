@@ -228,7 +228,6 @@ public class MenuAdmin {
         for (User u : usuarios.getInventario()) {
             if (Objects.equals(u.getUser(), user)) {
                 System.out.println("Error: El usuario ya existe");
-                return;
             }
         }
         
@@ -267,7 +266,6 @@ public class MenuAdmin {
         
         if (profesor == null) {
             System.out.println("Profesor no encontrado");
-            return;
         }
         
         System.out.println("\n=== DATOS DEL PROFESOR ===");
@@ -330,7 +328,6 @@ public class MenuAdmin {
         // Mostrar ejercicios disponibles
         if (ejercicios.getInventario().isEmpty()) {
             System.out.println("No hay ejercicios disponibles. Debe crear ejercicios primero.");
-            return;
         }
         
         System.out.println("\nEjercicios disponibles:");
