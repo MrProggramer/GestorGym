@@ -1,16 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
+<?import javafx.collections.FXCollections?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.ProfesorController">
 
-    <Label fx:id="lb_nombre" layoutX="45.0" layoutY="30.0" prefHeight="27.0" prefWidth="183.0" style="-fx-font-size:18;" text="Rutinas" />
-    <ComboBox fx:id="cb_clientes" layoutX="312.0" layoutY="305.0" promptText="Seleccionar alumno" />
-    <ListView fx:id="lv_rutinas_disponibles" layoutX="45.0" layoutY="65.0" prefHeight="300" />
-    <Button fx:id="btn_asignar" layoutX="312.0" layoutY="340.0" onAction="#asignarRutina" text="Asignar rutina" />
 
+    <TabPane prefHeight="600" prefWidth="800">
+        <tabs>
+            <!-- ASIGNAR RUTINAS -->
+            <Tab text="Asignar Rutinas">
+                <AnchorPane>
+                    <Label fx:id="lb_nombre" layoutX="45.0" layoutY="30.0" prefHeight="27.0" prefWidth="183.0" style="-fx-font-size:18;" text="Rutinas" />
+                    <ComboBox fx:id="cb_clientes" layoutX="347.0" layoutY="65.0" promptText="Seleccionar alumno" />
+                    <ListView fx:id="lv_rutinas_disponibles" layoutX="45.0" layoutY="65.0" prefHeight="363.0" prefWidth="292.0" />
+                    <Button fx:id="btn_asignar" layoutX="355.0" layoutY="306.0" onAction="#asignarRutina" text="Asignar rutina" />
+                    <Button fx:id="btn_borrar" layoutX="355.0" layoutY="339.0" onAction="#borrarRutina" prefHeight="25.0" prefWidth="90.0" text="Borrar rutina" />
+
+                    <Label fx:id="lb_status_tab1" alignment="CENTER" contentDisplay="CENTER" layoutX="137.0" layoutY="28.0" prefHeight="31.0" prefWidth="156.0" textAlignment="CENTER" />
+                </AnchorPane>
+            </Tab>
+
+            <!-- CREAR RUTINAS -->
+            <Tab text="Crear Rutinas">
+                <AnchorPane>
+                    <Label layoutX="40" layoutY="30" text="Lista de Ejercicios" />
+                    <ListView fx:id="lv_ejercicios_disponibles" layoutX="40" layoutY="60" prefHeight="350" prefWidth="300" />
+
+                    <Button fx:id="btn_agregar_ejercicio" layoutX="360" layoutY="150" onAction="#agregarEjercicio" text="→" />
+                    <Button fx:id="btn_quitar_ejercicio" layoutX="360" layoutY="200" onAction="#quitarEjercicio" text="←" />
+
+                    <Label layoutX="420" layoutY="30" text="Ejercicios seleccionados" />
+                    <ListView fx:id="lv_ejercicios_seleccionados" layoutX="420" layoutY="60" prefHeight="350" prefWidth="300" />
+
+                    <TextField fx:id="tf_nombre_rutina" layoutX="40.0" layoutY="424.0" prefWidth="300" promptText="Nombre de rutina" />
+                    <TextArea fx:id="tf_desc" editable="true" layoutX="40.0" layoutY="457.0" prefHeight="59.0" prefWidth="301.0" promptText="Descripcion breve" wrapText="true" />
+                    <TextField fx:id="tf_cant_dias" layoutX="40.0" layoutY="523.0" prefWidth="300" promptText="Cantidad de dias" />
+                    <Button fx:id="btn_guardar_rutina" layoutX="627.0" layoutY="523.0" onAction="#guardarRutina" text="Guardar rutina" />
+
+                    <Label fx:id="lb_status_tab2" alignment="CENTER" contentDisplay="CENTER" layoutX="420.0" layoutY="428.0" prefHeight="47.0" prefWidth="299.0" textAlignment="CENTER" />
+                </AnchorPane>
+            </Tab>
+
+            <!-- ADMINISTRAR RUTINAS -->
+            <Tab text="Administrar Rutinas">
+                <AnchorPane>
+                    <ListView fx:id="lv_rutinas_disponibles_admin" layoutX="45.0" layoutY="65.0" prefHeight="166.0" prefWidth="303.0" />
+                    <Label layoutX="45.0" layoutY="29.0" prefHeight="28.0" prefWidth="183.0" style="-fx-font-size:18;" text="Rutinas" />
+                    <ListView fx:id="lv_ejercicios_disponibles_admin" layoutX="45.0" layoutY="279.0" prefHeight="272.0" prefWidth="303.0" />
+                    <Label layoutX="45.0" layoutY="259.0" prefHeight="17.0" prefWidth="280.0" text="Lista de Ejercicios">
+                    <font>
+                         <Font size="14.0" />
+                    </font>
+                    </Label>
+                    <Button fx:id="btn_admin_borrar" layoutX="709.0" layoutY="532.0" mnemonicParsing="false" text="Eliminar" onAction="#adminBorrarRutina"/>
+                    <Button fx:id="btn_admin_actualizar" layoutX="635.0" layoutY="532.0" mnemonicParsing="false" text="Actualizar" onAction="#adminActualizarRutina" />
+                    <Label fx:id="lb_status_tab4" alignment="CENTER" contentDisplay="CENTER" layoutX="420.0" layoutY="428.0" prefHeight="47.0" prefWidth="299.0" textAlignment="CENTER" />
+                   <HBox layoutX="372.0" layoutY="68.0" prefHeight="453.0" prefWidth="387.0">
+                      <children>
+                         <VBox prefHeight="453.0" prefWidth="106.0">
+                            <children>
+                               <Label prefHeight="15.0" prefWidth="47.0" text="Nombre:" />
+                               <Label prefHeight="73.0" prefWidth="65.0" text="Descripción:" />
+                               <Label prefHeight="26.0" prefWidth="34.0" text="Series:" />
+                               <Label prefHeight="29.0" prefWidth="70.0" text="Repeticiones:" />
+                               <Label text="Grupo Muscular:" />
+                            </children>
+                            <padding>
+                               <Insets left="5.0" top="5.0" />
+                            </padding>
+                         </VBox>
+                         <VBox prefHeight="453.0" prefWidth="282.0">
+                            <children>
+                               <TextField fx:id="tf_admin_nombre" prefHeight="27.0" prefWidth="282.0" />
+                               <TextArea fx:id="tf_admin_desc" prefHeight="68.0" prefWidth="282.0" />
+                               <TextField fx:id="tf_admin_series" />
+                               <TextField fx:id="tf_admin_reps" prefHeight="25.0" prefWidth="144.0" />
+                               <ChoiceBox fx:id="cb_grupo" prefHeight="25.0" prefWidth="282.0" value="Tipo">
+                                    <items>
+                                        <FXCollections fx:factory="observableArrayList"> </FXCollections>
+                                    </items>
+                               </ChoiceBox>
+                            </children>
+                         </VBox>
+                      </children>
+                   </HBox>
+                   <Label layoutX="372.0" layoutY="37.0" prefHeight="28.0" prefWidth="183.0" style="-fx-font-size:18;" text="Detalles" />
+                </AnchorPane>
+            </Tab>
+
+            <!-- ADMINISTRAR CLIENTES -->
+            <Tab text="Administrar Clientes">
+                <AnchorPane>
+                    <Label layoutX="40" layoutY="30" text="Clientes" />
+                    <ListView fx:id="lv_clientes" layoutX="40" layoutY="60" prefHeight="400" prefWidth="250" />
+
+                    <Label layoutX="320.0" layoutY="60.0" text="Días restantes:" />
+                    <TextField fx:id="tf_dias_restantes" layoutX="420" layoutY="55" prefWidth="80" />
+
+                    <CheckBox fx:id="cb_cuota_al_dia" layoutX="320" layoutY="100" text="Cuota al día" />
+
+                    <Button fx:id="btn_actualizar_cliente" layoutX="320.0" layoutY="429.0" onAction="#actualizarCliente" text="Actualizar" />
+
+                    <Label fx:id="lb_status_tab3" alignment="CENTER" contentDisplay="CENTER" layoutX="315.0" layoutY="361.0" prefHeight="39.0" prefWidth="260.0" textAlignment="CENTER" />
+                </AnchorPane>
+            </Tab>
+
+        </tabs>
+    </TabPane>
 </AnchorPane>

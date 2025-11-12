@@ -30,7 +30,6 @@ public class LoginController implements Initializable {
     public LoginController() {
     }
 
-    // fx:id
     @FXML
     private AnchorPane panel;
     @FXML

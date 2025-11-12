@@ -1,36 +1,342 @@
 [
-{"tipoGrupoMuscular":"TORSO_MEDIO_ABDOMINALES","descripcionEjericio":"Ejercicio de torso intermedio","series":6,"count":34,"repeticiones":12,"id":0,"type":"models.rutinas.Ejercicio","nombre":"Abdominales"}
-,{"tipoGrupoMuscular":"TORSO_INFERIOR_CUADRICEPS","descripcionEjericio":"Con barra, rodillas altura hombro, y hasta abajo","series":4,"count":34,"repeticiones":12,"id":1,"type":"models.rutinas.Ejercicio","nombre":"Sentadilla"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_PECHO","descripcionEjericio":"Pecho plano","series":4,"count":34,"repeticiones":12,"id":2,"type":"models.rutinas.Ejercicio","nombre":"Press banca"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de espalda, con mancuerna","series":4,"count":34,"repeticiones":12,"id":3,"type":"models.rutinas.Ejercicio","nombre":"Remo con mancuera"}
-,{"tipoGrupoMuscular":"TORSO_INFERIOR_ISQUIOTIBIALES","descripcionEjericio":"Ejercicio de piernas,","series":4,"count":34,"repeticiones":12,"id":4,"type":"models.rutinas.Ejercicio","nombre":"Peso muerto rumano"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_HOMBROS","descripcionEjericio":"Ejercicio de hombro que se peude hacer con mancuernas o con barra","series":4,"count":34,"repeticiones":10,"id":5,"type":"models.rutinas.Ejercicio","nombre":"Press militar"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de piernas, con maquina o con mancuernas","series":4,"count":34,"repeticiones":15,"id":6,"type":"models.rutinas.Ejercicio","nombre":"Dominadas"}
-,{"tipoGrupoMuscular":"TORSO_INFERIOR_GEMELOS","descripcionEjericio":"Ejercicio de piernas, con mancuerna","series":4,"count":34,"repeticiones":12,"id":7,"type":"models.rutinas.Ejercicio","nombre":"Gemelos"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_HOMBROS","descripcionEjericio":"Ejercicio de hombros, con polea","series":4,"count":34,"repeticiones":12,"id":8,"type":"models.rutinas.Ejercicio","nombre":"Face pull"}
-,{"tipoGrupoMuscular":"TORSO_INFERIOR_CUADRICEPS","descripcionEjericio":"Ejercicio de piernas, sin mancuerna","series":4,"count":34,"repeticiones":15,"id":9,"type":"models.rutinas.Ejercicio","nombre":"Zancadas caminando"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_BICEPS","descripcionEjericio":"Ejercicio de biceps, con mancuerna","series":3,"count":34,"repeticiones":12,"id":10,"type":"models.rutinas.Ejercicio","nombre":"Curl biceps"}
-,{"tipoGrupoMuscular":"TORSO_INFERIOR_ISQUIOTIBIALES","descripcionEjericio":"Ejercicio de piernas, variacion del peso muerto rumano","series":4,"count":34,"repeticiones":12,"id":11,"type":"models.rutinas.Ejercicio","nombre":"Romanian DeadLift - Peso Muerto"}
-,{"tipoGrupoMuscular":"TORSO_INFERIOR_GLUTEOS","descripcionEjericio":"Ejercicio de piernas, con barra y banca","series":4,"count":34,"repeticiones":12,"id":12,"type":"models.rutinas.Ejercicio","nombre":"Hip Trust, empuje de cadera"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_BICEPS","descripcionEjericio":"Ejercicio de biceps, con barra","series":4,"count":34,"repeticiones":12,"id":13,"type":"models.rutinas.Ejercicio","nombre":"Curl Barra"}
-,{"tipoGrupoMuscular":"MULTIMUSCULAR","descripcionEjericio":"Ejercicio multimuscular, buscar tocar las puntas de los pies hacer una flexion y saltar","series":4,"count":34,"repeticiones":8,"id":14,"type":"models.rutinas.Ejercicio","nombre":"Burpees"}
-,{"tipoGrupoMuscular":"MULTIMUSCULAR","descripcionEjericio":"Ejercicio multimuscular","series":4,"count":34,"repeticiones":8,"id":15,"type":"models.rutinas.Ejercicio","nombre":"Flexiones"}
-,{"tipoGrupoMuscular":"TORSO_MEDIO_ABDOMINALES","descripcionEjericio":"Ejercicio de abdominales, hacer la plancha paralelo al suelo con el abdomen","series":6,"count":34,"repeticiones":30,"id":16,"type":"models.rutinas.Ejercicio","nombre":"Planchas"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_TRICEPS","descripcionEjericio":"Ejercicio de tricpes y pecho, se hace con barra paralelas o con banco plano","series":6,"count":34,"repeticiones":10,"id":17,"type":"models.rutinas.Ejercicio","nombre":"Fondos"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_HOMBROS","descripcionEjericio":"Ejercicio de hombros, son como flexiones pero con la cola levantada","series":5,"count":34,"repeticiones":10,"id":18,"type":"models.rutinas.Ejercicio","nombre":"Flexiones Pike"}
-,{"tipoGrupoMuscular":"MULTIMUSCULAR","descripcionEjericio":"Ejercicio de piernas, son sentadillas pero a una pierna","series":4,"count":34,"repeticiones":12,"id":19,"type":"models.rutinas.Ejercicio","nombre":"Pistols"}
-,{"tipoGrupoMuscular":"MULTIMUSCULAR","descripcionEjericio":"Ejercicio de multimuscular, acostado y subis baros y piernas sin tocar el piso","series":5,"count":34,"repeticiones":15,"id":20,"type":"models.rutinas.Ejercicio","nombre":"Hollow Body"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_PECHO","descripcionEjericio":"Ejercicio de pecho, con barra y banco inclinada","series":4,"count":34,"repeticiones":10,"id":21,"type":"models.rutinas.Ejercicio","nombre":"Prees Inclinado"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_PECHO","descripcionEjericio":"Ejercicio de pecho, con mancuerna y banco plano","series":4,"count":34,"repeticiones":10,"id":22,"type":"models.rutinas.Ejercicio","nombre":"Apertura"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de espalda, con maquina de jalon","series":4,"count":34,"repeticiones":12,"id":23,"type":"models.rutinas.Ejercicio","nombre":"Jalon"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_HOMBROS","descripcionEjericio":"Ejercicio de hombros, con mancuernas y banco, sentado con la cabeza a las rodillas y abriendo los brazos","series":4,"count":34,"repeticiones":12,"id":24,"type":"models.rutinas.Ejercicio","nombre":"Pajaros"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_HOMBROS","descripcionEjericio":"Ejercicio de hombro, con mancuerna o barra","series":6,"count":34,"repeticiones":8,"id":25,"type":"models.rutinas.Ejercicio","nombre":"Encogimiento"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_BICEPS","descripcionEjericio":"Ejercicio de biceps, con mancuerna y banco inclinado","series":4,"count":34,"repeticiones":10,"id":26,"type":"models.rutinas.Ejercicio","nombre":"Curl Inclinado"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_TRICEPS","descripcionEjericio":"Ejercicio de triceps, con barra y banco plano","series":4,"count":34,"repeticiones":10,"id":27,"type":"models.rutinas.Ejercicio","nombre":"Press Cerrado"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_TRICEPS","descripcionEjericio":"Ejercicio de triceps, con poleas","series":4,"count":34,"repeticiones":10,"id":28,"type":"models.rutinas.Ejercicio","nombre":"Jalon Triceps"}
-,{"tipoGrupoMuscular":"MULTIMUSCULAR","descripcionEjericio":"Ejercicio de principalmente piernas, biceps y hombros. Con barra, se hace sentadilla y se termina power arriba","series":3,"count":34,"repeticiones":8,"id":29,"type":"models.rutinas.Ejercicio","nombre":"Power Clean"}
-,{"tipoGrupoMuscular":"MULTIMUSCULAR","descripcionEjericio":"Ejercicio de hombros, triceps y trapecio. Con barra","series":3,"count":34,"repeticiones":8,"id":30,"type":"models.rutinas.Ejercicio","nombre":"Push Press"}
-,{"tipoGrupoMuscular":"TORSO_INFERIOR_ISQUIOTIBIALES","descripcionEjericio":"Ejercicio de isquiotibiales. Con barra","series":4,"count":34,"repeticiones":10,"id":31,"type":"models.rutinas.Ejercicio","nombre":"Peso Muerto"}
-,{"tipoGrupoMuscular":"TORSO_SUPERIOR_HOMBROS","descripcionEjericio":"Ejercicio de hombros, con mancuernas","series":4,"count":34,"repeticiones":10,"id":32,"type":"models.rutinas.Ejercicio","nombre":"Laterales"}
-,{"tipoGrupoMuscular":"TORSO_INFERIOR_ISQUIOTIBIALES","descripcionEjericio":"Ejercicio de piernas, con maquina de prensa","series":4,"count":34,"repeticiones":10,"id":33,"type":"models.rutinas.Ejercicio","nombre":"Prensa"}
+  {
+    "tipoGrupoMuscular": "TORSO_MEDIO_ABDOMINALES",
+    "descripcionEjericio": "Ejercicio de torso intermedio",
+    "series": 6,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 0,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Abdominales"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_INFERIOR_CUADRICEPS",
+    "descripcionEjericio": "Con barra, rodillas altura hombro, y hasta abajo",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 1,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Sentadilla"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_PECHO",
+    "descripcionEjericio": "Pecho plano",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 2,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Press banca"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+    "descripcionEjericio": "Ejercicio de espalda, con mancuerna",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 3,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Remo con mancuera"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_INFERIOR_ISQUIOTIBIALES",
+    "descripcionEjericio": "Ejercicio de piernas,",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 4,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Peso muerto rumano"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS",
+    "descripcionEjericio": "Ejercicio de hombro que se peude hacer con mancuernas o con barra",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 5,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Press militar"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+    "descripcionEjericio": "Ejercicio de piernas, con maquina o con mancuernas",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 15,
+    "id": 6,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Dominadas"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_INFERIOR_GEMELOS",
+    "descripcionEjericio": "Ejercicio de piernas, con mancuerna",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 7,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Gemelos"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS",
+    "descripcionEjericio": "Ejercicio de hombros, con polea",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 8,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Face pull"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_INFERIOR_CUADRICEPS",
+    "descripcionEjericio": "Ejercicio de piernas, sin mancuerna",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 15,
+    "id": 9,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Zancadas caminando"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_BICEPS",
+    "descripcionEjericio": "Ejercicio de biceps, con mancuerna",
+    "series": 3,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 10,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Curl biceps"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_INFERIOR_ISQUIOTIBIALES",
+    "descripcionEjericio": "Ejercicio de piernas, variacion del peso muerto rumano",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 11,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Romanian DeadLift - Peso Muerto"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_INFERIOR_GLUTEOS",
+    "descripcionEjericio": "Ejercicio de piernas, con barra y banca",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 12,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Hip Trust, empuje de cadera"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_BICEPS",
+    "descripcionEjericio": "Ejercicio de biceps, con barra",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 13,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Curl Barra"
+  },
+  {
+    "tipoGrupoMuscular": "MULTIMUSCULAR",
+    "descripcionEjericio": "Ejercicio multimuscular, buscar tocar las puntas de los pies hacer una flexion y saltar",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 8,
+    "id": 14,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Burpees"
+  },
+  {
+    "tipoGrupoMuscular": "MULTIMUSCULAR",
+    "descripcionEjericio": "Ejercicio multimuscular",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 8,
+    "id": 15,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Flexiones"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_MEDIO_ABDOMINALES",
+    "descripcionEjericio": "Ejercicio de abdominales, hacer la plancha paralelo al suelo con el abdomen",
+    "series": 6,
+    "count": 34,
+    "repeticiones": 30,
+    "id": 16,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Planchas"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_TRICEPS",
+    "descripcionEjericio": "Ejercicio de tricpes y pecho, se hace con barra paralelas o con banco plano",
+    "series": 6,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 17,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Fondos"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS",
+    "descripcionEjericio": "Ejercicio de hombros, son como flexiones pero con la cola levantada",
+    "series": 5,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 18,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Flexiones Pike"
+  },
+  {
+    "tipoGrupoMuscular": "MULTIMUSCULAR",
+    "descripcionEjericio": "Ejercicio de piernas, son sentadillas pero a una pierna",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 19,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Pistols"
+  },
+  {
+    "tipoGrupoMuscular": "MULTIMUSCULAR",
+    "descripcionEjericio": "Ejercicio de multimuscular, acostado y subis baros y piernas sin tocar el piso",
+    "series": 5,
+    "count": 34,
+    "repeticiones": 15,
+    "id": 20,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Hollow Body"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_PECHO",
+    "descripcionEjericio": "Ejercicio de pecho, con barra y banco inclinada",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 21,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Prees Inclinado"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_PECHO",
+    "descripcionEjericio": "Ejercicio de pecho, con mancuerna y banco plano",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 22,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Apertura"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+    "descripcionEjericio": "Ejercicio de espalda, con maquina de jalon",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 23,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Jalon"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS",
+    "descripcionEjericio": "Ejercicio de hombros, con mancuernas y banco, sentado con la cabeza a las rodillas y abriendo los brazos",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 12,
+    "id": 24,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Pajaros"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS",
+    "descripcionEjericio": "Ejercicio de hombro, con mancuerna o barra",
+    "series": 6,
+    "count": 34,
+    "repeticiones": 8,
+    "id": 25,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Encogimiento"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_BICEPS",
+    "descripcionEjericio": "Ejercicio de biceps, con mancuerna y banco inclinado",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 26,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Curl Inclinado"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_TRICEPS",
+    "descripcionEjericio": "Ejercicio de triceps, con barra y banco plano",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 27,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Press Cerrado"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_TRICEPS",
+    "descripcionEjericio": "Ejercicio de triceps, con poleas",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 28,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Jalon Triceps"
+  },
+  {
+    "tipoGrupoMuscular": "MULTIMUSCULAR",
+    "descripcionEjericio": "Ejercicio de principalmente piernas, biceps y hombros. Con barra, se hace sentadilla y se termina power arriba",
+    "series": 3,
+    "count": 34,
+    "repeticiones": 8,
+    "id": 29,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Power Clean"
+  },
+  {
+    "tipoGrupoMuscular": "MULTIMUSCULAR",
+    "descripcionEjericio": "Ejercicio de hombros, triceps y trapecio. Con barra",
+    "series": 3,
+    "count": 34,
+    "repeticiones": 8,
+    "id": 30,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Push Press"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_INFERIOR_ISQUIOTIBIALES",
+    "descripcionEjericio": "Ejercicio de isquiotibiales. Con barra",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 31,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Peso Muerto"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS",
+    "descripcionEjericio": "Ejercicio de hombros, con mancuernas",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 32,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Laterales"
+  },
+  {
+    "tipoGrupoMuscular": "TORSO_INFERIOR_ISQUIOTIBIALES",
+    "descripcionEjericio": "Ejercicio de piernas, con maquina de prensa",
+    "series": 4,
+    "count": 34,
+    "repeticiones": 10,
+    "id": 33,
+    "type": "models.rutinas.Ejercicio",
+    "nombre": "Prensa"
+  }
 ]
