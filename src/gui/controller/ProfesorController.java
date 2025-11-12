@@ -1,5 +1,6 @@
 package gui.controller;
 
+import enums.TipoGrupoMuscular;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -58,7 +59,7 @@ public class ProfesorController extends BaseUserController implements Initializa
     @FXML private TextArea tf_admin_desc;
     @FXML private TextField tf_admin_series;
     @FXML private TextField tf_admin_reps;
-    @FXML private ChoiceBox<String> cb_grupo;
+    @FXML private ChoiceBox<TipoGrupoMuscular> cb_grupo;
 
 
 
@@ -73,7 +74,6 @@ public class ProfesorController extends BaseUserController implements Initializa
         cargarEjercicios();
         cargarClientes();
         cargarRutinasAdmin();
-        cargarEjerciciosAdmin();
     }
 
     //TAB ASIGNAR
@@ -256,21 +256,124 @@ public class ProfesorController extends BaseUserController implements Initializa
 
     //TAB ADMIN RUTINAS
     private void cargarRutinasAdmin() {
+        cb_grupo.getItems().setAll(TipoGrupoMuscular.values());
 
+        lv_rutinas_disponibles_admin.getItems().setAll(rutinas.getInventario());
+        lv_rutinas_disponibles_admin.setCellFactory(param -> new ListCell<>() {
+            @Override
+            protected void updateItem(Rutina r, boolean empty) {
+                super.updateItem(r, empty);
+                setText(empty || r == null ? null : r.getNombre());
+            }
+        });
+
+        //listener
+        lv_rutinas_disponibles_admin.getSelectionModel().selectedItemProperty().addListener((obs, old, selected) -> {
+            if (selected != null) {
+                mostrarEjerciciosDeRutina(selected);
+            } else {
+                lv_ejercicios_disponibles_admin.getItems().clear();
+                tf_admin_nombre.clear();
+                tf_admin_desc.clear();
+                tf_admin_series.clear();
+                tf_admin_reps.clear();
+                cb_grupo.setValue(null);
+            }
+        });
     }
 
-    private void cargarEjerciciosAdmin() {
+    private void mostrarEjerciciosDeRutina(Rutina rutina) {
+        lv_ejercicios_disponibles_admin.getItems().clear();
+        lv_ejercicios_disponibles_admin.getItems().addAll(rutina.getListaEjercicios());
 
+        //cell factory
+        lv_ejercicios_disponibles_admin.setCellFactory(param -> new ListCell<>() {
+            @Override
+            protected void updateItem(Ejercicio e, boolean empty) {
+                super.updateItem(e, empty);
+                if (empty || e == null) {
+                    setText(null);
+                } else {
+                    setText(e.getNombre() + " — " + e.getSeries() + "x" + e.getRepeticiones());
+                }
+            }
+        });
+
+        lv_ejercicios_disponibles_admin.getSelectionModel().selectedItemProperty().addListener((o, old, ej) -> {
+            if (ej != null) {
+                tf_admin_nombre.setText(ej.getNombre());
+                tf_admin_desc.setText(ej.getDescripcionEjericio());
+                tf_admin_series.setText(String.valueOf(ej.getSeries()));
+                tf_admin_reps.setText(String.valueOf(ej.getRepeticiones()));
+                cb_grupo.setValue(ej.getTipoGrupoMuscular());
+            }
+        });
     }
 
     @FXML
     private void adminBorrarRutina() {
+        Rutina rutina_selecc = lv_rutinas_disponibles_admin.getSelectionModel().getSelectedItem();
+        Ejercicio ejer_selecc = lv_ejercicios_disponibles_admin.getSelectionModel().getSelectedItem();
 
+        if (rutina_selecc == null) {
+            mostrarMensaje("Seleccione una rutina primero", Color.RED, lb_status_tab4);
+            return;
+        }
+
+        if (ejer_selecc == null) {
+            mostrarMensaje("Seleccione un ejercicio para eliminar", Color.RED, lb_status_tab4);
+            return;
+        }
+
+        rutina_selecc.getListaEjercicios().remove(ejer_selecc);
+        ControlData.guardarData(rutinas, "rutinas");
+        rutinas.actualizarGestor("rutinas");
+
+        mostrarEjerciciosDeRutina(rutina_selecc);
+        mostrarMensaje("Ejercicio eliminado exitosamente", Color.GREEN, lb_status_tab4);
     }
 
     @FXML
     private void adminActualizarRutina() {
+        Rutina rutina_selecc = lv_rutinas_disponibles_admin.getSelectionModel().getSelectedItem();
+        Ejercicio ejerc_selecc = lv_ejercicios_disponibles_admin.getSelectionModel().getSelectedItem();
 
+        if (rutina_selecc == null || ejerc_selecc == null) {
+            mostrarMensaje("Seleccione una rutina y un ejercicio primero", Color.RED, lb_status_tab4);
+        }
+
+        String nombre = tf_admin_nombre.getText().trim();
+        String desc = tf_admin_desc.getText().trim();
+        String series_txt = tf_admin_series.getText().trim();
+        String reps_txt = tf_admin_reps.getText().trim();
+        ejerc_selecc.setTipoGrupoMuscular(cb_grupo.getValue());
+
+        if(nombre.isBlank() || desc.isBlank() || series_txt.isBlank() || reps_txt.isBlank()) {
+            mostrarMensaje("Uno de los campos está vacío", Color.RED, lb_status_tab1);
+            return;
+        }
+
+        int series, reps;
+        try {
+            series = Integer.parseInt(series_txt);
+            reps = Integer.parseInt(reps_txt);
+        } catch (NumberFormatException e) {
+            mostrarMensaje("Series y repeticiones deben ser numeros", Color.RED, lb_status_tab4);
+            return;
+        }
+
+        ejerc_selecc.setNombre(nombre);
+        ejerc_selecc.setDescripcionEjericio(desc);
+        ejerc_selecc.setSeries(series);
+        ejerc_selecc.setRepeticiones(reps);
+        //ejerc_selecc.setTipoGrupoMuscular();
+
+        ControlData.guardarData(rutinas, "rutinas");
+        rutinas.actualizarGestor("rutinas");
+
+        lv_ejercicios_disponibles_admin.refresh();
+
+        mostrarMensaje("Ejercicio actualizado correctamente", Color.GREEN, lb_status_tab4);
     }
 
 
