@@ -86,6 +86,9 @@
 
 /* ===== Texto secundario (errores, etc.) ===== */
 .label {
-    -fx-text-fill: #ff5c5c;
+    -fx-text-fill: #e6e6e6;
     -fx-font-size: 13px;
+}
+#listView{
+    -fx-text-fill: blue;
 }

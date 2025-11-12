@@ -2,9 +2,13 @@ package models.database;
 
 import gestores.GenericGestor;
 import interfaces.Identificable;
+import models.users.User;
 import models.utils.Utilidades;
 import org.json.JSONArray;
-import java.io.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -42,5 +46,8 @@ public abstract class ControlData{
         }
     }
 
+    public static void guardadoRapido(GenericGestor<User> usuarios){
+        guardarData(usuarios,"users");
+    }
 
 }

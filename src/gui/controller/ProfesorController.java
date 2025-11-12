@@ -1,16 +1,10 @@
 package gui.controller;
 
 import enums.TipoGrupoMuscular;
-import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
 import models.database.ControlData;
 import models.rutinas.Ejercicio;
 import models.rutinas.Rutina;
@@ -122,7 +116,7 @@ public class ProfesorController extends BaseUserController implements Initializa
         User user_selecc = cb_clientes.getValue();
         Rutina rutina_selecc = lv_rutinas_disponibles.getSelectionModel().getSelectedItem();
 
-        if(user_selecc instanceof Cliente c && rutina_selecc == null) {
+        if(user_selecc instanceof Cliente c && rutina_selecc != null) {
             c.setRutina(rutina_selecc);
             ControlData.guardarData(usuarios, "users");
             usuarios.actualizarGestor("users");

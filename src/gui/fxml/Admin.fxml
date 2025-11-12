@@ -25,18 +25,18 @@
 
 
 
-    <TabPane prefHeight="600" prefWidth="800" tabClosingPolicy="UNAVAILABLE">
+    <TabPane prefHeight="600" prefWidth="800" tabClosingPolicy="UNAVAILABLE" styleClass="recuadro">
         <tabs>
 
             <!-- ADMINISTRAR USUARIOS -->
-            <Tab closable="false" text="Administrar Usuarios">
+            <Tab closable="false" text="Administrar Usuarios" styleClass="btn" >
                 <AnchorPane>
                     <Label layoutX="15.0" layoutY="8.0" prefHeight="27.0" prefWidth="201.0" style="-fx-font-size: 18;" text="Usuarios" />
-                    <ListView fx:id="lv_usuarios" layoutX="5.0" layoutY="35.0" prefHeight="359.0" prefWidth="359.0" />
-                    <Button fx:id="btn_add_user" layoutX="300.0" layoutY="402.0" mnemonicParsing="false" onAction="#registrarNuevoUser" text="Registrar" />
-                    <Button fx:id="btn_del_user" layoutX="14.0" layoutY="402.0" mnemonicParsing="false" onAction="#bajarUsuario" text="Bajar " />
+                    <ListView fx:id="lv_usuarios" layoutX="5.0" layoutY="35.0" prefHeight="359.0" prefWidth="359.0" styleClass="text-field"/>
+                    <Button fx:id="btn_add_user" layoutX="300.0" layoutY="402.0" mnemonicParsing="false" onAction="#registrarNuevoUser" text="Registrar" styleClass="btn"/>
+                    <Button fx:id="btn_del_user" layoutX="14.0" layoutY="402.0" mnemonicParsing="false" onAction="#bajarUsuario" text="Bajar " styleClass="btn"/>
                     <Label fx:id="lb_status" alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="454.0" prefHeight="68.0" prefWidth="213.0" textAlignment="CENTER" />
-                    <Button layoutX="151.0" layoutY="402.0" mnemonicParsing="false" onAction="#actualizarUsuario" text="Actualizar" />
+                    <Button layoutX="151.0" layoutY="402.0" mnemonicParsing="false" onAction="#actualizarUsuario" text="Actualizar" styleClass="btn"/>
                     <GridPane layoutX="376.0" layoutY="35.0" prefHeight="524.0" prefWidth="409.0" hgap="10" vgap="10">
                         <columnConstraints>
                             <!-- labels -->

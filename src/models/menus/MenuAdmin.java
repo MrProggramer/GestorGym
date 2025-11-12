@@ -69,6 +69,7 @@ public class MenuAdmin {
                     asignarRutina();
                     break;
                 case 9:
+
                     System.out.println("Saliendo del menú...");
                     break;
                 default:
