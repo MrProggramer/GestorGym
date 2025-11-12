@@ -97,7 +97,14 @@ public class RegisterController implements Initializable {
 
         User nuevo = null;
         if (tipo_usuario.equals("Profesor")) {
-            //nuevo = new Profesor(nombre, dni, mail, tlf, usuario, pass, null);
+            nuevo = new Profesor();
+            nuevo.setActive(true);
+            nuevo.setNombre(nombre);
+            nuevo.setDni(dni);
+            nuevo.setMail(mail);
+            nuevo.setTelefono(tlf);
+            nuevo.setUser(usuario);
+            nuevo.setPass(pass);
         } else {
             nuevo = new Cliente(nombre, dni, mail, tlf, usuario, pass, true, 30);
         }
@@ -107,7 +114,7 @@ public class RegisterController implements Initializable {
         usuarios.actualizarGestor("users");
 
         showMensajeTemporal("Usuario creado correctamente", Color.GREEN);
-        System.out.println("Usuario agregado: " + usuario);
+        System.out.println("Usuario agregado: " + nuevo);
     }
 
     private void showMensajeTemporal(String msg, Color color) {

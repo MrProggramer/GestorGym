@@ -50,7 +50,7 @@
                         </padding>
 
                         <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-                        <TextField fx:id="tf_u_id" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                        <TextField fx:id="tf_u_id" GridPane.rowIndex="0" GridPane.columnIndex="1" editable="false" />
 
                         <Label text="Nombre:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
                         <TextField fx:id="tf_u_nombre" GridPane.rowIndex="1" GridPane.columnIndex="1" />

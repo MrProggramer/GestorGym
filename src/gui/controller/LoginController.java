@@ -113,7 +113,7 @@ public class LoginController implements Initializable {
 
 
         for (User u : usuarios.getInventario()) {
-            if (Objects.equals(u.getUser(), user) && Objects.equals(u.getPass(), pass)) {
+            if (Objects.equals(u.getUser(), user) && Objects.equals(u.getPass(), pass) && u.isActive()) {
                 return u;
             }
         }
