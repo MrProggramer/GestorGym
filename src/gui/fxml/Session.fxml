@@ -7,6 +7,7 @@
 
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Region?>
 <AnchorPane prefHeight="600.0"
             prefWidth="800.0"
             style="-fx-background-color: transparent;"
@@ -16,21 +17,48 @@
             stylesheets="@../css/styles.css"
 >
     <children>
-        <AnchorPane fx:id="panel" layoutX="4.0" layoutY="5.0" prefHeight="591.0" prefWidth="792.0" style="-fx-background-color: #e1e1e1;">
-             <BorderPane prefHeight="591.0" prefWidth="792.0">
+        <AnchorPane fx:id="panel"
+                    layoutX="4.0" layoutY="5.0"
+                    prefHeight="591.0" prefWidth="792.0"
+                    styleClass="recuadro">
+
+            <BorderPane prefHeight="591.0" prefWidth="792.0">
+
+                <!-- ==== Barra superior ==== -->
                 <top>
-                   <HBox spacing="10" prefHeight="26.0" prefWidth="792.0" BorderPane.alignment="CENTER">
-                            <Button fx:id="quitButton" mnemonicParsing="false" text="X" />
-                            <Button fx:id="backButton" text="Cerrar Sesión" />
-                            <Label fx:id="welcomeLabel" textFill="WHITE" style="-fx-font-size: 16;" />
-                   </HBox>
+                    <HBox spacing="10"
+                          alignment="CENTER_LEFT"
+                          prefHeight="40.0"
+                          style="-fx-padding: 8 16 8 16;"
+                          BorderPane.alignment="CENTER">
+
+
+                        <!-- Etiqueta bienvenida -->
+                        <Label fx:id="welcomeLabel"
+                        text="Bienvenido"
+                        styleClass="label"/>
+
+                        <!-- Espaciador flexible -->
+                        <Region HBox.hgrow="ALWAYS"/>
+
+                        <!-- Botón cerrar sesión -->
+                        <Button fx:id="backButton"
+                        text="Cerrar Sesión"
+                        styleClass="btn"/>
+
+                        <!-- Botón salir -->
+                        <Button fx:id="quitButton"
+                                text="✕"
+                                id="quitButton"/>
+                    </HBox>
                 </top>
 
-                 <center>
-                     <StackPane fx:id="contentPane" />
-                 </center>
+                <!-- ==== Contenido principal ==== -->
+                <center>
+                    <StackPane fx:id="contentPane"/>
+                </center>
 
-             </BorderPane>
+            </BorderPane>
         </AnchorPane>
     </children>
 </AnchorPane>

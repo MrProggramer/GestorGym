@@ -34,6 +34,15 @@
 }
 
 /* ===== Botones ===== */
+#button {
+    -fx-background-color: linear-gradient(to bottom, #00ffe0, #00b8b0);
+    -fx-text-fill: #1b1b1b;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-background-radius: 8px;
+    -fx-padding: 6 18 6 18;
+    -fx-cursor: hand;
+}
 .btn {
     -fx-background-color: linear-gradient(to bottom, #00ffe0, #00b8b0);
     -fx-text-fill: #1b1b1b;
