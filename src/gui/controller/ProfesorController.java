@@ -54,6 +54,7 @@ public class ProfesorController extends BaseUserController implements Initializa
     @FXML private ListView<Ejercicio> lv_ejercicios_disponibles_admin;
     @FXML private Button btn_admin_borrar;
     @FXML private Button btn_admin_actualizar;
+    @FXML private Button btn_admin_agregar;
     @FXML private Label lb_status_tab4;
     @FXML private TextField tf_admin_nombre;
     @FXML private TextArea tf_admin_desc;
@@ -366,7 +367,7 @@ public class ProfesorController extends BaseUserController implements Initializa
         ejerc_selecc.setDescripcionEjericio(desc);
         ejerc_selecc.setSeries(series);
         ejerc_selecc.setRepeticiones(reps);
-        //ejerc_selecc.setTipoGrupoMuscular();
+        cb_grupo.setValue(ejerc_selecc.getTipoGrupoMuscular());
 
         ControlData.guardarData(rutinas, "rutinas");
         rutinas.actualizarGestor("rutinas");
@@ -374,6 +375,51 @@ public class ProfesorController extends BaseUserController implements Initializa
         lv_ejercicios_disponibles_admin.refresh();
 
         mostrarMensaje("Ejercicio actualizado correctamente", Color.GREEN, lb_status_tab4);
+    }
+
+    @FXML
+    private void adminAgregarEjercicio() {
+        Rutina rutina_selecc = lv_rutinas_disponibles_admin.getSelectionModel().getSelectedItem();
+        if (rutina_selecc == null) {
+            mostrarMensaje("Seleccione una rutina primero", Color.RED, lb_status_tab4);
+            return;
+        }
+
+        String nombre = tf_admin_nombre.getText().trim();
+        String desc = tf_admin_desc.getText().trim();
+        String series_txt = tf_admin_series.getText().trim();
+        String reps_txt = tf_admin_reps.getText().trim();
+        TipoGrupoMuscular tipo = cb_grupo.getValue();
+
+        if (nombre.isEmpty() || desc.isEmpty() || series_txt.isEmpty() || reps_txt.isEmpty() || tipo == null) {
+            mostrarMensaje("Complete todos los campos para agregar un ejercicio", Color.RED, lb_status_tab4);
+            return;
+        }
+
+        int series, reps;
+        try {
+            series = Integer.parseInt(series_txt);
+            reps = Integer.parseInt(reps_txt);
+        } catch (NumberFormatException e) {
+            mostrarMensaje("Series y repeticiones deben ser números", Color.RED, lb_status_tab4);
+            return;
+        }
+
+        Ejercicio nuevoEjercicio = new Ejercicio(nombre, tipo, desc, series, reps);
+        rutina_selecc.getListaEjercicios().add(nuevoEjercicio);
+
+        lv_ejercicios_disponibles_admin.getItems().add(nuevoEjercicio);
+        lv_ejercicios_disponibles_admin.refresh();
+
+        ControlData.guardarData(rutinas, "rutinas");
+        rutinas.actualizarGestor("rutinas");
+
+        mostrarMensaje("Ejercicio agregado correctamente", Color.GREEN, lb_status_tab4);
+        tf_admin_nombre.clear();
+        tf_admin_desc.clear();
+        tf_admin_series.clear();
+        tf_admin_reps.clear();
+        cb_grupo.setValue(null);
     }
 
 
