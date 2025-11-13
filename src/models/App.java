@@ -20,8 +20,7 @@ public class App {
         usuarios.actualizarGestor("users");
         GestorEscenas.setGestores(usuarios, rutinas, ejercicios);
         Application.launch(GestorEscenas.class);
-        //----------------------------------------------
-        // llamar menues
+
 
 
         finalizar(rutinas, ejercicios, usuarios);

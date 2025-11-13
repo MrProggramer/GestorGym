@@ -1,11 +1,7 @@
 package models.users;
 
-import interfaces.Identificable;
-import interfaces.TransformableJSON;
 import models.rutinas.Rutina;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cliente extends User {
@@ -50,7 +46,7 @@ public class Cliente extends User {
         return aux;
     }
 
-    //Getter&Setter
+
     public boolean isCuotaAlDia() {
         return cuotaAlDia;
     }

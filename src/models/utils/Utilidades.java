@@ -42,9 +42,7 @@ public abstract class Utilidades {
                         }
                         json.put(field.getName(), array);
                     }
-//                    else {
-//                        json.put(field.getName(), value);
-//                    }
+
 
                     //Si es primitivo, String o enum
                     else if (isPrimitiveOrString(value) || value.getClass().isEnum()) {

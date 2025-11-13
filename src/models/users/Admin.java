@@ -15,11 +15,6 @@ public class Admin extends User  {
         this.rutinas.actualizarGestor("rutinas");
         this.users.actualizarGestor("users");
     }
-    public Admin(){
-//        this.rutinas.actualizarGestor("rutinas");
-//        this.users.actualizarGestor("users"); PONERLOS DENTRO DE UN METODO Y CUANDO CREE EL ADMIN LLAME A ESE METODO PARA CARGAR LOS GESTORES
-    }
-
 
     // crear user Admin
 
