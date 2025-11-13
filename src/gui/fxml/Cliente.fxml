@@ -13,14 +13,16 @@
             prefWidth="600.0"
             xmlns="http://javafx.com/javafx/24.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="gui.controller.ClienteController">
+            fx:controller="gui.controller.ClienteController"
+            stylesheets="@../css/styles.css"
+>
 
-        <TabPane prefWidth="800" prefHeight="600">
+        <TabPane prefWidth="800" prefHeight="600" tabClosingPolicy="UNAVAILABLE" styleClass="recuadro">
             <!-- EJERCICIOS -->
             <Tab text="Rutina">
                 <AnchorPane>
                     <Label layoutX="14.0" layoutY="1.0" style="-fx-font-size:18;" text="Tus Ejercicios" />
-                    <ListView fx:id="lv_ejercicios" layoutX="14.0" layoutY="28.0" prefHeight="361.0" prefWidth="300.0"/>
+                    <ListView fx:id="lv_ejercicios" layoutX="14.0" layoutY="28.0" prefHeight="361.0" prefWidth="300.0" styleClass="text-field"/>
 
                     <VBox layoutX="320.0" layoutY="28.0" prefHeight="361.0" prefWidth="277.0" spacing="10" alignment="TOP_LEFT">
                         <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Nombre:" />

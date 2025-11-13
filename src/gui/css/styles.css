@@ -4,7 +4,6 @@
 .recuadro {
     -fx-background-color: #1b1b1b;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.3, 0, 4);
-    /*-fx-padding: 30px;*/
 }
 .btn {
     -fx-background-color: #333333;
@@ -89,4 +88,53 @@
     -fx-text-fill: #e6e6e6;
     -fx-font-size: 13px;
 }
+/*=== LIST VIEW ===*/
+.list-view {
+    -fx-background-color: #1b1b1b;
+    -fx-control-inner-background: #1b1b1b;
+    -fx-border-color: #00ffe0;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+}
 
+/* ====== CELDAS ====== */
+.list-view .list-cell {
+    -fx-background-color: #1b1b1b; /* mismo fondo que el panel */
+    -fx-text-fill: #e6e6e6;        /* texto claro */
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", "Roboto", sans-serif;
+    -fx-border-color: transparent;
+}
+
+/* ====== HOVER ====== */
+.list-view .list-cell:hover {
+    -fx-background-color: #00ffe033; /* aqua semitransparente */
+    -fx-text-fill: #ffffff;          /* texto blanco al pasar el mouse */
+}
+
+/* ====== SELECCIONADA ====== */
+.list-view .list-cell:filled:selected {
+    -fx-background-color: #00ffe0;   /* aqua brillante */
+    -fx-text-fill: #1b1b1b;       /* texto oscuro para contraste */
+}
+
+/* ====== SELECCIONADA + HOVER ====== */
+.list-view .list-cell:filled:selected:hover {
+    -fx-background-color: #00fff7;
+    -fx-text-fill: #1b1b1b;
+}
+
+/* ====== SCROLLBAR ====== */
+.list-view .scroll-bar:vertical,
+.list-view .scroll-bar:horizontal {
+    -fx-background-color: #1b1b1b;
+}
+
+.list-view .scroll-bar .thumb {
+    -fx-background-color: #00ffe0;
+    -fx-background-radius: 4px;
+}
+
+.list-view .scroll-bar .thumb:hover {
+    -fx-background-color: #00fff7;
+}

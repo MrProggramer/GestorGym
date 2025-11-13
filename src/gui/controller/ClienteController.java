@@ -44,6 +44,7 @@ public class ClienteController extends BaseUserController implements Initializab
         lv_ejercicios.getItems().clear(); //limpiar el visor
         if (cliente.getRutina() != null) {
             lv_ejercicios.getItems().setAll(cliente.getRutina().getListaEjercicios());
+
         }
     }
 
