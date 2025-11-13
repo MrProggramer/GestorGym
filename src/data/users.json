@@ -1,14 +1,374 @@
 [
-{"rutina":{"descripcionRutina":"Foco en basicos y tecnicas","count":"23","listaEjercicios":[{"tipoGrupoMuscular":"TORSO_INFERIOR_CUADRICEPS","descripcionEjericio":"Con barra, rodillas altura hombro, y hasta abajo","series":"4","count":"182","repeticiones":"12","id":"167","type":"models.rutinas.Ejercicio","nombre":"Sentadilla"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_PECHO","descripcionEjericio":"Pecho plano","series":"4","count":"182","repeticiones":"12","id":"168","type":"models.rutinas.Ejercicio","nombre":"Press banca"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de espalda, con mancuerna","series":"4","count":"182","repeticiones":"12","id":"169","type":"models.rutinas.Ejercicio","nombre":"Remo con mancuera"},{"tipoGrupoMuscular":"TORSO_INFERIOR_ISQUIOTIBIALES","descripcionEjericio":"Ejercicio de piernas,","series":"4","count":"182","repeticiones":"12","id":"170","type":"models.rutinas.Ejercicio","nombre":"Peso muerto rumano"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_HOMBROS","descripcionEjericio":"Ejercicio de hombro que se peude hacer con mancuernas o con barra","series":"4","count":"182","repeticiones":"10","id":"171","type":"models.rutinas.Ejercicio","nombre":"Press militar"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de piernas, con maquina o con mancuernas","series":"4","count":"182","repeticiones":"15","id":"172","type":"models.rutinas.Ejercicio","nombre":"Dominadas"}],"id":"20","type":"models.rutinas.Rutina","nombre":"Fullbody","cantidadDeDias":"3"},"mail":"admin2@mail.com","pass":"admin2","dias":"4","cuotaAlDia":"true","id":"99","type":"models.users.Cliente","telefono":"22222222222","isActive":"false","nombre":"ADMIN2","user":"admin2","dni":"11111111"}
-,{"mail":"marina.lopez@gymapp.com","pass":"train789","id":"3","type":"models.users.Profesor","telefono":"1165543344","isActive":"true","nombre":"Marina López","user":"marinaL","dni":"40122777"}
-,{"rutina":{"descripcionRutina":"sin tabs","count":"23","listaEjercicios":[{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de piernas, con maquina o con mancuernas","series":"4","count":"182","repeticiones":"15","id":"173","type":"models.rutinas.Ejercicio","nombre":"Dominadas"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de espalda, con mancuerna","series":"4","count":"182","repeticiones":"12","id":"174","type":"models.rutinas.Ejercicio","nombre":"Remo con mancuera"},{"tipoGrupoMuscular":"TORSO_INFERIOR_ISQUIOTIBIALES","descripcionEjericio":"Ejercicio de piernas, variacion del peso muerto rumano","series":"4","count":"182","repeticiones":"12","id":"175","type":"models.rutinas.Ejercicio","nombre":"Romanian DeadLift - Peso Muerto"}],"id":"21","type":"models.rutinas.Rutina","nombre":"prutina_de_Verdad","cantidadDeDias":"7"},"mail":"tomas.diaz@mail.com","pass":"root","dias":"4","cuotaAlDia":"true","id":"4","type":"models.users.Cliente","telefono":"1145567834","isActive":"true","nombre":"Tomás Díaz","user":"root","dni":"39877444"}
-,{"mail":"camila.rojas@mail.com","pass":"abc123","dias":"20","cuotaAlDia":"true","id":"5","type":"models.users.Cliente","telefono":"1166781122","isActive":"false","nombre":"Camila Rojas","user":"camiR","dni":"42119887"}
-,{"mail":"admin@mail.com","pass":"aroot","rutinas":{"type":"gestores.GenericGestor","inventario":[]},"id":"0","type":"models.users.Admin","telefono":"11111111","isActive":"true","nombre":"ADMIN","user":"aroot","users":{"type":"gestores.GenericGestor","inventario":[]},"dni":"10000000"}
-,{"mail":"testproff@mail.com","pass":"proot","id":"100","type":"models.users.Profesor","telefono":"1166785548","isActive":"true","nombre":"Profesor","user":"proot","dni":"46119887"}
-,{"rutina":{"descripcionRutina":"Foco en basicos y tecnicas","count":"23","listaEjercicios":[{"tipoGrupoMuscular":"TORSO_INFERIOR_CUADRICEPS","descripcionEjericio":"Con barra, rodillas altura hombro, y hasta abajo","series":"4","count":"182","repeticiones":"12","id":"176","type":"models.rutinas.Ejercicio","nombre":"Sentadilla"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_PECHO","descripcionEjericio":"Pecho plano","series":"4","count":"182","repeticiones":"12","id":"177","type":"models.rutinas.Ejercicio","nombre":"Press banca"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de espalda, con mancuerna","series":"4","count":"182","repeticiones":"12","id":"178","type":"models.rutinas.Ejercicio","nombre":"Remo con mancuera"},{"tipoGrupoMuscular":"TORSO_INFERIOR_ISQUIOTIBIALES","descripcionEjericio":"Ejercicio de piernas,","series":"4","count":"182","repeticiones":"12","id":"179","type":"models.rutinas.Ejercicio","nombre":"Peso muerto rumano"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_HOMBROS","descripcionEjericio":"Ejercicio de hombro que se peude hacer con mancuernas o con barra","series":"4","count":"182","repeticiones":"10","id":"180","type":"models.rutinas.Ejercicio","nombre":"Press militar"},{"tipoGrupoMuscular":"TORSO_SUPERIOR_ESPALDA","descripcionEjericio":"Ejercicio de piernas, con maquina o con mancuernas","series":"4","count":"182","repeticiones":"15","id":"181","type":"models.rutinas.Ejercicio","nombre":"Dominadas"}],"id":"22","type":"models.rutinas.Rutina","nombre":"Fullbody","cantidadDeDias":"3"},"mail":"cliente@mail.com","pass":"root","dias":"4","cuotaAlDia":"true","id":"99","type":"models.users.Cliente","telefono":"0000000000","isActive":"false","nombre":"Test Cliente","user":"root","dni":"00000000"}
-,{"mail":"testadd@mail.com","pass":"testadd","dias":"30","cuotaAlDia":"true","id":"0","type":"models.users.Cliente","telefono":"31232548","isActive":"false","nombre":"TESTADD","user":"testadd","dni":"4632387"}
-,{"mail":"cliente@mail.com","pass":"testt","rutinas":{"type":"gestores.GenericGestor","inventario":[]},"id":"0","type":"models.users.Admin","telefono":"0000000000","isActive":"false","nombre":"TESTADD","user":"testt","users":{"type":"gestores.GenericGestor","inventario":[]},"dni":"00000000"}
-,{"mail":"admin2@mail.com","pass":"admin","rutinas":{"type":"gestores.GenericGestor","inventario":[]},"id":"99","type":"models.users.Admin","telefono":"22222222222","isActive":"false","nombre":"TEST_ADMIN","user":"admin","users":{"type":"gestores.GenericGestor","inventario":[]},"dni":"11111111"}
-,{"mail":"a","pass":"a","dias":"30","cuotaAlDia":"true","id":"0","type":"models.users.Cliente","telefono":"a","isActive":"true","nombre":"a","user":"a","dni":"a"}
-,{"mail":"aq","pass":"aq","id":"0","type":"models.users.Profesor","telefono":"aq","isActive":"true","nombre":"aq","user":"aq","dni":"aq"}
+  {
+    "rutina": {
+      "descripcionRutina": "Foco en basicos y tecnicas",
+      "count": "33",
+      "listaEjercicios": [
+        {
+          "tipoGrupoMuscular": "TORSO_INFERIOR_CUADRICEPS",
+          "descripcionEjericio": "Con barra, rodillas altura hombro, y hasta abajo",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "243",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Sentadilla"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_PECHO",
+          "descripcionEjericio": "Pecho plano",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "244",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Press banca"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+          "descripcionEjericio": "Ejercicio de espalda, con mancuerna",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "245",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Remo con mancuera"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_INFERIOR_ISQUIOTIBIALES",
+          "descripcionEjericio": "Ejercicio de piernas,",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "246",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Peso muerto rumano"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS",
+          "descripcionEjericio": "Ejercicio de hombro que se peude hacer con mancuernas o con barra",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "10",
+          "id": "247",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Press militar"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+          "descripcionEjericio": "Ejercicio de piernas, con maquina o con mancuernas",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "15",
+          "id": "248",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Dominadas"
+        }
+      ],
+      "id": "30",
+      "type": "models.rutinas.Rutina",
+      "nombre": "Fullbody",
+      "cantidadDeDias": "3"
+    },
+    "mail": "admin2@mail.com",
+    "pass": "admin2",
+    "dias": "4",
+    "cuotaAlDia": "true",
+    "id": "99",
+    "type": "models.users.Cliente",
+    "telefono": "22222222222",
+    "isActive": "false",
+    "nombre": "ADMIN2",
+    "user": "admin2",
+    "dni": "11111111"
+  },
+  {
+    "mail": "marina.lopez@gymapp.com",
+    "pass": "train789",
+    "id": "3",
+    "type": "models.users.Profesor",
+    "telefono": "1165543344",
+    "isActive": "true",
+    "nombre": "Marina López",
+    "user": "marinaL",
+    "dni": "40122777"
+  },
+  {
+    "rutina": {
+      "descripcionRutina": "sin tabs",
+      "count": "33",
+      "listaEjercicios": [
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+          "descripcionEjericio": "Ejercicio de piernas, con maquina o con mancuernas",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "15",
+          "id": "249",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Dominadas"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+          "descripcionEjericio": "Ejercicio de espalda, con mancuerna",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "250",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Remo con mancuera"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_INFERIOR_ISQUIOTIBIALES",
+          "descripcionEjericio": "Ejercicio de piernas, variacion del peso muerto rumano",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "251",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Romanian DeadLift - Peso Muerto"
+        }
+      ],
+      "id": "31",
+      "type": "models.rutinas.Rutina",
+      "nombre": "prutina_de_Verdad",
+      "cantidadDeDias": "7"
+    },
+    "mail": "tomas.diaz@mail.com",
+    "pass": "root",
+    "dias": "4",
+    "cuotaAlDia": "true",
+    "id": "4",
+    "type": "models.users.Cliente",
+    "telefono": "1145567834",
+    "isActive": "true",
+    "nombre": "Tomás Díaz",
+    "user": "root",
+    "dni": "39877444"
+  },
+  {
+    "mail": "camila.rojas@mail.com",
+    "pass": "abc123",
+    "dias": "20",
+    "cuotaAlDia": "true",
+    "id": "5",
+    "type": "models.users.Cliente",
+    "telefono": "1166781122",
+    "isActive": "false",
+    "nombre": "Camila Rojas",
+    "user": "camiR",
+    "dni": "42119887"
+  },
+  {
+    "mail": "admin@mail.com",
+    "pass": "aroot",
+    "rutinas": {
+      "type": "gestores.GenericGestor",
+      "inventario": []
+    },
+    "id": "0",
+    "type": "models.users.Admin",
+    "telefono": "11111111",
+    "isActive": "true",
+    "nombre": "ADMIN",
+    "user": "aroot",
+    "users": {
+      "type": "gestores.GenericGestor",
+      "inventario": []
+    },
+    "dni": "10000000"
+  },
+  {
+    "mail": "testproff@mail.com",
+    "pass": "proot",
+    "id": "100",
+    "type": "models.users.Profesor",
+    "telefono": "1166785548",
+    "isActive": "true",
+    "nombre": "Profesor",
+    "user": "proot",
+    "dni": "46119887"
+  },
+  {
+    "rutina": {
+      "descripcionRutina": "Foco en basicos y tecnicas",
+      "count": "33",
+      "listaEjercicios": [
+        {
+          "tipoGrupoMuscular": "TORSO_INFERIOR_CUADRICEPS",
+          "descripcionEjericio": "Con barra, rodillas altura hombro, y hasta abajo",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "252",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Sentadilla"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_PECHO",
+          "descripcionEjericio": "Pecho plano",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "253",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Press banca"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+          "descripcionEjericio": "Ejercicio de espalda, con mancuerna",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "254",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Remo con mancuera"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_INFERIOR_ISQUIOTIBIALES",
+          "descripcionEjericio": "Ejercicio de piernas,",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "12",
+          "id": "255",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Peso muerto rumano"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_HOMBROS",
+          "descripcionEjericio": "Ejercicio de hombro que se peude hacer con mancuernas o con barra",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "10",
+          "id": "256",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Press militar"
+        },
+        {
+          "tipoGrupoMuscular": "TORSO_SUPERIOR_ESPALDA",
+          "descripcionEjericio": "Ejercicio de piernas, con maquina o con mancuernas",
+          "series": "4",
+          "count": "258",
+          "repeticiones": "15",
+          "id": "257",
+          "type": "models.rutinas.Ejercicio",
+          "nombre": "Dominadas"
+        }
+      ],
+      "id": "32",
+      "type": "models.rutinas.Rutina",
+      "nombre": "Fullbody",
+      "cantidadDeDias": "3"
+    },
+    "mail": "cliente@mail.com",
+    "pass": "root",
+    "dias": "4",
+    "cuotaAlDia": "true",
+    "id": "99",
+    "type": "models.users.Cliente",
+    "telefono": "0000000000",
+    "isActive": "false",
+    "nombre": "Test Cliente",
+    "user": "root",
+    "dni": "00000000"
+  },
+  {
+    "mail": "testadd@mail.com",
+    "pass": "testadd",
+    "dias": "30",
+    "cuotaAlDia": "true",
+    "id": "0",
+    "type": "models.users.Cliente",
+    "telefono": "31232548",
+    "isActive": "false",
+    "nombre": "TESTADD",
+    "user": "testadd",
+    "dni": "4632387"
+  },
+  {
+    "mail": "cliente@mail.com",
+    "pass": "testt",
+    "rutinas": {
+      "type": "gestores.GenericGestor",
+      "inventario": []
+    },
+    "id": "0",
+    "type": "models.users.Admin",
+    "telefono": "0000000000",
+    "isActive": "false",
+    "nombre": "TESTADD",
+    "user": "testt",
+    "users": {
+      "type": "gestores.GenericGestor",
+      "inventario": []
+    },
+    "dni": "00000000"
+  },
+  {
+    "mail": "admin2@mail.com",
+    "pass": "admin",
+    "rutinas": {
+      "type": "gestores.GenericGestor",
+      "inventario": []
+    },
+    "id": "99",
+    "type": "models.users.Admin",
+    "telefono": "22222222222",
+    "isActive": "false",
+    "nombre": "TEST_ADMIN",
+    "user": "admin",
+    "users": {
+      "type": "gestores.GenericGestor",
+      "inventario": []
+    },
+    "dni": "11111111"
+  },
+  {
+    "mail": "a",
+    "pass": "a",
+    "dias": "30",
+    "cuotaAlDia": "true",
+    "id": "0",
+    "type": "models.users.Cliente",
+    "telefono": "a",
+    "isActive": "false",
+    "nombre": "a",
+    "user": "a",
+    "dni": "a"
+  },
+  {
+    "mail": "aq",
+    "pass": "aq",
+    "id": "0",
+    "type": "models.users.Profesor",
+    "telefono": "aq",
+    "isActive": "false",
+    "nombre": "aq",
+    "user": "aq",
+    "dni": "aq"
+  },
+  {
+    "mail": "marina.lopez@gymapp.com",
+    "pass": "train789",
+    "id": "0",
+    "type": "models.users.Profesor",
+    "telefono": "1165543344",
+    "isActive": "false",
+    "nombre": "Marina López",
+    "user": "marinaL",
+    "dni": "40122777"
+  },
+  {
+    "mail": "ana@gmail.com",
+    "pass": "1234",
+    "dias": "30",
+    "cuotaAlDia": "true",
+    "id": "0",
+    "type": "models.users.Cliente",
+    "telefono": "1125789643",
+    "isActive": "true",
+    "nombre": "Anastasia Mirona",
+    "user": "ana_mirona",
+    "dni": "45789357"
+  }
 ]
