@@ -16,6 +16,10 @@ public class Admin extends User  {
         this.users.actualizarGestor("users");
     }
 
+    public Admin() {
+
+    }
+
     // crear user Admin
 
     @Override
