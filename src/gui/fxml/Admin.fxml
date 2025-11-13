@@ -29,7 +29,7 @@
         <tabs>
 
             <!-- ADMINISTRAR USUARIOS -->
-            <Tab closable="false" text="Administrar Usuarios" styleClass="btn" >
+            <Tab closable="false" text="Administrar Usuarios" >
                 <AnchorPane>
                     <Label layoutX="15.0" layoutY="8.0" prefHeight="27.0" prefWidth="201.0" style="-fx-font-size: 18;" text="Usuarios" />
                     <ListView fx:id="lv_usuarios" layoutX="5.0" layoutY="35.0" prefHeight="359.0" prefWidth="359.0" styleClass="text-field"/>
