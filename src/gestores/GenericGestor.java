@@ -62,6 +62,16 @@ public class GenericGestor<T extends Identificable>{
         return null;
     }
 
+    public void borrarItem(int item_id) {
+        ListIterator<T> it = inventario.listIterator();
+
+        while (it.hasNext()) {
+            if(it.next().getId() == item_id){
+                it.remove();
+            }
+        }
+    }
+
     public void actualizarGestor(String archivo) throws InvalidTypeException { //ESTÁ MAL HECHA, CAMBIAR A FUTURO
         JSONArray data = ControlData.recuperarData(archivo); //VERIFICAR QUE LLEGUE LA INFO
         this.inventario.clear();

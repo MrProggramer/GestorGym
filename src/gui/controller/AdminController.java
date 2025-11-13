@@ -1,6 +1,5 @@
 package gui.controller;
 
-import enums.TipoRol;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -40,10 +39,15 @@ public class AdminController extends ProfesorController implements Initializable
     private TextField tf_u_tlf;
     @FXML
     private ChoiceBox<String> cb_u_tipo;
+    @FXML
+    private Button btn_admin_borrar_rutina;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        btn_admin_borrar_rutina.setOnAction(mouseEvent -> {
+            this.borrarRutinaReal();
+        });
     }
 
     @Override

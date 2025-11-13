@@ -49,6 +49,7 @@ public class ProfesorController extends BaseUserController implements Initializa
     @FXML private Button btn_admin_borrar;
     @FXML private Button btn_admin_actualizar;
     @FXML private Button btn_admin_agregar;
+    @FXML private Button btn_admin_borrar_rutina;
     @FXML private Label lb_status_tab4;
     @FXML private TextField tf_admin_nombre;
     @FXML private TextArea tf_admin_desc;
@@ -59,7 +60,13 @@ public class ProfesorController extends BaseUserController implements Initializa
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { }
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        btn_admin_borrar_rutina.setOnAction(mouseEvent -> {
+            borrarRutinaReal();
+        });
+
+    }
 
     @Override
     protected void inicializarVista() {
@@ -136,6 +143,27 @@ public class ProfesorController extends BaseUserController implements Initializa
         }
     }
 
+    public void mostrarDatosRutina(Rutina r) {
+        if (r == null) return;
+
+        tf_admin_nombre.setText(r.getNombre());
+        tf_admin_desc.setText(r.getDescripcionRutina());
+
+
+    }
+
+
+    public void borrarRutinaReal() {
+        Rutina r = lv_rutinas_disponibles_admin.getSelectionModel().getSelectedItem();
+
+        this.rutinas.borrarItem(r.getId());
+        ControlData.guardarData(rutinas, "rutinas");
+        this.rutinas.actualizarGestor("rutinas");
+        mostrarMensaje("Rutina eliminada correctamente", Color.ORANGE, lb_status_tab1);
+        cargarRutinasAdmin();
+        System.out.println("Borrado");
+    }
+
     //TAB CREAR
     private void cargarEjercicios() {
         lv_ejercicios_disponibles.getItems().setAll(ejercicios.getInventario());
@@ -185,7 +213,7 @@ public class ProfesorController extends BaseUserController implements Initializa
     private void guardarRutina() {
         String nombre = tf_nombre_rutina.getText();
         String desc = tf_desc.getText();
-        int cant_dias = Integer.getInteger(tf_cant_dias.getText());
+        int cant_dias = Integer.parseInt(tf_cant_dias.getText());
 
         if(nombre.isBlank() || desc.isBlank() || cant_dias == 0) {
             mostrarMensaje("Uno de los campos está vacío", Color.RED, lb_status_tab1);
@@ -194,6 +222,7 @@ public class ProfesorController extends BaseUserController implements Initializa
 
         List<Ejercicio> lista = new ArrayList<>(lv_ejercicios_seleccionados.getItems());
         Rutina nueva = new Rutina(cant_dias, desc, nombre); //int cant_dias, string desc, string nombre
+        nueva.setListaEjercicios(lista);
         rutinas.altaItem(nueva);
         ControlData.guardarData(rutinas, "rutinas");
         rutinas.actualizarGestor("rutinas");
@@ -266,6 +295,7 @@ public class ProfesorController extends BaseUserController implements Initializa
         lv_rutinas_disponibles_admin.getSelectionModel().selectedItemProperty().addListener((obs, old, selected) -> {
             if (selected != null) {
                 mostrarEjerciciosDeRutina(selected);
+                mostrarDatosRutina(selected);
             } else {
                 lv_ejercicios_disponibles_admin.getItems().clear();
                 tf_admin_nombre.clear();
